@@ -2,13 +2,14 @@
 
 ; file modes
 (add-to-list 'interpreter-mode-alist '("node" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.bashrc.local\\'" . sh-mode))
 
 ; side-by-side ediff
 (custom-set-variables
   '(ediff-split-window-function (quote split-window-horizontally))
 )
 
-; string-prefix-p from emacs 24
+; 'string-prefix-p from emacs 24
 (unless (fboundp 'string-prefix-p)
   (defun string-prefix-p (str1 str2 &optional ignore-case)
   (eq t (compare-strings str1 nil nil str2 0 (length str1) ignore-case))))
