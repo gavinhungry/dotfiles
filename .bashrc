@@ -1,14 +1,15 @@
 [ -z "$PS1" ] && return
-[ -r "$HOME/.bash/complete.sh" ] && . "$HOME/.bash/complete.sh"
-[ -r "$HOME/.bash/xdg.sh" ] && . "$HOME/.bash/xdg.sh"
+[ -r $HOME/.bash/complete.sh ] && . $HOME/.bash/complete.sh
+[ -r $HOME/.bash/xdg.sh ] && . $HOME/.bash/xdg.sh
 
 # -- [ ENV VARS ] --------------------------------------------------------------
 if [[ $TERM == xterm* ]] || [ $TERM = "screen" ]; then
   export PROMPT_COMMAND='echo -ne "\033]0;[${USER}@${HOSTNAME%%.*}]: ${PWD/$HOME/~}\007"'
   unset MOST_INITFILE
-  USER_COLOR=$(cat ${HOME}/.user-color 2> /dev/null)
+  PROMPT_COLOR=$(cat ${HOME}/.promptcolor 2> /dev/null)
 else
   export MOST_INITFILE="$HOME/.mostrc.console"
+  PROMPT_COLOR=$(cat ${HOME}/.promptcolor.console 2> /dev/null)
 fi
 
 export BC_ENV_ARGS="$HOME/.bcrc"
@@ -22,7 +23,7 @@ export HISTCONTROL=ignoredups
 export LOCAL_PACKAGE_SOURCES=${XDG_DOWNLOAD_DIR:-$HOME}
 export PAGER=most
 export PATH=$HOME/bin/local:$HOME/bin:$HOME/.rvm/bin:$PATH
-export PS1='[\[\e[${USER_COLOR:-0}m\]\u@\h\[\e[0m\]: \W]\$ '
+export PS1='[\[\e[${PROMPT_COLOR:-0}m\]\u@\h\[\e[0m\]: \W]\$ '
 export SYSTEMD_PAGER=cat
 
 unset MAILCHECK
@@ -51,7 +52,7 @@ alias ls='ls -lh --color'
 alias md='md2html'
 alias mime='file -b --mime-type'
 alias node='env NODE_NO_READLINE=1 rlwrap node'
-alias pacfiles='updatedb && locate pac{new,sav,orig}'
+alias pacfiles='sudo updatedb && locate pac{new,sav,orig}'
 alias packer='TMPDIR=/dev/shm packer'
 alias sc='systemctl'
 alias sshfs='sshfs -o idmap=user'
@@ -60,3 +61,5 @@ alias top='htop'
 alias tree='gvfs-tree'
 alias updatedb='sudo updatedb'
 alias vmstat='vmstat -S M'
+
+[ -r $HOME/.bashrc.local ] && . $HOME/.bashrc.local
