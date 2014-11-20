@@ -18,6 +18,7 @@ export COMP_WORDBREAKS=${COMP_WORDBREAKS//[;=]}=
 export DIFFPROG=ediff
 export EDITOR=emacs
 export EDITOR_X11=subl
+export GPG_TTY=$(tty)
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export HISTCONTROL=ignoredups
 export LOCAL_PACKAGE_SOURCES=${XDG_DOWNLOAD_DIR:-$HOME}
