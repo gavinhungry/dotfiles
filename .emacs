@@ -52,8 +52,7 @@
 (setq auto-save-list-file-name nil)
 (setq auto-save-default nil)
 (setq vc-follow-symlinks t)
-
 (global-font-lock-mode 1)
-
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
+(epa-file-disable)
