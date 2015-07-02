@@ -19,6 +19,7 @@ export DIFFPROG=ediff
 export EDITOR=emacs
 export EDITOR_X11=subl
 export GPG_TTY=$(tty)
+export GPGKEY='C7F4A2F0'
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export HISTCONTROL=ignoredups
 export LOCAL_PACKAGE_SOURCES=${XDG_DOWNLOAD_DIR:-$HOME}
@@ -57,6 +58,7 @@ alias node='env NODE_NO_READLINE=1 rlwrap node'
 alias pacfiles='updatedb && locate pac{new,sav,orig}'
 alias packer='TMPDIR=/dev/shm packer'
 alias sc='systemctl'
+alias serial='sudo screen /dev/ttyUSB0 115200'
 alias sshfs='sshfs -o idmap=user'
 alias su='sudo su'
 alias top='htop'
