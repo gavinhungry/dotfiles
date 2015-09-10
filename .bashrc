@@ -32,12 +32,18 @@ unset MAILCHECK
 
 # -- [ FUNCTIONS ] -------------------------------------------------------------
 
+function ac3() {
+  [ ! -z "${1}" -a -f "${1}" ] || return
+  ffmpeg -i "${1}" -c:v copy -c:a ac3 -vbr 0 "${1%.*}-AC3.mp4"
+}
+
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 # -- [ ALIASES ] ---------------------------------------------------------------
 alias bd='. bd -s &> /dev/null'
 alias bright='sudo bright'
 alias clip='xclip -selection c'
+alias cordova='HOME=$(pwd) cordova'
 alias ddstat='sudo killall -s USR1 /usr/bin/dd'
 alias df='df -h'
 alias du='du -h'
@@ -55,7 +61,7 @@ alias ls='ls -lh --color'
 alias md='md2html'
 alias mime='file -b --mime-type'
 alias node='env NODE_NO_READLINE=1 rlwrap node'
-alias pacfiles='updatedb && locate pac{new,sav,orig}'
+alias pacfiles='updatedb && locate -r "\.pac\(new\|sav\|orig\)$"'
 alias packer='TMPDIR=/dev/shm packer'
 alias sc='systemctl'
 alias screen='TERM=xterm-256color screen'
