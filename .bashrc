@@ -41,7 +41,6 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 # -- [ ALIASES ] ---------------------------------------------------------------
 alias bd='. bd -s &> /dev/null'
-alias bright='sudo bright'
 alias clip='xclip -selection c'
 alias cordova='HOME=$(pwd) cordova'
 alias ddstat='sudo killall -s USR1 /usr/bin/dd'
@@ -63,7 +62,7 @@ alias mime='file -b --mime-type'
 alias pacfiles='updatedb && locate -r "\.pac\(new\|sav\|orig\)$"'
 alias packer='TMPDIR=/dev/shm packer'
 alias sc='systemctl'
-alias screen='TERM=xterm-256color screen'
+alias screen='TERM=screen-256color screen'
 alias serial='sudo screen /dev/ttyUSB0 115200'
 alias sshfs='sshfs -o idmap=user'
 alias su='sudo su'
