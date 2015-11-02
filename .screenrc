@@ -1,0 +1,10 @@
+startup_message off
+
+altscreen on
+
+termcapinfo screen*|xterm*|rxvt*|kterm*|Eterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
+hardstatus string "[%n%?: %t%?] %h"
+hardstatus off
+
+bind ^l chacl * -w 0
+bind ^u chacl * +w 0
