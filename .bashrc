@@ -2,6 +2,8 @@
 [ -r $HOME/.bash/complete.sh ] && . $HOME/.bash/complete.sh
 [ -r $HOME/.bash/xdg.sh ] && . $HOME/.bash/xdg.sh
 
+umask 0022
+
 # -- [ ENV VARS ] --------------------------------------------------------------
 if [[ $TERM == xterm* ]] || [ $TERM = "screen" ]; then
   export PROMPT_COMMAND='echo -ne "\033]0;[${USER}@${HOSTNAME%%.*}]: ${PWD/$HOME/~}\007"'
