@@ -14,6 +14,10 @@ else
   PROMPT_COLOR=$(cat ${HOME}/.promptcolor.console 2> /dev/null)
 fi
 
+if [ "$LC_TERM" == 1 -a "$PROMPT_COLOR" == "0;90" ]; then
+  unset PROMPT_COLOR
+fi
+
 export BC_ENV_ARGS="$HOME/.bcrc"
 export BROWSER=firefox
 export COMP_WORDBREAKS=${COMP_WORDBREAKS//[;=]}=
