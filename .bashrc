@@ -77,5 +77,6 @@ alias top='htop'
 alias tree='gvfs-tree'
 alias updatedb='sudo updatedb'
 alias vmstat='vmstat -S M'
+alias xpatch='(cd / && patch -p0)'
 
 [ -r $HOME/.bashrc.local ] && . $HOME/.bashrc.local
