@@ -45,6 +45,12 @@ function ac3() {
 
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
+function murder() {
+  [ -n "${1}" ] || return 1
+  PIDS=$(ps --no-headers -o pid -u ${1})
+  [ -n "${PIDS}" ] && sudo kill -9 $(ps --no-headers -o pid -u ${1})
+}
+
 # -- [ ALIASES ] ---------------------------------------------------------------
 alias bd='. bd -s &> /dev/null'
 alias clip='xclip -selection c'
