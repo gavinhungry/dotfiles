@@ -1,8 +1,10 @@
-(add-to-list 'load-path "~/.emacs.d/redo")
+(add-to-list 'load-path "~/.emacs.d/lib")
 
 ; file modes
+(require 'json-mode)
 (add-to-list 'interpreter-mode-alist '("node" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.bashrc.local\\'" . sh-mode))
+(add-to-list 'auto-mode-alist '("\\.xdke?\\'" . json-mode))
 
 ; side-by-side ediff
 (custom-set-variables
@@ -28,6 +30,7 @@
 
 ; tabs
 (setq default-tab-width 2)
+(setq tab-width default-tab-width)
 (global-set-key (kbd "C-x C-a") 'linum-mode)
 (global-set-key "\C-i" (lambda() (interactive) (insert-char 32 default-tab-width)))
 (global-set-key [backtab] 'indent-for-tab-command)
