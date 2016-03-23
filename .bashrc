@@ -44,7 +44,7 @@ function ac3() {
   ffmpeg -i "${1}" -c:v copy -c:a ac3 -vbr 0 "${1%.*}-AC3.mp4"
 }
 
-function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+function gitignore() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 function murder() {
   [ -n "${1}" ] || return 1
@@ -69,7 +69,7 @@ alias gpp='g++'
 alias grep='grep --color'
 alias jc='journalctl'
 alias journalctl='journalctl -aq'
-alias la='ls -dlh .* --color'
+alias la='ls -d .*'
 alias ls='ls -lh --color'
 alias md='md2html'
 alias mime='file -b --mime-type'
