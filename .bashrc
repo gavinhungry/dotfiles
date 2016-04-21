@@ -40,7 +40,7 @@ unset MAILCHECK
 # -- [ FUNCTIONS ] -------------------------------------------------------------
 
 function dm() {
-  mount | grep $(df ${1:-.} --output=source 2> /dev/null | grep -v ^Filesystem$)\  2> /dev/null
+  mount | grep ^$(df ${1:-.} --output=source 2> /dev/null | grep -v ^Filesystem$)\  2> /dev/null
 }
 
 function ac3() {
