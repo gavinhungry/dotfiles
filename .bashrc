@@ -39,6 +39,10 @@ unset MAILCHECK
 
 # -- [ FUNCTIONS ] -------------------------------------------------------------
 
+function dm() {
+  mount | grep $(df ${1:-.} --output=source 2> /dev/null | grep -v ^Filesystem$)\  2> /dev/null
+}
+
 function ac3() {
   [ ! -z "${1}" -a -f "${1}" ] || return
   ffmpeg -i "${1}" -c:v copy -c:a ac3 -vbr 0 "${1%.*}-AC3.mp4"
