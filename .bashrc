@@ -19,7 +19,7 @@ if [ "$LC_TERM" == 1 -a "$PROMPT_COLOR" == "0;90" ]; then
 fi
 
 export BC_ENV_ARGS="$HOME/.bcrc"
-export BROWSER=firefox
+export BROWSER=google-chrome
 export COMP_WORDBREAKS=${COMP_WORDBREAKS//[;=]}=
 export DIFFPROG=ediff
 export EDITOR=emacs
