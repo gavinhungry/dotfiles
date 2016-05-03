@@ -1,0 +1,6 @@
+(setq default-tab-width 2)
+(setq tab-width default-tab-width)
+(setq-default indent-tabs-mode nil)
+
+(setq inhibit-splash-screen t)
+(setq make-backup-files nil)
