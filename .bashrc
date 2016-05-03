@@ -5,6 +5,8 @@
 umask 0022
 
 # -- [ ENV VARS ] --------------------------------------------------------------
+export HOSTNAME=${HOSTNAME,,}
+
 if [[ $TERM == xterm* ]] || [ $TERM = "screen" ]; then
   export PROMPT_COMMAND='echo -ne "\033]0;[${USER}@${HOSTNAME%%.*}]: ${PWD/$HOME/~}\007"'
   unset MOST_INITFILE
@@ -32,7 +34,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export LOCAL_PACKAGE_SOURCES=${XDG_DOWNLOAD_DIR:-$HOME}
 export PAGER=most
 export PATH=$HOME/bin/local:$HOME/bin:$HOME/.rvm/bin:$PATH
-export PS1='[\[\e[${PROMPT_COLOR:-0}m\]\u@\h\[\e[0m\]: \W]\$ '
+export PS1='[\[\e[${PROMPT_COLOR:-0}m\]\u@${HOSTNAME}\[\e[0m\]: \W]\$ '
 export SYSTEMD_PAGER=cat
 
 unset MAILCHECK
