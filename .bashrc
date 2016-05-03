@@ -30,6 +30,7 @@ export GPG_TTY=$(tty)
 export GPGKEY='C7F4A2F0'
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export HISTCONTROL=ignoredups
+export HISTFILE=/dev/null
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export LOCAL_PACKAGE_SOURCES=${XDG_DOWNLOAD_DIR:-$HOME}
 export PAGER=most
