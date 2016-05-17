@@ -96,3 +96,4 @@ alias x11vnc='x11vnc -usepw'
 alias xpatch='(cd / && patch -p0)'
 
 [ -r $HOME/.bashrc.local ] && . $HOME/.bashrc.local
+[ -r $HOME/.bashrc.$USER ] && . $HOME/.bashrc.$USER
