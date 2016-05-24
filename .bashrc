@@ -1,7 +1,4 @@
 [ -z "$PS1" ] && return
-[ -r $HOME/.bash/complete.sh ] && . $HOME/.bash/complete.sh
-[ -r $HOME/.bash/xdg.sh ] && . $HOME/.bash/xdg.sh
-
 umask 0022
 
 # -- [ ENV VARS ] --------------------------------------------------------------
@@ -94,6 +91,10 @@ alias updatedb='sudo updatedb'
 alias vmstat='vmstat -S M'
 alias x11vnc='x11vnc -usepw'
 alias xpatch='(cd / && patch -p0)'
+
+for SCRIPT in $HOME/.bash/*.sh; do
+  [ -x "$SCRIPT" ] && . "$SCRIPT"
+done
 
 [ -r $HOME/.bashrc.local ] && . $HOME/.bashrc.local
 [ -r $HOME/.bashrc.$USER ] && . $HOME/.bashrc.$USER
