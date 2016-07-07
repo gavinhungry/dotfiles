@@ -2,7 +2,7 @@
 umask 0022
 
 # -- [ ENV VARS ] --------------------------------------------------------------
-export HOSTNAME=${HOSTNAME,,}
+export HOSTNAME=$(echo ${HOSTNAME} | tr '[A-Z]' '[a-z]')
 
 if [[ $TERM == xterm* ]] || [ $TERM = "screen" ]; then
   export PROMPT_COMMAND='echo -ne "\033]0;[${USER}@${HOSTNAME%%.*}]: ${PWD/$HOME/~}\007"'
