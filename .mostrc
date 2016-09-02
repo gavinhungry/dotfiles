@@ -1,0 +1,7 @@
+color normal        default        default
+color status        lightgray      black
+color underline     brightgreen    default
+color overstrike    brightblue     default
+
+setkey find_next "."
+setkey goto_line ":"
