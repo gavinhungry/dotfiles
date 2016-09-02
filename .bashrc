@@ -9,7 +9,6 @@ if [[ $TERM == xterm* ]] || [ $TERM = "screen" ]; then
   unset MOST_INITFILE
   PROMPT_COLOR=$(cat ${HOME}/.promptcolor 2> /dev/null)
 else
-  export MOST_INITFILE="$HOME/.mostrc.console"
   PROMPT_COLOR=$(cat ${HOME}/.promptcolor.console 2> /dev/null)
 fi
 
