@@ -49,6 +49,10 @@ function ac3() {
 
 function gitignore() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
+function ifhost() {
+  [ $# -ge 1 ] && host $(ifdata -pa $1) 2> /dev/null
+}
+
 function murder() {
   [ -n "${1}" ] || return 1
   PIDS=$(ps --no-headers -o pid -u ${1})
