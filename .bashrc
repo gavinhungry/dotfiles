@@ -42,9 +42,17 @@ function dm() {
   mount | grep ^$(df ${1:-.} --output=source 2> /dev/null | grep -v ^Filesystem$)\  2> /dev/null
 }
 
-function ac3() {
+function __enc_audio() {
   [ ! -z "${1}" -a -f "${1}" ] || return
-  ffmpeg -i "${1}" -c:v copy -c:a ac3 -vbr 0 "${1%.*}-AC3.mp4"
+  ffmpeg -i "${1}" -c:v copy -c:a $2 -vbr 0 "${1%.*}-$2.mp4"
+}
+
+function ac3() {
+  __enc_audio "$1" ac3
+}
+
+function aac() {
+  __enc_audio "$1" aac
 }
 
 function gitignore() { curl -L -s https://www.gitignore.io/api/$@ ;}
