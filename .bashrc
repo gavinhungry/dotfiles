@@ -32,6 +32,7 @@ export PAGER=most
 export PATH=$HOME/bin/local:$HOME/bin:$HOME/.rvm/bin:$PATH
 export PS1='[\[\e[${PROMPT_COLOR:-0}m\]\u@${HOSTNAME%%.*}\[\e[0m\]: \W]\$ '
 export QT_QPA_PLATFORMTHEME=qt5ct
+export SYSTEMD_EDITOR=$EDITOR
 export SYSTEMD_PAGER=cat
 
 unset MAILCHECK
