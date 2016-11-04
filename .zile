@@ -1,6 +1,22 @@
+; tabs
 (setq default-tab-width 2)
 (setq tab-width default-tab-width)
 (setq-default indent-tabs-mode nil)
 
-(setq inhibit-splash-screen t)
+; scrolling
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+(setq mouse-wheel-progressive-speed nil)
+(setq mouse-wheel-follow-mouse 't)
+(setq scroll-step 1)
+
+; misc
+(menu-bar-mode 0)
+(setq inhibit-startup-message t)
 (setq make-backup-files nil)
+(setq auto-save-list-file-name nil)
+(setq auto-save-default nil)
+(setq vc-follow-symlinks t)
+(global-font-lock-mode 1)
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(epa-file-disable)
