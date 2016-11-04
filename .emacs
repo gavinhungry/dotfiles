@@ -1,10 +1,8 @@
 (add-to-list 'load-path "~/.emacs.d/lib")
 
 ; file modes
-(require 'json-mode)
 (add-to-list 'interpreter-mode-alist '("node" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.bashrc.local\\'" . sh-mode))
-(add-to-list 'auto-mode-alist '("\\.xdke?\\'" . json-mode))
 
 ; side-by-side ediff
 (custom-set-variables
