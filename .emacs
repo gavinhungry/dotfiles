@@ -26,14 +26,18 @@
   (set-face-attribute 'linum nil :foreground "gray20")
   (set-face-attribute 'mode-line nil :inverse-video nil :foreground "gray60" :background "gray20")))
 
-; tabs
+; indentation
 (setq default-tab-width 2)
 (setq tab-width default-tab-width)
+(setq-default indent-tabs-mode nil)
 (global-set-key (kbd "C-x C-a") 'linum-mode)
-(global-set-key "\C-i" (lambda() (interactive) (insert-char 32 default-tab-width)))
+(global-set-key "\C-i" (lambda() (interactive) (insert-char 32 tab-width)))
 (global-set-key [backtab] 'indent-for-tab-command)
 (global-set-key (kbd "C-x C-t") 'delete-trailing-whitespace)
-(setq-default indent-tabs-mode nil)
+
+; per-mode indentation
+(setq sh-basic-offset tab-width sh-indentation tab-width)
+(setq js-indent-level tab-width)
 
 ; scrolling
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
