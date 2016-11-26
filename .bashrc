@@ -39,33 +39,25 @@ unset MAILCHECK
 
 # -- [ FUNCTIONS ] -------------------------------------------------------------
 
-function dm() {
+dm() {
   mount | grep ^$(df ${1:-.} --output=source 2> /dev/null | grep -v ^Filesystem$)\  2> /dev/null
 }
 
-function __enc_audio() {
+__enc_audio() {
   [ ! -z "${1}" -a -f "${1}" ] || return
   ffmpeg -i "${1}" -c:v copy -c:a $2 -vbr 0 "${1%.*}-$2.mp4"
 }
 
-function ac3() {
+ac3() {
   __enc_audio "$1" ac3
 }
 
-function aac() {
+aac() {
   __enc_audio "$1" aac
 }
 
-function gitignore() { curl -L -s https://www.gitignore.io/api/$@ ;}
-
-function ifhost() {
+ifhost() {
   [ $# -ge 1 ] && host $(ifdata -pa $1) 2> /dev/null
-}
-
-function murder() {
-  [ -n "${1}" ] || return 1
-  PIDS=$(ps --no-headers -o pid -u ${1})
-  [ -n "${PIDS}" ] && sudo kill -9 ${PIDS}
 }
 
 # -- [ ALIASES ] ---------------------------------------------------------------
