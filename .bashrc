@@ -61,7 +61,7 @@ ifhost() {
 }
 
 # -- [ ALIASES ] ---------------------------------------------------------------
-alias bakfiles='updatedb && locate -r "\~$" | grep -v \/node_modules\/'
+alias bakfiles='updatedb && locate -r "\~$\|#[^/]*#$"'
 alias bd='. bd -s &> /dev/null'
 alias clip='xclip -selection c'
 alias cordova='HOME=$(pwd) cordova'
