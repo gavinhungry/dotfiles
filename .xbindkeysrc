@@ -42,6 +42,10 @@
   m:0x10 + c:123
   Mod2 + XF86AudioRaiseVolume
 
+"amixer set Capture capture toggle"
+  m:0x0 + c:198
+  XF86AudioMicMute
+
 "xbacklight -dec 5"
   m:0x0 + c:232
   XF86MonBrightnessDown
