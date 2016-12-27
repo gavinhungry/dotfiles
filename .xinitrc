@@ -5,7 +5,7 @@
 xset +fp /usr/share/fonts/local
 xset fp rehash
 
-xmodmap ~/.Xmodmap
+xmodmap $HOME/.Xmodmap
 xbindkeys
 
 export DE=xfce
