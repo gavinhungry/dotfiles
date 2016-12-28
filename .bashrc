@@ -1,5 +1,5 @@
 [ -z "$PS1" ] && return
-[ $(id -un) -eq $(id -gn) ] && umask 0002 || umask 0022
+[ "$(id -un)" == "$(id -gn)" ] && umask 0002 || umask 0022
 
 # -- [ ENV VARS ] --------------------------------------------------------------
 export HOSTNAME=$(echo ${HOSTNAME} | tr '[A-Z]' '[a-z]')
