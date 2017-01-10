@@ -56,4 +56,12 @@
 
 "one xfce4-settings-manager"
   m:0x0 + c:179
- XF86Tools
+  XF86Tools
+
+"one catfish"
+  m:0x0 + c:225
+  XF86Search
+
+"one xfce4-appfinder --disable-server"
+  m:0x0 + c:152
+  XF86Explorer
