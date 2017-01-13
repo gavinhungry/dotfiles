@@ -1,4 +1,11 @@
+; (setq debug-on-error t)
+
 (add-to-list 'load-path "~/.emacs.d/lib")
+
+(global-set-key (kbd "C-@")
+  (lambda () (interactive)
+  (setq current-prefix-arg '(4)) ; C-u
+  (call-interactively 'shell-command)))
 
 ; file modes
 (add-to-list 'interpreter-mode-alist '("node" . js-mode))
