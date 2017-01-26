@@ -10,6 +10,7 @@
   date = iso-local
 [alias]
   br = !sh -c 'git rev-parse --abbrev-ref HEAD 2> /dev/null' -
+  clip = !sh -c 'git log -n1 --pretty=%B | xclip -selection c' -
   melog = !sh -c 'git log --author=$(git config user.email) $@' -
   rb = !sh -c 'git rebase -i HEAD~${1}' -
   user = "!sh -c \"if [ $# -ne 1 ]; then echo "$(git config user.name) \\<$(git config user.email)\\>"; exit 0; fi; git config user.email "$(git config gituser.$1.email)" &> /dev/null; git user;\" --"
