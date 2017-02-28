@@ -44,19 +44,6 @@ dm() {
   mount | grep ^$(df ${1:-.} --output=source 2> /dev/null | grep -v ^Filesystem$)\  2> /dev/null
 }
 
-__enc_audio() {
-  [ ! -z "${1}" -a -f "${1}" ] || return
-  ffmpeg -i "${1}" -c:v copy -c:a $2 -vbr 0 "${1%.*}-$2.mp4"
-}
-
-ac3() {
-  __enc_audio "$1" ac3
-}
-
-aac() {
-  __enc_audio "$1" aac
-}
-
 ifhost() {
   [ $# -ge 1 ] && host $(ifdata -pa $1) 2> /dev/null
 }
