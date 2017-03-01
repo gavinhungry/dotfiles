@@ -9,7 +9,8 @@
 
 ; file modes
 (add-to-list 'interpreter-mode-alist '("node" . js-mode))
-(add-to-list 'auto-mode-alist '("\\.bashrc.local\\'" . sh-mode))
+(add-to-list 'auto-mode-alist '("\/\\.bashrc\\." . sh-mode))
+(add-to-list 'auto-mode-alist '("\/PKGBUILD$" . sh-mode))
 
 ; side-by-side ediff
 (custom-set-variables
