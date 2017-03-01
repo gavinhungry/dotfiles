@@ -49,6 +49,7 @@ ifhost() {
 }
 
 # -- [ ALIASES ] ---------------------------------------------------------------
+alias acme.sh='sudo acme.sh --home /etc/ssl/acme.sh'
 alias bakfiles='updatedb && locate -r "\~$\|#[^/]*#$"'
 alias bd='. bd -s &> /dev/null'
 alias clip='xclip -selection c'
