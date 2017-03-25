@@ -1,0 +1,8 @@
+gtk-theme-name = "Sandra_Tango"
+
+gtk-icon-sizes = "panel-menu=16,16: panel=16,16: gtk-menu=16,16: gtk-small-toolbar=16,16: gtk-large-toolbar=16,16: gtk-dialog=32,32: gtk-button=16,16"
+gtk-toolbar-style = GTK_TOOLBAR_TEXT
+gtk-menu-images = 0
+
+gtk-recent-files-max-age = 0
+gtk-recent-files-limit = 0
