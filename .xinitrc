@@ -8,4 +8,4 @@ xset fp rehash
 xbindkeys
 
 export DE=xfce
-exec startxfce4
+exec xfce4-session
