@@ -41,7 +41,7 @@ unset MAILCHECK
 # -- [ FUNCTIONS ] -------------------------------------------------------------
 
 dm() {
-  mount | grep ^$(df ${1:-.} --output=source 2> /dev/null | grep -v ^Filesystem$)\  2> /dev/null
+  mount | grep ^$(\df ${1:-.} --output=source 2> /dev/null | grep -v ^Filesystem$)\  2> /dev/null
 }
 
 ifhost() {
@@ -55,7 +55,7 @@ alias bd='. bd -s &> /dev/null'
 alias clip='xclip -selection c'
 alias cordova='HOME=$(pwd) cordova'
 alias ddstat='sudo killall -s USR1 /usr/bin/dd'
-alias df='df -h'
+alias df='df -Th'
 alias dmesg='dmesg -w'
 alias docker='sudo docker'
 alias du='du -h'
