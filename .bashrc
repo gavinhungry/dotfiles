@@ -91,6 +91,7 @@ alias tree='gvfs-tree'
 alias udevprops='udevadm info -q property'
 alias updatedb='sudo updatedb'
 alias vmstat='vmstat -S M'
+alias wanip='curl https://ifconfig.co 2> /dev/null'
 alias x11vnc='x11vnc -usepw'
 alias xpatch='(cd / && patch -p0)'
 
