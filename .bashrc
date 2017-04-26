@@ -1,7 +1,6 @@
 [ -z "$PS1" ] && return
 [ "$(id -un)" == "$(id -gn)" ] && umask 0002 || umask 0022
 [ -r $HOME/.bashrc.pre ] && . $HOME/.bashrc.pre
-screen -ls &> /dev/null && screen -ls
 
 # -- [ ENV VARS ] --------------------------------------------------------------
 export HOSTNAME=$(echo ${HOSTNAME} | tr '[A-Z]' '[a-z]')
