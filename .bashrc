@@ -29,6 +29,7 @@ export HISTCONTROL=ignoredups
 export HISTFILE=/dev/null
 export LD_LIBRARY_PATH=/usr/local/lib
 export LOCAL_PACKAGE_SOURCES=${XDG_DOWNLOAD_DIR:-$HOME}
+export NODE_PATH=/usr/lib/node_modules
 export PAGER=most
 export PATH=$HOME/bin/local:$HOME/bin:$HOME/.rvm/bin:$PATH
 export PS1='[\[\e[${PROMPT_COLOR:-0}m\]\u@${HOSTNAME%%.*}\[\e[0m\]: \W]\$ '
