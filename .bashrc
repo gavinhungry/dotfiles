@@ -3,8 +3,6 @@
 [ -r $HOME/.bashrc.pre ] && . $HOME/.bashrc.pre
 
 # -- [ ENV VARS ] --------------------------------------------------------------
-export HOSTNAME=$(echo ${HOSTNAME} | tr '[A-Z]' '[a-z]')
-
 if [[ $TERM == xterm* ]] || [ $TERM = "screen" ]; then
   export PROMPT_COMMAND='echo -ne "\033]0;[${USER}@${HOSTNAME%%.*}]: ${PWD/$HOME/~}\007"'
   unset MOST_INITFILE
@@ -17,27 +15,7 @@ if [ "$LC_TERM" == 1 -a "$PROMPT_COLOR" == "0;90" ]; then
   unset PROMPT_COLOR
 fi
 
-export BC_ENV_ARGS="$HOME/.bcrc"
-export BROWSER=google-chrome
-export COMP_WORDBREAKS=${COMP_WORDBREAKS//[;=]}=
-export DIFFPROG=ediff
-export EDITOR=emacs
-export EDITOR_X11=subl
-export GPG_TTY=$(tty)
-export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-export HISTCONTROL=ignoredups
-export HISTFILE=/dev/null
-export LD_LIBRARY_PATH=/usr/local/lib
-export LOCAL_PACKAGE_SOURCES=${XDG_DOWNLOAD_DIR:-$HOME}
-export NODE_PATH=/usr/lib/node_modules
-export PAGER=most
-export PATH=$HOME/bin/local:$HOME/bin:$PATH
 export PS1='[\[\e[${PROMPT_COLOR:-0}m\]\u@${HOSTNAME%%.*}\[\e[0m\]: \W]\$ '
-export QT_QPA_PLATFORMTHEME=qt5ct
-export SYSTEMD_EDITOR=$EDITOR
-export SYSTEMD_PAGER=cat
-
-unset MAILCHECK
 
 # -- [ FUNCTIONS ] -------------------------------------------------------------
 
