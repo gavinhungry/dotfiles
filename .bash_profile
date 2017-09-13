@@ -29,5 +29,5 @@ if [ -r $USER_DIRS ]; then
   done
 fi
 
-[ -r $HOME/.bashrc ] && . $HOME/.bashrc
+[ -r $HOME/.bashrc -a -z "$_WSL_ENV" ] && . $HOME/.bashrc
 screen -ls &> /dev/null && screen -ls
