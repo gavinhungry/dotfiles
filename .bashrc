@@ -15,6 +15,7 @@ if [ "$LC_TERM" == 1 -a "$PROMPT_COLOR" == "0;90" ]; then
   unset PROMPT_COLOR
 fi
 
+export GPG_TTY=$(tty)
 export PS1='[\[\e[${PROMPT_COLOR:-0}m\]\u@${HOSTNAME%%.*}\[\e[0m\]: \W]\$ '
 
 # -- [ FUNCTIONS ] -------------------------------------------------------------
