@@ -1,6 +1,5 @@
 [ -z "$PS1" ] && return
 [ "$(id -un)" == "$(id -gn)" ] && umask 0002 || umask 0022
-[ -r $HOME/.bashrc.pre ] && . $HOME/.bashrc.pre
 
 # -- [ ENV VARS ] --------------------------------------------------------------
 if [[ $TERM == xterm* ]] || [ $TERM = "screen" ]; then
@@ -84,7 +83,7 @@ alias wanip='curl -s https://ifconfig.co'
 alias x11vnc='x11vnc -usepw'
 alias xpatch='(cd / && patch -p0)'
 
-for SCRIPT in $HOME/.bash/*.sh; do
+for SCRIPT in $HOME/.bash.d/*.sh; do
   [ -x "$SCRIPT" ] && . "$SCRIPT"
 done
 
