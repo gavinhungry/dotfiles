@@ -28,5 +28,5 @@ if [ -r $USER_DIRS ]; then
   done
 fi
 
-[ -r $HOME/.bashrc -a "$1" != "NO_BASHRC" ] && . $HOME/.bashrc
-screen -ls &> /dev/null && screen -ls
+[ -r $HOME/.bashrc -a "$1" != NO_BASHRC ] && . $HOME/.bashrc
+[ "$TERM" != screen ] && screen -ls &> /dev/null && screen -ls
