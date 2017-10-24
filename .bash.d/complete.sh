@@ -12,4 +12,3 @@ __pnames() {
 
 complete -F __packages pkgsource
 complete -F __pnames psof
-
