@@ -24,6 +24,10 @@ dm() {
   mount | grep "\ on $(\df ${1:-.} --output=target 2> /dev/null | grep -v ^[^/])\ type" 2> /dev/null
 }
 
+ew() {
+  [ -f "$(which $1 2> /dev/null)" ] && $EDITOR "$(which $1)"
+}
+
 ifhost() {
   [ $# -ge 1 ] && host $(ifdata -pa $1) 2> /dev/null
 }
