@@ -80,7 +80,6 @@ alias udevprops='udevadm info -q property'
 alias updatedb='sudo updatedb'
 alias vmstat='vmstat -S M'
 alias wanip='curl -s https://ifconfig.co'
-alias x11vnc='x11vnc -usepw'
 alias xpatch='(cd / && patch -p0)'
 
 for SCRIPT in $HOME/.bash.d/*.sh; do
