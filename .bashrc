@@ -1,7 +1,6 @@
 [ -z "$PS1" ] && return
 [ "$(id -un)" == "$(id -gn)" ] && umask 0002 || umask 0022
 
-# -- [ ENV VARS ] --------------------------------------------------------------
 if [[ $TERM == xterm* ]] || [ $TERM = "screen" ]; then
   export PROMPT_COMMAND='echo -ne "\033]0;[${USER}@${HOSTNAME%%.*}]: ${PWD/$HOME/~}\007"'
   unset MOST_INITFILE
@@ -17,8 +16,6 @@ fi
 export GPG_TTY=$(tty)
 export PS1='[\[\e[${PROMPT_COLOR:-0}m\]\u@${HOSTNAME%%.*}\[\e[0m\]: \W]\$ '
 
-# -- [ FUNCTIONS ] -------------------------------------------------------------
-
 dm() {
   mount | grep "\ on $(\df ${1:-.} --output=target 2> /dev/null | grep -v ^[^/])\ type" 2> /dev/null
 }
@@ -31,7 +28,6 @@ ifhost() {
   [ $# -ge 1 ] && host $(ifdata -pa $1) 2> /dev/null
 }
 
-# -- [ ALIASES ] ---------------------------------------------------------------
 alias acme.sh='sudo acme.sh --home /etc/ssl/acme.sh'
 alias bakfiles='updatedb && locate -r "\~$\|#[^/]*#$" | esc'
 alias bd='. bd -s &> /dev/null'
