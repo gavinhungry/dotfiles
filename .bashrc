@@ -1,32 +1,20 @@
 [ -z "$PS1" ] && return
 [ "$(id -un)" == "$(id -gn)" ] && umask 0002 || umask 0022
 
-if [[ $TERM == xterm* ]] || [ $TERM = "screen" ]; then
-  export PROMPT_COMMAND='echo -ne "\033]0;[${USER}@${HOSTNAME%%.*}]: ${PWD/$HOME/~}\007"'
-  unset MOST_INITFILE
-  PROMPT_COLOR=$(cat ${HOME}/.promptcolor 2> /dev/null)
-else
-  PROMPT_COLOR=$(cat ${HOME}/.promptcolor.console 2> /dev/null)
-fi
+# --- ENVIRONMENT --------------------------------------------------------------
 
-if [ "$LC_TERM" == 1 -a "$PROMPT_COLOR" == "0;90" ]; then
-  unset PROMPT_COLOR
-fi
+PROMPT_COLOR=$(cat $HOME/.promptcolor 2> /dev/null)
+export PS1='[\[\e[${PROMPT_COLOR:-0}m\]\u@\h\[\e[0m\]: \W]\$ '
+export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/\~}\007"'
 
 export GPG_TTY=$(tty)
-export PS1='[\[\e[${PROMPT_COLOR:-0}m\]\u@${HOSTNAME%%.*}\[\e[0m\]: \W]\$ '
 
-dm() {
-  mount | grep "\ on $(\df ${1:-.} --output=target 2> /dev/null | grep -v ^[^/])\ type" 2> /dev/null
-}
+# --- FUNCTIONS ----------------------------------------------------------------
 
-ew() {
-  [ -f "$(which $1 2> /dev/null)" ] && $EDITOR "$(which $1)"
-}
+dm() { findmnt -no SOURCE,TARGET,FSTYPE,OPTIONS -T ${1:-.} ;}
+ew() { [ -f "$(type -p $1)" ] && $EDITOR "$(type -p $1)" ;}
 
-ifhost() {
-  [ $# -ge 1 ] && host $(ifdata -pa $1) 2> /dev/null
-}
+# --- ALIASES ------------------------------------------------------------------
 
 alias acme.sh='sudo acme.sh --home /etc/ssl/acme.sh'
 alias bakfiles='updatedb && locate -r "\~$\|#[^/]*#$" | esc'
@@ -45,10 +33,10 @@ alias esc='xargs -I {} sh -c '\''printf %q "{}" && echo'\'''
 alias exifstrip='exiftool -all='
 alias fmount='fusermount'
 alias free='free -m'
-alias gpga='gpg --armor --symmetric --cipher-algo AES256'
+alias gpge='gpg --armor --symmetric --cipher-algo AES256'
 alias gpp='g++'
 alias grep='GREP_USE_SPACE_SEPARATOR=1 grep --color'
-alias jc='journalctl'
+alias jc=' '
 alias journalctl='journalctl -aq'
 alias kernel='curl -s https://www.kernel.org/releases.json | jq -r .latest_stable.version'
 alias la='ls -d .*'
@@ -77,6 +65,8 @@ alias updatedb='sudo updatedb'
 alias vmstat='vmstat -S M'
 alias wanip='curl -s https://ifconfig.co'
 alias xpatch='(cd / && patch -p0)'
+
+# --- SCRIPTS ------------------------------------------------------------------
 
 for SCRIPT in $HOME/.bash.d/*.sh; do
   [ -x "$SCRIPT" ] && . "$SCRIPT"
