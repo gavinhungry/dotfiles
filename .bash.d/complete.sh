@@ -1,4 +1,4 @@
-__packages() {
+_packages() {
   local cur
   cur="${COMP_WORDS[COMP_CWORD]}"
   COMPREPLY=($(compgen -W "$(pacman -Sqs); $(pacman -Qqs)" -- ${cur}))
@@ -10,5 +10,5 @@ __pnames() {
   _pnames
 }
 
-complete -F __packages pkgsource
+complete -F _packages pkgsource
 complete -F __pnames psof
