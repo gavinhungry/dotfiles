@@ -11,7 +11,7 @@ export GPG_TTY=$(tty)
 
 # --- FUNCTIONS ----------------------------------------------------------------
 
-dm() { findmnt -no SOURCE,TARGET,FSTYPE,OPTIONS -T ${1:-.} ;}
+dm() { findmnt -no SOURCE,TARGET,FSTYPE,OPTIONS -T ${1:-.} | column -t ;}
 ew() { [ -f "$(type -p $1)" ] && $EDITOR "$(type -p $1)" ;}
 
 # --- ALIASES ------------------------------------------------------------------
