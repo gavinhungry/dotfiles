@@ -18,6 +18,8 @@ __pnames() {
   _init_completion || return
   _pnames "$cur"
 }
+complete -F __pnames pidage
+complete -F __pnames pidenv
 complete -F __pnames psof
 
 __modparam() {
