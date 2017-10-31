@@ -18,9 +18,7 @@ __pnames() {
   _init_completion || return
   _pnames "$cur"
 }
-complete -F __pnames pidage
-complete -F __pnames pidenv
-complete -F __pnames psof
+complete -F __pnames pidage pidenv pkg psof
 
 __modparam() {
   local cur prev words cword
