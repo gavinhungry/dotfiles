@@ -1,7 +1,7 @@
 __commands() {
   COMPREPLY=($(compgen -c -- "${COMP_WORDS[COMP_CWORD]}"))
 }
-complete -F __commands cw ew
+complete -F __commands cw ew pkg
 
 __users() {
   COMPREPLY=($(compgen -u -- "${COMP_WORDS[COMP_CWORD]}"))
@@ -18,7 +18,7 @@ __pnames() {
   _init_completion || return
   _pnames "$cur"
 }
-complete -F __pnames pidage pidenv pkg psof
+complete -F __pnames pidage pidenv psof
 
 __modparam() {
   local cur prev words cword
