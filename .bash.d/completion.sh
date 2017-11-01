@@ -1,3 +1,7 @@
+__completion_loader() {
+  _completion_loader "$@" &> /dev/null
+}
+
 __commands() {
   COMPREPLY=($(compgen -c -- "${COMP_WORDS[COMP_CWORD]}"))
 }
@@ -27,11 +31,11 @@ __modparam() {
 }
 complete -F __modparam modparam
 
-_completion_loader journalctl
+__completion_loader journalctl
 complete -F _journalctl jc
 
-_completion_loader pacman
+__completion_loader pacman
 complete -o default -F _pacman packer
 
-_completion_loader systemctl
+__completion_loader systemctl
 complete -F _systemctl sc
