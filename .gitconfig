@@ -14,6 +14,7 @@
   clip = !sh -c 'git log -n1 --pretty=%B | xclip -selection c' -
   melog = !sh -c 'git log --author=$(git config user.email) $@' -
   origin = remote get-url origin
+  pluck = "!sh -c 'DIR=$(basename \"${1%%.git*}\" 2> /dev/null); [ -n \"$DIR\" ] || exit; mkdir \"$DIR\" || exit; git -C \"$DIR\" init > /dev/null; git -C \"$DIR\" config core.sparseCheckout true; git -C \"$DIR\" remote add origin \"$1\"; echo \"$2\" >> \"$DIR\"/.git/info/sparse-checkout; git -C \"$DIR\" pull origin master --depth 1 || rm -fr \"$DIR\"'" -
   rb = !sh -c 'git rebase -i HEAD~${1}' -
   remotes = !sh -c 'git remote -v | awk \"{ print \\$1OFS\\$2 }\" | sort -u | column -t' -
   user = "!sh -c \"if [ $# -ne 1 ]; then echo "$(git config user.name) \\<$(git config user.email)\\>"; exit 0; fi; git config user.email "$(git config gituser.$1.email)" &> /dev/null; git user;\" --" -
