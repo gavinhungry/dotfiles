@@ -11,6 +11,7 @@ export GPG_TTY=$(tty)
 
 # --- FUNCTIONS ----------------------------------------------------------------
 
+du() { command du "${1:-.}" -hLd 1 2> /dev/null | sort -k2 | sed '1h;1d;$G' ;}
 dm() { findmnt -no SOURCE,TARGET,FSTYPE,OPTIONS -T ${1:-.} | column -t ;}
 cw() { [ -f "$(type -p $1)" ] && cat "$(type -p $1)" ;}
 ew() { [ -f "$(type -p $1)" ] && $EDITOR "$(type -p $1)" ;}
@@ -25,7 +26,6 @@ alias cordova='HOME=$(pwd) cordova'
 alias ddstat='sudo killall -s USR1 /usr/bin/dd'
 alias df='df -Th'
 alias dmesg='sudo dmesg -w'
-alias du='du -h'
 alias edid='sudo get-edid | edid-decode'
 alias em='emacs'
 alias entropy='cat /proc/sys/kernel/random/entropy_avail'
