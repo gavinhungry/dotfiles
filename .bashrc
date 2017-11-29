@@ -11,7 +11,7 @@ export GPG_TTY=$(tty)
 
 # --- FUNCTIONS ----------------------------------------------------------------
 
-du() { command du "${1:-.}" -hLd 1 2> /dev/null | sort -k2 | sed '1h;1d;$G' ;}
+du() { command du "${1:-.}" -hLd 1 2> /dev/null | sort -Vk2.4 | sed '1h;1d;$G' ;}
 dm() { findmnt -no SOURCE,TARGET,FSTYPE,OPTIONS -T ${1:-.} | column -t ;}
 cw() { [ -f "$(type -p $1)" ] && cat "$(type -p $1)" ;}
 ew() { [ -f "$(type -p $1)" ] && $EDITOR "$(type -p $1)" ;}
