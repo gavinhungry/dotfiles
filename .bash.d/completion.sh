@@ -30,6 +30,9 @@ complete -F __modparam modparam
 _completion_loader journalctl
 complete -F _journalctl jc
 
+_completion_loader man
+complete -F _man eman
+
 _completion_loader pacman
 complete -o default -F _pacman packer
 
