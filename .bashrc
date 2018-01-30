@@ -16,9 +16,9 @@ dm() { findmnt -no SOURCE,TARGET,FSTYPE,OPTIONS -T ${1:-.} | column -t ;}
 cw() { [ -f "$(type -p $1)" ] && cat "$(type -p $1)" ;}
 ew() { [ -f "$(type -p $1)" ] && $EDITOR "$(type -p $1)" ;}
 eman() {
-  if [ -z "$1" ]; then man; return; fi
-  man -w $1 > /dev/null && \
-  emacs --eval "(progn (man \"$1\") (kill-buffer-and-window) \
+  if [ -z "$*" ]; then man; return; fi
+  man -w $* > /dev/null && \
+  emacs --eval "(progn (man \"$*\") (kill-buffer-and-window) \
                 (run-with-idle-timer 0 nil 'linum-mode 0))"
 }
 
