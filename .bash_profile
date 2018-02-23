@@ -3,7 +3,6 @@ unset MAILCHECK
 
 export BC_ENV_ARGS="$HOME/.bcrc"
 export BROWSER=google-chrome
-export COMP_WORDBREAKS=${COMP_WORDBREAKS//[;=]}=
 export DIFFPROG=ediff
 export EDITOR=emacs
 export EDITOR_X11=subl
