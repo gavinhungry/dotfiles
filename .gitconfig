@@ -13,6 +13,7 @@
 [alias]
   all = !sh -c 'find -L . -maxdepth 1 -type d ! -path . ! -name .git | sort | xargs -P8 -I{} git -C {} $@' -
   br = !sh -c 'git rev-parse --abbrev-ref HEAD 2> /dev/null' -
+  changed = diff-tree --no-commit-id --name-only -r
   clip = !sh -c 'git log -n1 --pretty=%B | xclip -selection c' -
   melog = !sh -c 'git log --author=$(git config user.email) $@' -
   origin = remote get-url origin
