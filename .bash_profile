@@ -16,7 +16,7 @@ export NODE_PATH=$HOME/.npm/lib/node_modules
 export PAGER=less
 export PATH=$HOME/bin/local:$HOME/bin:$HOME/.npm/bin${PATH:+:${PATH#:}}
 export QT_QPA_PLATFORMTHEME=qt5ct
-export LESS=R
+export LESS=-Ri
 export SYSTEMD_EDITOR=$EDITOR
 export SYSTEMD_PAGER=cat
 
