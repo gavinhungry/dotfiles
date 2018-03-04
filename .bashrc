@@ -3,6 +3,7 @@
 
 # --- ENVIRONMENT --------------------------------------------------------------
 
+[ $(id -u) -eq 0 ] && PROMPT_COLOR=91 ||
 PROMPT_COLOR=$(cat $HOME/.promptcolor 2> /dev/null)
 export PS1='[\[\e[1;${PROMPT_COLOR:-97}m\]\u@${HOSTNAME}\[\e[0m\]: \W]\$ '
 export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/\~}\007"'
