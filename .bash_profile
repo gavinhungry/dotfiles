@@ -13,9 +13,10 @@ export HOSTNAME=$(echo ${HOSTNAME%%.*} | tr '[A-Z]' '[a-z]')
 export LD_LIBRARY_PATH=/usr/local/lib
 export LOCAL_PACKAGE_SOURCES=${XDG_DOWNLOAD_DIR:-$HOME}
 export NODE_PATH=$HOME/.npm/lib/node_modules
-export PAGER='less -R'
+export PAGER=less
 export PATH=$HOME/bin/local:$HOME/bin:$HOME/.npm/bin${PATH:+:${PATH#:}}
 export QT_QPA_PLATFORMTHEME=qt5ct
+export LESS=R
 export SYSTEMD_EDITOR=$EDITOR
 export SYSTEMD_PAGER=cat
 
