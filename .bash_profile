@@ -13,7 +13,7 @@ export HOSTNAME=$(echo ${HOSTNAME%%.*} | tr '[A-Z]' '[a-z]')
 export LD_LIBRARY_PATH=/usr/local/lib
 export LOCAL_PACKAGE_SOURCES=${XDG_DOWNLOAD_DIR:-$HOME}
 export NODE_PATH=$HOME/.npm/lib/node_modules
-export PAGER=most
+export PAGER='less -R'
 export PATH=$HOME/bin/local:$HOME/bin:$HOME/.npm/bin${PATH:+:${PATH#:}}
 export QT_QPA_PLATFORMTHEME=qt5ct
 export SYSTEMD_EDITOR=$EDITOR
@@ -27,5 +27,6 @@ if [ -r $USER_DIRS ]; then
   done
 fi
 
+[ -r $HOME/.termcap ] && . $HOME/.termcap
 [ -r $HOME/.bashrc -a "$1" != NO_BASHRC ] && . $HOME/.bashrc
 [ "$TERM" != screen ] && screen -ls &> /dev/null && screen -ls
