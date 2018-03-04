@@ -4,7 +4,7 @@
 # --- ENVIRONMENT --------------------------------------------------------------
 
 PROMPT_COLOR=$(cat $HOME/.promptcolor 2> /dev/null)
-export PS1='[\[\e[${PROMPT_COLOR:-0}m\]\u@${HOSTNAME}\[\e[0m\]: \W]\$ '
+export PS1='[\[\e[1;${PROMPT_COLOR:-97}m\]\u@${HOSTNAME}\[\e[0m\]: \W]\$ '
 export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/\~}\007"'
 
 export COMP_WORDBREAKS=${COMP_WORDBREAKS//[;=]}=
