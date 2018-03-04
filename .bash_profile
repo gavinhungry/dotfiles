@@ -19,6 +19,7 @@ export PAGER=less
 export PATH=$HOME/bin/local:$HOME/bin:$HOME/.npm/bin${PATH:+:${PATH#:}}
 export QT_QPA_PLATFORMTHEME=qt5ct
 export LESS=-Ri
+export LESSHISTFILE=-
 export SYSTEMD_EDITOR=$EDITOR
 export SYSTEMD_PAGER=cat
 
@@ -31,5 +32,6 @@ if [ -r $USER_DIRS ]; then
 fi
 
 [ -r $HOME/.termcap ] && . $HOME/.termcap
+[ -r $HOME/.lesskey ] && lesskey
 [ -r $HOME/.bashrc -a "$1" != NO_BASHRC ] && . $HOME/.bashrc
 [ "$TERM" != screen ] && screen -ls &> /dev/null && screen -ls
