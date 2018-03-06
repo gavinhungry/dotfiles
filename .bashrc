@@ -13,7 +13,7 @@ export GPG_TTY=$(tty)
 
 # --- FUNCTIONS ----------------------------------------------------------------
 
-dif() { diff -ru --color=always $1 $2 | less -P "${1%/} -> ${2%/}" ;}
+dif() { diff --color=always "$@" | less ;}
 du() { command du "${1:-.}" -hLd 1 2> /dev/null | sort -Vfk2.4 | sed '1h;1d;$G' ;}
 dm() { findmnt -no SOURCE,TARGET,FSTYPE,OPTIONS -T ${1:-.} | column -t ;}
 cw() { [ -f "$(type -p $1)" ] && cat "$(type -p $1)" ;}
