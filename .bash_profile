@@ -31,6 +31,6 @@ if [ -r $USER_DIRS ]; then
 fi
 
 [ -r $HOME/.termcap ] && . $HOME/.termcap
-[ -r $HOME/.lesskey ] && lesskey
+[ -r $HOME/.lesskey ] && lesskey -o $HOME/.less $HOME/.lesskey
 [ -r $HOME/.bashrc -a "$1" != NO_BASHRC ] && . $HOME/.bashrc
 [ "$TERM" != screen ] && screen -ls &> /dev/null && screen -ls
