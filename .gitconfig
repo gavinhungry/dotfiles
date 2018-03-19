@@ -8,6 +8,7 @@
   default = simple
 [log]
   date = iso-local
+  showSignature = true
 [pager]
   branch = false
 [alias]
