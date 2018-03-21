@@ -11,6 +11,7 @@
 (add-to-list 'interpreter-mode-alist '("node" . js-mode))
 (add-to-list 'auto-mode-alist '("\/\\.bashrc\\." . sh-mode))
 (add-to-list 'auto-mode-alist '("\/PKGBUILD$" . sh-mode))
+(add-to-list 'auto-mode-alist '("\\.json5$" . js-mode))
 
 ; side-by-side ediff
 (custom-set-variables
