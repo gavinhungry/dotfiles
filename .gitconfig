@@ -12,7 +12,7 @@
 [pager]
   branch = false
 [alias]
-  all = !sh -c 'find -L . -maxdepth 2 -type d -name .git ! -path ./.git | sort | xargs -P8 -I{} sh -c \"git --git-dir {} $@ || echo -e \\\"$(tput bold)\\e[31m{}$(tput sgr0)\\\"\"' -
+  all = !sh -c 'find -L . -maxdepth 2 -type d -name .git ! -path ./.git | xargs -P8 -I{} "git -C {}/.. $@"' -
   br = !sh -c 'git rev-parse --abbrev-ref HEAD 2> /dev/null' -
   changed = diff-tree --no-commit-id --name-only -r
   clip = !sh -c 'git log -n1 --pretty=%B | xclip -selection c' -
