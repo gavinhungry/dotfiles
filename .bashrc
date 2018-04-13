@@ -24,6 +24,9 @@ eman() {
   emacs --eval "(progn (man \"$*\") (kill-buffer-and-window) \
                 (run-with-idle-timer 0 nil 'linum-mode 0))"
 }
+term() {
+  exo-open --working-directory ${1:-.} --launch TerminalEmulator
+}
 
 # --- ALIASES ------------------------------------------------------------------
 
