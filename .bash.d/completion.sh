@@ -1,3 +1,5 @@
+type _completion_loader &> /dev/null || _completion_loader() { false ;}
+
 __commands() {
   COMPREPLY=($(compgen -c -- "${COMP_WORDS[COMP_CWORD]}"))
 }
