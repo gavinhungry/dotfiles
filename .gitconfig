@@ -22,5 +22,6 @@
   rb = !sh -c 'git rebase -i HEAD~${1}' -
   remotes = !sh -c 'git remote -v | awk \"{ print \\$1OFS\\$2 }\" | sort -u | column -t' -
   show-patch = !sh -c 'git format-patch -1 $1 --stdout' -
+  sign = commit --amend --no-edit -S
   user = "!sh -c \"if [ $# -ne 1 ]; then echo "$(git config user.name) \\<$(git config user.email)\\>"; exit 0; fi; git config user.email "$(git config gituser.$1.email)" &> /dev/null; git user;\" --" -
   who = shortlog -ns
