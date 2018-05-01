@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# only autosign once
+[ -n "$__POST_COMMIT_AUTOSIGN" ] && exit
+
+# only autosign commits on the master branch
+[ $(git rev-parse --abbrev-ref HEAD 2> /dev/null) != "master" ] && exit
+
+# only autosign unsigned commits
+git verify-commit HEAD &> /dev/null && exit
+
+__POST_COMMIT_AUTOSIGN=1 exec git commit --amend --no-edit -S -q
