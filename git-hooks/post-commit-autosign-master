@@ -4,7 +4,8 @@
 [ -n "$__POST_COMMIT_AUTOSIGN" ] && exit
 
 # only autosign commits on the master branch
-[ $(git rev-parse --abbrev-ref HEAD 2> /dev/null) != "master" ] && exit
+([ "$(git rev-parse --abbrev-ref HEAD 2> /dev/null)" != "master" ] &&
+ [ "$(cat `git rev-parse --git-dir`/rebase-merge/head-name 2> /dev/null)" != "refs/heads/master" ]) && exit
 
 # only autosign unsigned commits
 git verify-commit HEAD &> /dev/null && exit
