@@ -8,10 +8,12 @@
   (call-interactively 'shell-command)))
 
 ; file modes
+(autoload 'markdown-mode "markdown-mode" t)
 (add-to-list 'interpreter-mode-alist '("node" . js-mode))
 (add-to-list 'auto-mode-alist '("\/\\.bashrc\\." . sh-mode))
 (add-to-list 'auto-mode-alist '("\/PKGBUILD$" . sh-mode))
 (add-to-list 'auto-mode-alist '("\\.json5$" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.tmpl$" . html-mode))
 
 ; side-by-side ediff
