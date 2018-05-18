@@ -6,6 +6,5 @@ export X_TTY=$(tty)
 xrdb -merge ~/.Xresources
 xset +fp /usr/share/fonts/local
 xset fp rehash
-xbindkeys
 
 exec xfce4-session
