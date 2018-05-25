@@ -30,7 +30,7 @@
   m:0xc + c:41
   Control+Alt + f
 
-"amixer set ${MASTER_VOLUME_MIXER:-Master} playback toggle"
+"amixer -q set ${MASTER_VOLUME_MIXER:-Master} playback toggle"
   m:0x0 + c:121
   XF86AudioMute
 
@@ -38,15 +38,15 @@
   m:0x4 + c:121
   Control + XF86AudioMute
 
-"amixer set ${MASTER_VOLUME_MIXER:-Master} playback 2dB-"
+"amixer -q set ${MASTER_VOLUME_MIXER:-Master} playback 2dB-"
   m:0x10 + c:122
   Mod2 + XF86AudioLowerVolume
 
-"amixer set ${MASTER_VOLUME_MIXER:-Master} playback 2dB+"
+"amixer -q set ${MASTER_VOLUME_MIXER:-Master} playback 2dB+"
   m:0x10 + c:123
   Mod2 + XF86AudioRaiseVolume
 
-"amixer set Capture capture toggle"
+"amixer -q set Capture capture toggle"
   m:0x0 + c:198
   XF86AudioMicMute
 
