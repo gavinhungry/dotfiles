@@ -58,11 +58,11 @@
   m:0x0 + c:233
   XF86MonBrightnessUp
 
-"redshift -m randr -PO 3500"
+"disp-night"
   m:0x4 + c:232
   Control + XF86MonBrightnessDown
 
-"redshift -m randr -PO 7500"
+"disp-day"
   m:0x4 + c:233
   Control + XF86MonBrightnessUp
 
