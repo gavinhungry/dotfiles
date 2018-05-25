@@ -2,7 +2,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/lib")
 
-(global-set-key (kbd "C-@")
+(global-set-key (kbd "C-x @")
   (lambda () (interactive)
   (setq current-prefix-arg '(4)) ; C-u
   (call-interactively 'shell-command)))
