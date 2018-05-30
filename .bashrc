@@ -13,18 +13,21 @@ export GPG_TTY=$(tty)
 
 # --- FUNCTIONS ----------------------------------------------------------------
 
+cmd() { compgen -c | grep --color "${1:-$^}" ;}
 dif() { diff --color=always "$@" | less ;}
 du() { command du "${1:-.}" -hLd 1 2> /dev/null | sort -Vfk2.4 | sed '1h;1d;$G' ;}
 dm() { findmnt -no SOURCE,TARGET,FSTYPE,OPTIONS -T ${1:-.} | column -t ;}
 cw() { [ -f "$(type -p $1)" ] && cat "$(type -p $1)" ;}
 ew() { [ -f "$(type -p $1)" ] && $EDITOR "$(type -p $1)" ;}
 ow() { [ -f "$(type -p $1)" ] && open "$(type -p $1)" ;}
+
 eman() {
   if [ -z "$*" ]; then man; return; fi
   man -w $* > /dev/null && \
   emacs --eval "(progn (man \"$*\") (kill-buffer-and-window) \
                 (run-with-idle-timer 0 nil 'linum-mode 0))"
 }
+
 term() {
   exo-open --working-directory ${1:-.} --launch TerminalEmulator
 }
