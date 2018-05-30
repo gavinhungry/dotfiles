@@ -13,7 +13,7 @@ export GPG_TTY=$(tty)
 
 # --- FUNCTIONS ----------------------------------------------------------------
 
-cmd() { compgen -c | grep --color "${1:-$^}" ;}
+cmd() { compgen -c | sort | grep --color "${1:-$^}" ;}
 dif() { diff --color=always "$@" | less ;}
 du() { command du "${1:-.}" -hLd 1 2> /dev/null | sort -Vfk2.4 | sed '1h;1d;$G' ;}
 dm() { findmnt -no SOURCE,TARGET,FSTYPE,OPTIONS -T ${1:-.} | column -t ;}
