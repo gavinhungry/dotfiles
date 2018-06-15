@@ -6,6 +6,7 @@ export BROWSER=google-chrome
 export DIFFPROG=ediff
 export EDITOR=emacs
 export EDITOR_X11=subl
+export GTK_OVERLAY_SCROLLING=0
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export HISTCONTROL=ignoredups
 export HISTFILE=/dev/null
