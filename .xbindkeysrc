@@ -1,83 +1,65 @@
-"roxterm --separate"
-  m:0x18 + c:9
-  Alt+Mod2 + Escape
-
-"thunar $HOME"
-  m:0x18 + c:49
-  Alt+Mod2 + grave
-
-"gnome-system-monitor"
-  m:0x15 + c:9
-  Control+Shift+Mod2 + Escape
-
-"one gmrun"
-  m:0x0 + c:108
-  Alt_R
-
 "$HOME/bin/scrot"
-  m:0x0 + c:107
   Print
 
 "$HOME/bin/scrot -u"
-  m:0x40 + c:107
   Mod4 + Print
 
-"one slimlock"
-  m:0x40 + c:46
-  Mod4 + l
-
-"xkill"
-  m:0xc + c:41
-  Control+Alt + f
-
-"amixer -q set ${MASTER_VOLUME_MIXER:-Master} playback toggle"
-  m:0x0 + c:121
-  XF86AudioMute
-
-"/etc/scripts/mute.sh"
-  m:0x4 + c:121
-  Control + XF86AudioMute
-
-"amixer -q set ${MASTER_VOLUME_MIXER:-Master} playback 1dB-"
-  m:0x10 + c:122
-  Mod2 + XF86AudioLowerVolume
-
 "amixer -q set ${MASTER_VOLUME_MIXER:-Master} playback 1dB+"
-  m:0x10 + c:123
   Mod2 + XF86AudioRaiseVolume
 
+"amixer -q set ${MASTER_VOLUME_MIXER:-Master} playback 1dB-"
+  Mod2 + XF86AudioLowerVolume
+
+"amixer -q set ${MASTER_VOLUME_MIXER:-Master} playback toggle"
+  XF86AudioMute
+
 "amixer -q set Capture capture toggle"
-  m:0x0 + c:198
   XF86AudioMicMute
 
+"one catfish"
+  XF86Search
+
+"disp-day"
+  Control + XF86MonBrightnessUp
+
+"disp-night"
+  Control + XF86MonBrightnessDown
+
+"one gmrun"
+  Alt_R
+
+"gnome-system-monitor"
+  Control+Shift+Mod2 + Escape
+
+"/etc/scripts/mute.sh"
+  Control + XF86AudioMute
+
+"roxterm --separate"
+  Alt+Mod2 + Escape
+
+"slimlock --alt"
+  Alt+Mod4 + l
+
+"slimlock"
+  Mod4 + l
+
+"thunar $HOME"
+  Alt+Mod2 + grave
+
 "xbacklight -dec 2"
-  m:0x0 + c:232
   XF86MonBrightnessDown
 
 "xbacklight -inc 2"
-  m:0x0 + c:233
   XF86MonBrightnessUp
 
-"disp-night"
-  m:0x4 + c:232
-  Control + XF86MonBrightnessDown
-
-"disp-day"
-  m:0x4 + c:233
-  Control + XF86MonBrightnessUp
+"one xfce4-appfinder --disable-server"
+  XF86Explorer
 
 "one xfce4-display-settings --minimal"
-  m:0x0 + c:235
   XF86Display
 
 "one xfce4-settings-manager"
-  m:0x0 + c:179
   XF86Tools
 
-"one catfish"
-  m:0x0 + c:225
-  XF86Search
-
-"one xfce4-appfinder --disable-server"
-  m:0x0 + c:152
-  XF86Explorer
+"xkill"
+  Control+Alt + f
