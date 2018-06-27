@@ -21,7 +21,7 @@ du() { command du "${1:-.}" -hLd 1 2> /dev/null | sort -Vfk2.4 | sed '1h;1d;$G' 
 emi() { emacs --insert <("$@" 2>&1) ;}
 ew() { [ -f "$(type -p $1)" ] && $EDITOR "$(type -p $1)" ;}
 ow() { [ -f "$(type -p $1)" ] && open "$(type -p $1)" ;}
-term() { exo-open --working-directory ${1:-.} --launch TerminalEmulator ;}
+term() { exo-open --launch TerminalEmulator --working-directory ${1:-.} ;}
 
 eman() {
   if [ -z "$*" ]; then man; return; fi
