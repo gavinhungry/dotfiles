@@ -4,6 +4,9 @@
 "$HOME/bin/scrot -u"
   Mod4 + Print
 
+"$HOME/bin/scrot -s"
+  Alt + Print
+
 "amixer -q set ${MASTER_VOLUME_MIXER:-Master} playback 1dB+"
   Mod2 + XF86AudioRaiseVolume
 
