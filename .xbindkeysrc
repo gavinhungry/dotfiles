@@ -8,10 +8,10 @@
   Alt + Print
 
 "amixer -q set ${MASTER_VOLUME_MIXER:-Master} playback 1dB+"
-  Mod2 + XF86AudioRaiseVolume
+  XF86AudioRaiseVolume
 
 "amixer -q set ${MASTER_VOLUME_MIXER:-Master} playback 1dB-"
-  Mod2 + XF86AudioLowerVolume
+  XF86AudioLowerVolume
 
 "amixer -q set ${MASTER_VOLUME_MIXER:-Master} playback toggle"
   XF86AudioMute
@@ -32,22 +32,22 @@
   Alt_R
 
 "gnome-system-monitor"
-  Control+Shift+Mod2 + Escape
+  Control + Shift + Escape
 
 "/etc/scripts/mute.sh"
   Control + XF86AudioMute
 
 "roxterm --separate"
-  Alt+Mod2 + Escape
+  Alt + Escape
 
 "slimlock --alt"
-  Alt+Mod4 + l
+  Mod4 + Alt + l
 
 "slimlock"
   Mod4 + l
 
 "thunar $HOME"
-  Alt+Mod2 + grave
+  Alt + grave
 
 "xbacklight -dec 2"
   XF86MonBrightnessDown
@@ -65,4 +65,4 @@
   XF86Tools
 
 "xkill"
-  Control+Alt + f
+  Control + Alt + f
