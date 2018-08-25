@@ -20,6 +20,7 @@ export NODE_PATH=$HOME/.local/lib/node_modules
 export PAGER=less
 export PATH=$HOME/bin/local:$HOME/bin:$HOME/.local/bin${PATH:+:${PATH#:}}
 export QT_QPA_PLATFORMTHEME=qt5ct
+export RDP_ICON_PATH=~/.icons/rdp.png
 export SYSTEMD_EDITOR=$EDITOR
 export SYSTEMD_PAGER=cat
 
