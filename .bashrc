@@ -38,6 +38,7 @@ alias bakfiles='updatedb && locate -r "\~$\|#[^/]*#$" | grep -v /node_modules/ |
 alias bd='. bd -s &> /dev/null'
 alias clip='xclip -selection c'
 alias cls='tput reset'
+alias clx='history -c; cls'
 alias cordova='HOME=$(pwd) cordova'
 alias ddstat='sudo killall -s USR1 /usr/bin/dd'
 alias df='df -Th'
