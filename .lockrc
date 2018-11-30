@@ -10,6 +10,7 @@ purple_set_status() {
 
 case $1 in
   lock)
+    keyring-lock
     [ "$(purple_get_status)" == "available" ] && purple_set_status away
   ;;
 
