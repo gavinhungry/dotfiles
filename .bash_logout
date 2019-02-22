@@ -1,1 +1,1 @@
-[ -f "$HOME"/.lockrc ] && . "$HOME"/.lockrc lock
+[ -f "$HOME"/.lockrc ] && . "$HOME"/.lockrc logout
