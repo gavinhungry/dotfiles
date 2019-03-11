@@ -30,6 +30,16 @@ eman() {
                 (run-with-idle-timer 0 nil 'linum-mode 0))"
 }
 
+kernel() {
+  local RELEASES=$(curl -s https://www.kernel.org/releases.json)
+
+  if uname -r | grep -qi '\bLTS\b'; then
+    echo $RELEASES | jq -r '[.releases[] | select(.moniker == "longterm")][0] | .version'
+  else
+    echo $RELEASES | jq -r .latest_stable.version
+  fi
+}
+
 # --- ALIASES ------------------------------------------------------------------
 
 alias ..='cd ..'
@@ -60,7 +70,6 @@ alias grep='GREP_USE_SPACE_SEPARATOR=1 grep --color'
 alias htop='TERM=$(echo $TERM | sed -r "s/^(xterm|screen).*/\1-256color/") htop'
 alias jc='journalctl'
 alias journalctl='journalctl -aq'
-alias kernel='curl -s https://www.kernel.org/releases.json | jq -r .latest_stable.version'
 alias kurl='curl --negotiate -u :'
 alias la='ls -d .*'
 alias ls='ls -lh --color'
