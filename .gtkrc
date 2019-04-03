@@ -7,3 +7,5 @@ gtk-menu-images = 0
 
 gtk-recent-files-max-age = 0
 gtk-recent-files-limit = 0
+
+show-other-locations = 0
