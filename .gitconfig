@@ -12,9 +12,11 @@
 [pager]
   branch = false
 [alias]
-  all-n = !sh -c 'find -L . -maxdepth 2 -type d -name .git ! -path ./.git | xargs -P$1 -I{} "git -C {}/.. ${@:2}"' -
-  all-one = all-n 1
-  all = all-n 8
+  git-all = !sh -c 'find -L . -maxdepth $1 -type d -name .git ! -path ./.git | xargs -P$2 -I{} "git -C {}/.. ${@:3}"' -
+  all = git-all 2 8
+  all-one = git-all 2 1
+  deep = git-all 16 8
+  deep-one = git-all 16 1
   br = !sh -c 'git rev-parse --abbrev-ref HEAD 2> /dev/null' -
   changed = diff-tree --no-commit-id --name-only -r
   clip = "!git log -n1 --pretty=%B | xclip -selection c"
