@@ -17,6 +17,7 @@
   all-one = git-all 2 1
   deep = git-all 16 8
   deep-one = git-all 16 1
+  edit = !sh -c 'edit $(git ls-files -m)'
   br = !sh -c 'git rev-parse --abbrev-ref HEAD 2> /dev/null' -
   changed = diff-tree --no-commit-id --name-only -r
   clip = "!git log -n1 --pretty=%B | xclip -selection c"
