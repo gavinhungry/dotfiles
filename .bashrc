@@ -40,6 +40,10 @@ kernel() {
   fi
 }
 
+ssh-forget-host() {
+  ssh-keygen -R $1 > /dev/null && rm -f $HOME/.ssh/known_hosts.old
+}
+
 # --- ALIASES ------------------------------------------------------------------
 
 alias ..='cd ..'
