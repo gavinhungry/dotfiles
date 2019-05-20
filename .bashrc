@@ -44,6 +44,8 @@ ssh-forget-host() {
   ssh-keygen -R $1 > /dev/null && rm -f $HOME/.ssh/known_hosts.old
 }
 
+try () { while ! "$@"; do true; done ;}
+
 # --- ALIASES ------------------------------------------------------------------
 
 alias ..='cd ..'
