@@ -1,6 +1,8 @@
 [ -z "$PS1" ] && return
 [ "$(id -un)" == "$(id -gn)" ] && umask 0002 || umask 0022
 
+stty -echoctl
+
 # --- ENVIRONMENT --------------------------------------------------------------
 
 [ $(id -u) -eq 0 ] && PROMPT_COLOR=91 ||
@@ -43,8 +45,6 @@ kernel() {
 ssh-forget-host() {
   ssh-keygen -R $1 > /dev/null && rm -f $HOME/.ssh/known_hosts.old
 }
-
-try () { while ! "$@"; do true; done ;}
 
 # --- ALIASES ------------------------------------------------------------------
 
