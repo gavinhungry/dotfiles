@@ -48,6 +48,7 @@ ssh-forget-host() {
 
 # --- ALIASES ------------------------------------------------------------------
 
+alias -- -='cd - > /dev/null'
 alias ..='cd ..'
 alias acme.sh='sudo acme.sh --home /etc/ssl/acme.sh'
 alias bakfiles='updatedb && locate -r "\~$\|#[^/]*#$" | grep -v /node_modules/ | esc'
