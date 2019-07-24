@@ -42,6 +42,8 @@ kernel() {
   fi
 }
 
+scan() { scanimage --format=png | convert - -trim ${1:-scanned.png} ;}
+
 ssh-forget-host() {
   ssh-keygen -R $1 > /dev/null && rm -f $HOME/.ssh/known_hosts.old
 }
