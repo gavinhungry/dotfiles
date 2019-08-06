@@ -21,8 +21,8 @@ dif() { diff --color=always "$@" | less ;}
 dm() { findmnt -no SOURCE,TARGET,FSTYPE,OPTIONS -T ${1:-.} | column -t ;}
 du() { command du "${1:-.}" -hLd 1 2> /dev/null | sort -Vfk2.4 | sed '1h;1d;$G' ;}
 emi() { emacs --insert <("$@" 2>&1) ;}
-ew() { [ -f "$(type -p $1)" ] && $EDITOR "$(type -p $1)" ;}
-ow() { [ -f "$(type -p $1)" ] && open "$(type -p $1)" ;}
+ew() { [ -f "$(which $1)" ] && $EDITOR "$(which $1)" ;}
+ow() { [ -f "$(which $1)" ] && open "$(which $1)" ;}
 term() { exo-open --launch TerminalEmulator --working-directory ${1:-.} ;}
 
 eman() {
