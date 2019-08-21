@@ -1,6 +1,7 @@
 #!/bin/bash
 
 export X_TTY=$(tty)
+export XDG_CURRENT_DESKTOP=XFCE
 
 xrdb -merge ~/.Xresources
 xset +fp /usr/share/fonts/local
