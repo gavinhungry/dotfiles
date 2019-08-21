@@ -1,10 +1,10 @@
-"$HOME/bin/scrot"
+"$HOME/bin/shot --fullscreen"
   Print
 
-"$HOME/bin/scrot -u"
+"$HOME/bin/shot --window"
   Mod4 + Print
 
-"$HOME/bin/scrot -s"
+"$HOME/bin/shot --region"
   Alt + Print
 
 "amixer -q set ${MASTER_VOLUME_MIXER:-Master} playback 1dB+"
