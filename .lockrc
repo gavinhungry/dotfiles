@@ -20,5 +20,6 @@ case $1 in
 
   unlock)
     [ "$(purple_get_status)" == "away" ] && purple_set_status available
+    xmodmap ~/.Xmodmap
   ;;
 esac
