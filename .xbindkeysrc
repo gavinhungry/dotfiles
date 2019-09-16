@@ -49,10 +49,10 @@
 "thunar $HOME"
   Alt + grave
 
-"xbacklight -dec 2"
+"xbacklight -dec 5"
   XF86MonBrightnessDown
 
-"xbacklight -inc 2"
+"xbacklight -inc 5"
   XF86MonBrightnessUp
 
 "one xfce4-appfinder --disable-server"
