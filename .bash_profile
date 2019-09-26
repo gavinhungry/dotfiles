@@ -2,7 +2,7 @@
 unset MAILCHECK
 
 export BC_ENV_ARGS="$HOME/.bcrc"
-export BROWSER=google-chrome
+export BROWSER=firefox
 export DIFFPROG=ediff
 export EDITOR=emacs
 export EDITOR_X11=subl
