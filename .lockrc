@@ -11,11 +11,13 @@ purple_set_status() {
 case $1 in
   lock)
     [ "$(purple_get_status)" == "available" ] && purple_set_status away
-  ;&
+    "$HOME"/bin/gpg-lock
+  ;;
 
   logout)
     "$HOME"/bin/gpg-lock
     "$HOME"/bin/keyring-lock
+    kdestroy
   ;;
 
   unlock)
