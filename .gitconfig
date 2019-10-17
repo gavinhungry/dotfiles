@@ -22,6 +22,7 @@
   changed = diff-tree --no-commit-id --name-only -r
   clip = "!git log -n1 --pretty=%B | xclip -selection c"
   df = !sh -c 'cd "${GIT_PREFIX:-.}" && git diff -U$(wc -l < "$1") "$1"' -
+  gr = "!git --no-pager grep"
   melog = "!git log --author=$(git config user.email) $@"
   origin = remote get-url origin
   pluck = "!sh -c 'DIR=$(basename \"${1%%.git*}\" 2> /dev/null); [ -n \"$DIR\" ] || exit 1; mkdir \"$DIR\" || exit 1; git -C \"$DIR\" init > /dev/null; git -C \"$DIR\" config core.sparseCheckout true; git -C \"$DIR\" remote add origin \"$1\"; echo \"$2\" >> \"$DIR\"/.git/info/sparse-checkout; git -C \"$DIR\" pull origin master --depth 1 || (rm -fr \"$DIR\"; exit 1)'" -
