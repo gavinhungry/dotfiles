@@ -1,4 +1,10 @@
 [ -f $HOME/.loadkeys ] && type loadkeys &> /dev/null && loadkeys $HOME/.loadkeys
+
+if [ "$TERM" == linux ]; then
+  setterm -blank 60
+  setterm -powerdown 60
+fi
+
 unset MAILCHECK
 
 export BC_ENV_ARGS="$HOME/.bcrc"
