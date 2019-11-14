@@ -32,22 +32,6 @@ eman() {
                 (run-with-idle-timer 0 nil 'linum-mode 0))"
 }
 
-kernel() {
-  local RELEASES=$(curl -s https://www.kernel.org/releases.json)
-
-  if uname -r | grep -qi '\bLTS\b'; then
-    echo $RELEASES | jq -r '[.releases[] | select(.moniker == "longterm")][0] | .version'
-  else
-    echo $RELEASES | jq -r .latest_stable.version
-  fi
-}
-
-scan() { scanimage --format=png | convert - -trim ${1:-scanned.png} ;}
-
-ssh-forget-host() {
-  ssh-keygen -R $1 > /dev/null && rm -f $HOME/.ssh/known_hosts.old
-}
-
 # --- ALIASES ------------------------------------------------------------------
 
 alias -- -='cd - > /dev/null'
