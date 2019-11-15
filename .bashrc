@@ -64,7 +64,7 @@ alias htop='TERM=$(echo $TERM | sed -r "s/^(xterm|screen).*/\1-256color/") htop 
 alias jc='journalctl'
 alias journalctl='journalctl -aq'
 alias kurl='curl --ntlm --negotiate -u :'
-alias la='ls -d .*'
+alias la='ls -d .* $(cat .hidden 2> /dev/null)'
 alias ls='ls -lh --color'
 alias lx='stat -c "%A %a %n"'
 alias load='uptime | awk -F'\'': '\'' '\''{print $NF}'\'''
