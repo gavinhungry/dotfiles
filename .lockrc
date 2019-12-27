@@ -24,3 +24,5 @@ case $1 in
     xmodmap ~/.Xmodmap
   ;;
 esac
+
+[ -f "$HOME"/.lockrc.local ] && . "$HOME"/.lockrc.local $1
