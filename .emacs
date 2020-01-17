@@ -43,14 +43,13 @@
 (setq default-tab-width 2)
 (setq tab-width default-tab-width)
 (setq-default indent-tabs-mode nil)
-(global-set-key (kbd "C-x C-a") 'linum-mode)
-(global-set-key "\C-i" (lambda() (interactive) (insert-char 32 tab-width)))
+(global-set-key "\t" (lambda() (interactive) (insert-char 32 default-tab-width)))
 (global-set-key [backtab] 'indent-for-tab-command)
-(global-set-key (kbd "C-x C-t") 'delete-trailing-whitespace)
-
-; per-mode indentation
 (setq sh-basic-offset tab-width sh-indentation tab-width)
 (setq js-indent-level tab-width)
+
+(global-set-key (kbd "C-x C-a") 'linum-mode)
+(global-set-key (kbd "C-x C-t") 'delete-trailing-whitespace)
 
 ; scrolling
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
