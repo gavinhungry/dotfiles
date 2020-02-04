@@ -15,6 +15,7 @@ export GPG_TTY=$(tty)
 
 # --- FUNCTIONS ----------------------------------------------------------------
 
+aliased() { alias $1 | cut -d= -f2- | sed -r "s/(^'|'$)//g" ;}
 cmd() { compgen -c | sort | grep --color "${1:-$^}" ;}
 cw() { [ -f "$(type -p $1)" ] && cat "$(type -p $1)" || type "$1" 2> /dev/null ;}
 dif() { diff --color=always "$@" | less ;}
@@ -61,6 +62,9 @@ alias gpge='gpg --armor --symmetric --cipher-algo AES256'
 alias gpp='g++'
 alias grep='GREP_USE_SPACE_SEPARATOR=1 grep --color'
 alias htop='TERM=$(echo $TERM | sed -r "s/^(xterm|screen).*/\1-256color/") htop -d5'
+alias iotop='sudo iotop -o'
+alias iodev='iostat -dym 1 1'
+alias iowatch='watch -n0 $(aliased iodev)'
 alias jc='journalctl'
 alias journalctl='journalctl -aq'
 alias kurl='curl --ntlm --negotiate -u :'
