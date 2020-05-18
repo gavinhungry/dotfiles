@@ -7,6 +7,7 @@ fi
 
 unset MAILCHECK
 
+export ALSA_CARD_ID=$($HOME/bin/asound-id $ALSA_CARD)
 export BC_ENV_ARGS="$HOME/.bcrc"
 export BROWSER=firefox
 export DIFFPROG=ediff

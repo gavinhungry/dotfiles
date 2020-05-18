@@ -7,13 +7,13 @@
 "$HOME/bin/shot --region"
   Alt + Print
 
-"amixer -q set ${MASTER_VOLUME_MIXER:-Master} playback 1dB+"
+"amixer -c ${ALSA_CARD_ID:-0} -q set ${MASTER_VOLUME_MIXER:-Master} playback 1dB+"
   XF86AudioRaiseVolume
 
-"amixer -q set ${MASTER_VOLUME_MIXER:-Master} playback 1dB-"
+"amixer -c ${ALSA_CARD_ID:-0} -q set ${MASTER_VOLUME_MIXER:-Master} playback 1dB-"
   XF86AudioLowerVolume
 
-"amixer -q set ${MASTER_VOLUME_MIXER:-Master} playback toggle"
+"amixer -c ${ALSA_CARD_ID:-0} -q set ${MASTER_VOLUME_MIXER:-Master} playback toggle"
   XF86AudioMute
 
 "amixer -q set Capture capture toggle"
