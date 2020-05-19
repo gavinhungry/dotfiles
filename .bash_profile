@@ -7,7 +7,9 @@ fi
 
 unset MAILCHECK
 
-export ALSA_CARD_ID=$($HOME/bin/asound-id $ALSA_CARD)
+export PATH=$HOME/bin/local:$HOME/bin:$HOME/.local/bin${PATH:+:${PATH#:}}
+
+export ALSA_CARD_ID=$(asound-id $ALSA_CARD)
 export BC_ENV_ARGS="$HOME/.bcrc"
 export BROWSER=firefox
 export DIFFPROG=ediff
@@ -25,7 +27,6 @@ export MANLESS='man $MAN_PN\: page %d/%D, line %l/%L'
 export MANPAGER="less $LESS +Gg"
 export NODE_PATH=$HOME/.local/lib/node_modules
 export PAGER=less
-export PATH=$HOME/bin/local:$HOME/bin:$HOME/.local/bin${PATH:+:${PATH#:}}
 export QT_QPA_PLATFORMTHEME=qt5ct
 export RDP_ICON_PATH=~/.icons/rdp.png
 export SYSTEMD_EDITOR=$EDITOR
