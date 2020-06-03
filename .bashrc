@@ -38,6 +38,7 @@ eman() {
 alias -- -='cd - > /dev/null'
 alias ..='cd ..'
 alias acme.sh='sudo acme.sh --home /etc/ssl/acme.sh'
+alias alsamixer='alsamixer --view=all'
 alias bakfiles='updatedb && locate -r "\~$\|#[^/]*#$" | grep -v /node_modules/ | esc'
 alias bd='. bd -s &> /dev/null'
 alias bios='sudo dmidecode -s bios-version'
