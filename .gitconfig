@@ -4,6 +4,8 @@
   template = ~/.gitmessage
 [color]
   ui = true
+[pull]
+  ff = only
 [push]
   default = simple
 [log]
