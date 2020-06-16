@@ -7,14 +7,14 @@
 "$HOME/bin/shot --region"
   Alt + Print
 
-"amixer -c ${ALSA_CARD_ID:-0} -q set ${MASTER_VOLUME_MIXER:-Master} playback 1dB+"
-  XF86AudioRaiseVolume
+"$HOME/bin/volume toggle"
+  XF86AudioMute
 
-"amixer -c ${ALSA_CARD_ID:-0} -q set ${MASTER_VOLUME_MIXER:-Master} playback 1dB-"
+"$HOME/bin/volume down"
   XF86AudioLowerVolume
 
-"amixer -c ${ALSA_CARD_ID:-0} -q set ${MASTER_VOLUME_MIXER:-Master} playback toggle"
-  XF86AudioMute
+"$HOME/bin/volume up"
+  XF86AudioRaiseVolume
 
 "amixer -q set Capture capture toggle"
   XF86AudioMicMute
@@ -34,16 +34,10 @@
 "gnome-system-monitor"
   Control + Shift + Escape
 
-"/etc/scripts/mute.sh"
-  Control + XF86AudioMute
-
 "roxterm --separate"
   Alt + Escape
 
-"slimlock --alt"
-  Mod4 + Alt + l
-
-"slimlock"
+"lock"
   Mod4 + l
 
 "thunar $HOME"
