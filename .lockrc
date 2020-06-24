@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PURPLE_STATUS_CACHE=$HOME/.cache/.purple-status
+
 purple_get_status() {
   purple-remote getstatus
 }
@@ -10,7 +12,8 @@ purple_set_status() {
 
 case $1 in
   lock)
-    [ "$(purple_get_status)" == "available" ] && purple_set_status away
+    purple_get_status > $PURPLE_STATUS_CACHE
+    purple_set_status away
     "$HOME"/bin/keyring-lock
     "$HOME"/bin/gpg-lock
   ;;
@@ -20,7 +23,8 @@ case $1 in
   ;;
 
   unlock)
-    [ "$(purple_get_status)" == "away" ] && purple_set_status available
+    PURPLE_STATUS=$(cat $PURPLE_STATUS_CACHE 2> /dev/null)
+    purple_set_status ${PURPLE_STATUS:-available}
     xmodmap ~/.Xmodmap
   ;;
 esac
