@@ -25,6 +25,7 @@ export LESS='-SRic --tilde --shift 1 -z16'
 export LESSHISTFILE=-
 export MANLESS='man $MAN_PN\: page %d/%D, line %l/%L'
 export MANPAGER="less $LESS +Gg"
+export NODE_NO_WARNINGS=1
 export NODE_PATH=$HOME/.local/lib/node_modules
 export PAGER=less
 export QT_QPA_PLATFORMTHEME=qt5ct
