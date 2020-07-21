@@ -104,7 +104,6 @@ alias vmstat='vmstat -S M'
 alias wanhostname='dig +short -x $(wanip) | sed "s/\.$//" #'
 alias wanip='dig +short ch txt whoami.cloudflare @1.1.1.1 | xargs'
 alias webcam='fswebcam --no-banner --resolution 1920x1080'
-alias ww='intel-ww'
 alias xpatch='(cd / && patch -p0)'
 
 # --- SCRIPTS ------------------------------------------------------------------
