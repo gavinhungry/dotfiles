@@ -21,6 +21,7 @@ cw() { [ -f "$(type -p $1)" ] && cat "$(type -p $1)" || type "$1" 2> /dev/null ;
 dif() { diff --color=always "$@" | less ;}
 dm() { findmnt -no SOURCE,TARGET,FSTYPE,OPTIONS -T ${1:-.} | column -t ;}
 du() { command du "${1:-.}" -hLd 1 2> /dev/null | sort -Vfk2.4 | sed '1h;1d;$G' ;}
+epoch() { [ -n "$1" ] && date -d @"$1" || date +%s ;}
 emi() { emacs --insert <("$@" 2>&1) ;}
 ew() { [ -f "$(which $1)" ] && $EDITOR "$(which $1)" ;}
 ow() { [ -f "$(which $1)" ] && open "$(which $1)" ;}
@@ -53,7 +54,6 @@ alias dmesg='sudo dmesg -w'
 alias edid='sudo get-edid | edid-decode'
 alias em='emacs'
 alias entropy='cat /proc/sys/kernel/random/entropy_avail'
-alias epoch='date +%s'
 alias esc='xargs -I {} sh -c '\''printf %q "{}" && echo'\'''
 alias exifstrip='exiftool -all='
 alias fmount='fusermount'
