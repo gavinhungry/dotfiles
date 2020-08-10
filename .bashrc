@@ -20,6 +20,7 @@ cmd() { compgen -c | sort | grep --color "${1:-$^}" ;}
 cw() { [ -f "$(type -p $1)" ] && cat "$(type -p $1)" || type "$1" 2> /dev/null ;}
 dif() { diff --color=always "$@" | less ;}
 dm() { findmnt -no SOURCE,TARGET,FSTYPE,OPTIONS -T ${1:-.} | column -t ;}
+dnxhr() { ffpb -i "$1" -c:v dnxhd -profile:v dnxhr_hq "DNxHR-${1%.*}.mxf" ;}
 du() { command du "${1:-.}" -hLd 1 2> /dev/null | sort -Vfk2.4 | sed '1h;1d;$G' ;}
 epoch() { [ -n "$1" ] && date -d @"$1" || date +%s ;}
 emi() { emacs --insert <("$@" 2>&1) ;}
