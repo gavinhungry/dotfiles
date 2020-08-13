@@ -22,12 +22,6 @@
 "one catfish"
   XF86Search
 
-"disp-day"
-  Control + XF86MonBrightnessUp
-
-"disp-night"
-  Control + XF86MonBrightnessDown
-
 "one gmrun"
   Alt_R
 
