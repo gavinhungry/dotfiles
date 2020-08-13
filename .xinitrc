@@ -1,11 +1,14 @@
 #!/bin/bash
 
-export X_TTY=$(tty)
 export XDG_CURRENT_DESKTOP=XFCE
 
 xrdb -merge ~/.Xresources
+
 xset +fp /usr/share/fonts/local
 xset fp rehash
+
+xset s off
+xset dpms 3600 3600 3600
 
 xhost +si:localuser:root
 
