@@ -7,10 +7,19 @@ fi
 
 unset MAILCHECK
 
+USER_DIRS=${XDG_CONFIG_HOME:-$HOME/.config}/user-dirs.dirs
+if [ -r $USER_DIRS ]; then
+  . $USER_DIRS
+  for DIR in $(cat $USER_DIRS | grep -o '^XDG_[^=]*'); do
+    export $DIR
+  done
+fi
+
 export PATH=$HOME/bin/local:$HOME/bin:$HOME/.local/bin${PATH:+:${PATH#:}}
 
+export __GL_SHADER_DISK_CACHE_PATH=$XDG_CACHE_HOME/gl-shader-cache
 export ALSA_CARD_ID=$(asound-id $ALSA_CARD)
-export BC_ENV_ARGS="$HOME/.bcrc"
+export BC_ENV_ARGS=$HOME/.bcrc
 export BROWSER=firefox
 export DIFFPROG=ediff
 export EDITOR=emacs
@@ -26,20 +35,12 @@ export LESSHISTFILE=-
 export MANLESS='man $MAN_PN\: page %d/%D, line %l/%L'
 export MANPAGER="less $LESS +Gg"
 export NODE_NO_WARNINGS=1
-export NODE_PATH=$HOME/.local/lib/node_modules
+export NODE_PATH="$HOME/.local/lib/node_modules"
 export PAGER=less
 export QT_QPA_PLATFORMTHEME=qt5ct
-export RDP_ICON_PATH=~/.icons/rdp.png
+export RDP_ICON_PATH="$HOME/.icons/rdp.png"
 export SYSTEMD_EDITOR=$EDITOR
 export SYSTEMD_PAGER=cat
-
-USER_DIRS=${XDG_CONFIG_HOME:-~/.config}/user-dirs.dirs
-if [ -r $USER_DIRS ]; then
-  . $USER_DIRS
-  for DIR in $(cat $USER_DIRS | grep -o '^XDG_[^=]*'); do
-    export $DIR
-  done
-fi
 
 [ -r $HOME/.termcap -a -n "$TERM" ] && . $HOME/.termcap
 [ -r $HOME/.lesskey ] && lesskey -o $HOME/.less $HOME/.lesskey
