@@ -15,6 +15,11 @@ __packages() {
 }
 complete -F __packages pkgsource
 
+__local_packages() {
+  COMPREPLY=($(compgen -W '$(pacman -Qqs)' -- "${COMP_WORDS[COMP_CWORD]}"))
+}
+complete -F __local_packages pkgver
+
 __pnames() {
   local cur prev words cword
   _init_completion || return
