@@ -1,3 +1,4 @@
+set enable-bracketed-paste off
 set echo-control-characters off
 set bell-style none
 
