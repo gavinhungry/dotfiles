@@ -10,6 +10,7 @@ xrdb -merge ~/.Xresources
 xset +fp /usr/share/fonts/local
 xset fp rehash
 
+. /etc/X11/xinit/xinitrc.d/30-gtk3-nocsd.sh
 . /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 [ -r $HOME/.xinitrc.local ] && . $HOME/.xinitrc.local
 
