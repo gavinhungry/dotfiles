@@ -3,7 +3,7 @@ type _completion_loader &> /dev/null || _completion_loader() { false ;}
 __commands() {
   COMPREPLY=($(compgen -c -- "${COMP_WORDS[COMP_CWORD]}"))
 }
-complete -F __commands cw ew ow pkg emi
+complete -F __commands cw ew lw ow pkg emi
 
 __users() {
   COMPREPLY=($(compgen -u -- "${COMP_WORDS[COMP_CWORD]}"))
