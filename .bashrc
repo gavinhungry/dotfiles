@@ -25,6 +25,7 @@ du() { command du "${1:-.}" -hLd 1 2> /dev/null | sort -Vfk2.4 | sed '1h;1d;$G' 
 epoch() { [ -n "$1" ] && date -d @"$1" || date +%s ;}
 emi() { emacs --insert <("$@" 2>&1) ;}
 ew() { [ -f "$(which $1)" ] && $EDITOR "$(which $1)" ;}
+lw() { [ -f "$(which $1)" ] && ls -lh --color "$(which $1)" ;}
 ow() { [ -f "$(which $1)" ] && open "$(which $1)" ;}
 term() { exo-open --launch TerminalEmulator --working-directory ${1:-.} ;}
 
