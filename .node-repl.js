@@ -8,7 +8,8 @@ const CONTEXT_FILENAME = '.node-repl-context.js';
 const CONTEXT_PATH = path.join(os.homedir(), CONTEXT_FILENAME);
 
 let _repl = repl.start({
-  preview: false
+  preview: false,
+  useGlobal: true
 });
 
 _repl.setupHistory(process.env.NODE_REPL_HISTORY, () => {
