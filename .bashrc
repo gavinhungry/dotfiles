@@ -6,7 +6,7 @@ stty -echoctl
 # --- ENVIRONMENT --------------------------------------------------------------
 
 PROMPT_COLOR=97 # local
-[ -n "$SSH_TTY" ] && PROMPT_COLOR=92 # SSH
+[ -n "$SSH_TTY" ] && PROMPT_COLOR=93 # SSH
 [ $(id -u) -eq 0 ] && PROMPT_COLOR=91 # root
 
 export PS1='[\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\]: \W]\$ '
