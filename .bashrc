@@ -5,7 +5,7 @@ stty -echoctl
 
 # --- ENVIRONMENT --------------------------------------------------------------
 
-PROMPT_COLOR=97 # local
+PROMPT_COLOR=$(cat .promptcolor 2> /dev/null || echo 97) # local
 [ -n "$SSH_TTY" ] && PROMPT_COLOR=93 # SSH
 [ $(id -u) -eq 0 ] && PROMPT_COLOR=91 # root
 
