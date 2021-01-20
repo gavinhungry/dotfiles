@@ -2,6 +2,8 @@
   path = ~/.gitconfig.local
 [commit]
   template = ~/.gitmessage
+[init]
+  defaultBranch = main
 [color]
   ui = true
 [pull]
