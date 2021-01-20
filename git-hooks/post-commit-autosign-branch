@@ -1,15 +1,18 @@
 #!/bin/bash
 
-__AUTOSIGN_BRANCH=master
+__AUTOSIGN_BRANCHES=(main master)
 
 # only autosign once
 [ -n "$__POST_COMMIT_AUTOSIGN" ] && exit
 
-# only autosign commits on the $__AUTOSIGN_BRANCH branch
-([ "$(git rev-parse --abbrev-ref HEAD 2> /dev/null)" != "$__AUTOSIGN_BRANCH" ] &&
- [ "$(cat `git rev-parse --git-dir`/rebase-merge/head-name 2> /dev/null)" != "refs/heads/$__AUTOSIGN_BRANCH" ]) && exit
-
-# only autosign unsigned commits
-git verify-commit HEAD &> /dev/null && exit
-
-__POST_COMMIT_AUTOSIGN=1 exec git commit --amend --no-edit -S -q
+# only autosign commits on $__AUTOSIGN_BRANCHES
+for __AUTOSIGN_BRANCH in ${__AUTOSIGN_BRANCHES[@]}; do
+  if (
+    [ "$(git rev-parse --abbrev-ref HEAD 2> /dev/null)" = "$__AUTOSIGN_BRANCH" ] ||
+    [ "$(cat `git rev-parse --git-dir`/rebase-merge/head-name 2> /dev/null)" = "refs/heads/$__AUTOSIGN_BRANCH" ]
+  ); then
+    # only autosign unsigned commits
+    git verify-commit HEAD &> /dev/null && exit
+    __POST_COMMIT_AUTOSIGN=1 exec git commit --amend --no-edit -S -q
+  fi
+done
