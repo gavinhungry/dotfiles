@@ -41,7 +41,7 @@ _completion_loader man
 complete -F _man eman
 
 _completion_loader systemctl
-complete -F _systemctl sc
+complete -F _systemctl sc scu
 
 _completion_loader ssh
 complete -F _ssh ssh-mount ssh-umount
