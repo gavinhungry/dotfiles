@@ -21,6 +21,7 @@ export GPG_TTY=$(tty)
 # --- FUNCTIONS ----------------------------------------------------------------
 
 aliased() { alias $1 | cut -d= -f2- | sed -r "s/(^'|'$)//g" ;}
+cate() { echo -e "$(cat $1)" ;}
 cmd() { compgen -c | sort | grep --color "${1:-$^}" ;}
 cw() { [ -f "$(type -p $1)" ] && cat "$(type -p $1)" || type "$1" 2> /dev/null ;}
 dif() { diff --color=always "$@" | less ;}
@@ -85,7 +86,7 @@ alias md='md2html'
 alias mddetail='sudo mdadm --detail /dev/md/*'
 alias mirrors='reflector -p https --latest 5 --score 5'
 alias model='sudo dmidecode -s system-product-name'
-alias motd='cat /etc/motd'
+alias motd='cate /etc/motd'
 alias npm-script='npm run-script'
 alias pacfiles='updatedb && locate -r "\.pac\(new\|save\|orig\)$" | esc'
 alias path='echo $PATH | tr : \\n'
