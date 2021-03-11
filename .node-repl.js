@@ -20,7 +20,14 @@ _repl.setupHistory(process.env.NODE_REPL_HISTORY, () => {
 
   try {
     const context = require(CONTEXT_PATH);
-    Object.assign(_repl.context, context);
+
+    Object.keys(context).forEach(key => {
+      Object.defineProperty(_repl.context, key, {
+        get() {
+          return context[key];
+        }
+      });
+    });
   } catch(err) {
     // could not load local context
   }
