@@ -8,7 +8,7 @@ stty -echoctl
 PROMPT_COLOR=97 # local
 if [ -n "$SSH_TTY" ]; then
   PROMPT_COLOR=93 # SSH
-  [ -e .promptcolor ] && PROMPT_COLOR=$(cat .promptcolor) # SSH user
+  [ -r $HOME/.promptcolor ] && PROMPT_COLOR=$(cat $HOME/.promptcolor) # SSH user
 fi
 [ $(id -u) -eq 0 ] && PROMPT_COLOR=91 # root
 
