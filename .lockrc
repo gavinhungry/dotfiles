@@ -27,12 +27,12 @@ case $1 in
   lock)
     purple_cache_status
     purple_set_status away
-    "$HOME"/bin/keyring-lock
-    "$HOME"/bin/gpg-lock
   ;;
 
   logout)
     "$HOME"/bin/gpg-lock
+    "$HOME"/bin/keyring-lock
+    "$HOME"/bin/ssh-agent-lock
   ;;
 
   unlock)
