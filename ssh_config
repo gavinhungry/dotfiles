@@ -1,12 +1,12 @@
 Include ~/.ssh/config.local
 
 Host *
+  ControlMaster        auto
+  ControlPersist       60m
+  ControlPath          ~/.ssh/sockets/%r@%n_%h:%p
   AddKeysToAgent       yes
   ForwardAgent         no
   HashKnownHosts       no
-  ControlPath          ~/.ssh/sockets/%r@%n_%h:%p
-  ControlMaster        auto
-  ControlPersist       60m
   ServerAliveInterval  60
   Compression          yes
   AddressFamily        inet
