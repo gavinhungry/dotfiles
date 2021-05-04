@@ -39,7 +39,6 @@ export NODE_NO_WARNINGS=1
 export NODE_PATH="$HOME/.local/lib/node_modules"
 export PAGER=less
 export QT_QPA_PLATFORMTHEME=qt5ct
-export RDP_ICON_PATH="$HOME/.icons/rdp.png"
 export SYSTEMD_EDITOR=$EDITOR
 export SYSTEMD_PAGER=cat
 
