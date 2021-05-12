@@ -13,7 +13,7 @@ let _repl = repl.start({
 });
 
 let replEval = cmd => _repl.eval(cmd, null, '', Function.prototype);
-replEval("require('@std/esm');");
+// replEval("require('@std/esm');");
 
 _repl.setupHistory(process.env.NODE_REPL_HISTORY, () => {
   Object.assign(_repl.context, {
