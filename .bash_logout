@@ -1,1 +1,1 @@
-"$HOME"/bin/lock-all
+"$HOME"/bin/lock-all &> /dev/null
