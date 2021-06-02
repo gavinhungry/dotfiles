@@ -1,1 +1,1 @@
-[ -f "$HOME"/.lockrc ] && . "$HOME"/.lockrc logout &> /dev/null
+"$HOME"/bin/lock-all

@@ -29,12 +29,6 @@ case $1 in
     purple_set_status away
   ;;
 
-  logout)
-    "$HOME"/bin/gpg-lock
-    "$HOME"/bin/keyring-lock
-    "$HOME"/bin/ssh-agent-lock
-  ;;
-
   unlock)
     purple_set_cached_status
     xmodmap ~/.Xmodmap
