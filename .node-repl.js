@@ -9,7 +9,8 @@ const CONTEXT_PATH = path.join(os.homedir(), CONTEXT_FILENAME);
 
 let _repl = repl.start({
   preview: false,
-  useGlobal: true
+  useGlobal: true,
+  ignoreUndefined: true
 });
 
 let replEval = cmd => _repl.eval(cmd, null, '', Function.prototype);
