@@ -46,6 +46,12 @@
 "xbacklight -inc 2"
   XF86MonBrightnessUp
 
+"display-night"
+  Control + XF86MonBrightnessDown
+
+"display-day"
+  Control + XF86MonBrightnessUp
+
 "one xfce4-appfinder --disable-server"
   XF86Explorer
 
