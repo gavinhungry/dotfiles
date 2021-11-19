@@ -82,6 +82,7 @@ alias la='ls -d .* $([ -e .hidden ] && (cat .hidden | xargs ls -d 2> /dev/null))
 alias lo='losetup --show --find --partscan'
 alias ls='ls -lh --color --group-directories-first'
 alias lx='stat -c "%A %a %n"'
+alias lspci='lspci -nn'
 alias lspkg='for PKG in */; do \ls ${PKG%/}/${PKG%/}-+([0-9])*.pkg.* 2> /dev/null; done'
 alias load='uptime | awk -F'\'': '\'' '\''{print $NF}'\'''
 alias md='apostrophe'
