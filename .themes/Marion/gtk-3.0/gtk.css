@@ -1,0 +1,146 @@
+@import url('resource:///org/gtk/libgtk/theme/Adwaita/gtk-contained-dark.css');
+
+/*
+/usr/share/themes/Adwaita-dark/gtk-3.0/gtk.css
+*/
+
+*, *:hover {
+  -gtk-icon-effect: none;
+  -gtk-icon-shadow: none;
+  outline-style: none;
+}
+
+treeview.view {
+  background-color: #2D2D2D;
+}
+
+treeview.view row.even:not(:selected) {
+  background-color: #323232;
+}
+
+treeview.view row.odd:not(:selected) {
+  background-color: #2A2A2A;
+}
+
+.sidebar,
+.thunar .sidebar treeview.view {
+  background: #3C3C3C;
+}
+
+.sidebar-row,
+.thunar .sidebar treeview.view row:not(:selected) {
+  background: transparent;
+}
+
+.sidebar-row {
+  min-height: 28px;
+}
+
+row.activatable:active,
+row.activatable:selected:active {
+  box-shadow: none;
+}
+
+row image.sidebar-icon {
+  opacity: 0.5;
+}
+
+filechooser {
+  border-bottom: 1px solid #1B1B1B;
+}
+
+scrolledwindow overshoot.top,
+scrolledwindow overshoot.bottom,
+scrolledwindow overshoot.left,
+scrolledwindow overshoot.right {
+  background: none;
+  border: none;
+}
+
+.xfce4-panel button {
+  border: none;
+  margin-right: 1px;
+  border-radius: 0px;
+  text-shadow: none;
+}
+
+.xfce4-panel button:active {
+  background: #444;
+}
+
+.xfce4-panel button:hover:not(:checked):not(:active) {
+  background: #555;
+}
+
+.xfce4-panel button label:first-child {
+  padding: 0 3px;
+}
+
+.xfce4-panel button.flat:checked {
+  box-shadow: none;
+}
+
+.xfce4-panel .tasklist button {
+  background: none;
+  margin-right: 0;
+}
+
+.xfce4-panel .tasklist button:hover:not(:checked) {
+  background: #444;
+}
+
+.xfce4-panel .tasklist button:checked {
+  color: white;
+  background: #555;
+  box-shadow: none;
+}
+
+spinbutton:not(.vertical), entry,
+spinbutton:backdrop:not(.vertical), entry:backdrop,
+button.titlebutton, notebook > header > tabs > arrow, button,
+button.titlebutton, button.sidebar-button, notebook > header > tabs > arrow, notebook > header > tabs > arrow.flat, button.flat,
+button.titlebutton:hover, button.sidebar-button:hover, notebook > header > tabs > arrow:hover, button.flat:hover,
+button.titlebutton:hover:active, button.sidebar-button:hover:active, notebook > header > tabs > arrow:hover:active, button.flat:hover:active,
+notebook > header > tabs > arrow:backdrop, button:backdrop.flat, button:backdrop,
+spinbutton:not(.vertical) button:backdrop,
+.inline-toolbar:backdrop, searchbar > revealer > box:backdrop, .location-bar:backdrop,
+.titlebar:backdrop:not(headerbar), headerbar:backdrop,
+treeview.view header button:hover,
+treeview.view header button:active,
+treeview.view button.dnd:active, treeview.view button.dnd:selected, treeview.view button.dnd:hover, treeview.view button.dnd, treeview.view header.button.dnd:active, treeview.view header.button.dnd:selected, treeview.view header.button.dnd:hover, treeview.view header.button.dnd,
+scrollbar,
+scrollbar:backdrop,
+scrollbar slider,
+scrollbar.fine-tune slider,
+switch:backdrop,
+switch slider,
+switch:backdrop slider,
+.view.content-view.check:not(list), iconview.content-view.check:not(list), .content-view:not(list) check,
+.view.content-view.check:hover:not(list), iconview.content-view.check:hover:not(list), .content-view:not(list) check:hover,
+.view.content-view.check:active:not(list), iconview.content-view.check:active:not(list), .content-view:not(list) check:active,
+.view.content-view.check:backdrop:not(list), iconview.content-view.check:backdrop:not(list), .content-view:not(list) check:backdrop,
+.view.content-view.check:checked:not(list), iconview.content-view.check:checked:not(list), .content-view:not(list) check:checked,
+.view.content-view.check:checked:hover:not(list), iconview.content-view.check:checked:hover:not(list), .content-view:not(list) check:checked:hover,
+.view.content-view.check:checked:active:not(list), iconview.content-view.check:checked:active:not(list), .content-view:not(list) check:checked:active,
+.view.content-view.check:backdrop:checked:not(list), iconview.content-view.check:backdrop:checked:not(list), .content-view:not(list) check:backdrop:checked,
+check:backdrop, radio:backdrop,
+radio:checked:not(:backdrop), radio:indeterminate:not(:backdrop), check:checked:not(:backdrop), check:indeterminate:not(:backdrop),
+menu menuitem radio:checked:not(:backdrop), menu menuitem radio:indeterminate:not(:backdrop), menu menuitem check:checked:not(:backdrop), menu menuitem check:indeterminate:not(:backdrop),
+progressbar trough:backdrop, scale fill:backdrop, scale trough:backdrop,
+scale slider,
+scale slider:backdrop,
+progressbar:backdrop,
+levelbar:backdrop,
+scrolledwindow junction:backdrop,
+row,
+row:hover,
+row:backdrop,
+.app-notification:backdrop, .app-notification.frame:backdrop,
+.sidebar:backdrop,
+placesview .server-list-button > image,
+placesview .server-list-button:checked > image,
+decoration:backdrop,
+.keycap:backdrop
+{
+  transition: none;
+}
