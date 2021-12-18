@@ -4,6 +4,8 @@
   defaultBranch = main
 [color]
   ui = true
+[fetch]
+  prune = true
 [pull]
   ff = only
 [push]
