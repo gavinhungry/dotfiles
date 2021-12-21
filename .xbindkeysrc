@@ -25,7 +25,7 @@
 "one gmrun"
   Alt_R
 
-"gnome-system-monitor"
+"gnome-system-monitor --show-resources-tab"
   Control + Shift + Escape
 
 "roxterm --separate"
