@@ -13,20 +13,28 @@
 
 # Text/base
 gtk-color-scheme = "text_color:white\nbase_color:#232729"
+
 # Foreground/background
 gtk-color-scheme = "fg_color:#eeeeec\nbg_color:#33393b"
-# Selected foreground/background
+
+# Selected foreground/background
 gtk-color-scheme = "selected_fg_color:#ffffff\nselected_bg_color:#215d9c"
+
 # Insensitive foreground/background
 gtk-color-scheme = "insensitive_fg_color:#919494\ninsensitive_bg_color:#2d3234"
+
 # Menus
 gtk-color-scheme = "menu_color:#262b2d"
+
 # Links
 gtk-color-scheme = "link_color:#4a90d9\nvisited_link_color:#2a76c6"
+
 # Treeview headers
 gtk-color-scheme = "column_header_color:#898b8b\nhover_column_header_color:#bcbdbc"
+
 # Window decoration
 gtk-color-scheme = "window_color:#2c3133"
+
 # Tooltips
 gtk-color-scheme = "tooltip_fg_color:#ffffff\ntooltip_bg_color:#343434"
 
@@ -39,3 +47,11 @@ include "main.rc"
 include "apps.rc"
 include "hacks.rc"
 include "hacks-dark.rc"
+
+style "menu_item" {
+  ythickness = 6
+}
+
+style "dark_insensitive" {
+  fg[INSENSITIVE] = "#444"
+}
