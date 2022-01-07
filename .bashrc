@@ -20,25 +20,22 @@ export GPG_TTY=$(tty)
 # --- FUNCTIONS ----------------------------------------------------------------
 
 aliased() { alias $1 | cut -d= -f2- | sed -r "s/(^'|'$)//g" ;}
-cate() { echo -e "$(cat $1)" ;}
 cmd() { compgen -c | sort | grep --color "${1:-$^}" ;}
 cw() { [ -f "$(type -p $1)" ] && cat "$(type -p $1)" || type "$1" 2> /dev/null ;}
 dif() { diff --color=always "$@" | less ;}
 dm() { findmnt -no SOURCE,TARGET,FSTYPE,OPTIONS -T ${1:-.} | column -t ;}
-dnxhr() { ffpb -i "$1" -c:v dnxhd -profile:v dnxhr_hq "DNxHR-${1%.*}.mxf" ;}
-epoch() { [ -n "$1" ] && date -d @"$1" || date +%s ;}
-emi() { emacs --insert <("$@" 2>&1) ;}
-ew() { [ -f "$(which $1)" ] && $EDITOR "$(which $1)" ;}
-lw() { [ -f "$(which $1)" ] && ls -lh --color "$(which $1)" ;}
-ow() { [ -f "$(which $1)" ] && open "$(which $1)" ;}
-term() { exo-open --launch TerminalEmulator ${1:-.} ;}
-
 eman() {
   if [ -z "$*" ]; then man; return; fi
   man -w $* > /dev/null && \
   emacs --eval "(progn (man \"$*\") (kill-buffer-and-window) \
                 (run-with-idle-timer 0 nil 'linum-mode 0))"
 }
+emi() { emacs --insert <("$@" 2>&1) ;}
+ew() { [ -f "$(which $1)" ] && $EDITOR "$(which $1)" ;}
+lw() { [ -f "$(which $1)" ] && ls -lh --color "$(which $1)" ;}
+ow() { [ -f "$(which $1)" ] && open "$(which $1)" ;}
+term() { exo-open --launch TerminalEmulator ${1:-.} ;}
+
 
 # --- ALIASES ------------------------------------------------------------------
 
@@ -87,7 +84,6 @@ alias load='uptime | awk -F'\'': '\'' '\''{print $NF}'\'''
 alias md='apostrophe'
 alias mddetail='sudo mdadm --detail /dev/md/*'
 alias mirrors='reflector -p https --latest 5 --score 5'
-alias motd='cate /etc/motd; echo'
 alias npm='pnpm'
 alias pacfiles='updatedb && locate -r "\.pac\(new\|save\|orig\)$" | esc'
 alias path='echo $PATH | tr : \\n'
