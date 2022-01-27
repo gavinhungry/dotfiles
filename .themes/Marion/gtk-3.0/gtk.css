@@ -57,6 +57,10 @@ scrolledwindow overshoot.right {
   border: none;
 }
 
+.xfce4-panel {
+  background: #2A2A2A;
+}
+
 .xfce4-panel button {
   border: none;
   margin-right: 1px;
@@ -65,11 +69,11 @@ scrolledwindow overshoot.right {
 }
 
 .xfce4-panel button:active {
-  background: #444;
+  background: #383838;
 }
 
 .xfce4-panel button:hover:not(:checked):not(:active) {
-  background: #555;
+  background: #444444;
 }
 
 .xfce4-panel button label:first-child {
@@ -78,6 +82,7 @@ scrolledwindow overshoot.right {
 
 .xfce4-panel button.flat:checked {
   box-shadow: none;
+  background: #1A1A1A;
 }
 
 .xfce4-panel .tasklist button {
@@ -86,12 +91,12 @@ scrolledwindow overshoot.right {
 }
 
 .xfce4-panel .tasklist button:hover:not(:checked) {
-  background: #444;
+  background: #383838;
 }
 
 .xfce4-panel .tasklist button:checked {
   color: white;
-  background: #555;
+  background: #505050;
   box-shadow: none;
 }
 
