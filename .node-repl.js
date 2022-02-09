@@ -7,13 +7,21 @@ const repl = require('repl');
 const CONTEXT_FILENAME = '.node-repl-context.js';
 const CONTEXT_PATH = path.join(os.homedir(), CONTEXT_FILENAME);
 
-let _repl = repl.start({
+const request = moduleName => {
+  try {
+    return require(moduleName);
+  } catch(err) {
+    return err;
+  }
+};
+
+const _repl = repl.start({
   preview: false,
   useGlobal: true,
   ignoreUndefined: true
 });
 
-let replEval = cmd => _repl.eval(cmd, null, '', Function.prototype);
+const replEval = cmd => _repl.eval(cmd, null, '', Function.prototype);
 // replEval("require('@std/esm');");
 
 _repl.setupHistory(process.env.NODE_REPL_HISTORY, () => {
@@ -28,8 +36,20 @@ _repl.setupHistory(process.env.NODE_REPL_HISTORY, () => {
     Object.keys(context).forEach(key => {
       Object.defineProperty(_repl.context, key, {
         get() {
-          return context[key];
-        }
+          let value = context[key];
+
+          if (typeof value === 'string') {
+            return request(value);
+          }
+
+          if (typeof value === 'function') {
+            return value();
+          }
+
+          return null;
+        },
+
+        enumerable: true
       });
     });
   } catch(err) {
