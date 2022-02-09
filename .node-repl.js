@@ -7,6 +7,8 @@ const repl = require('repl');
 const CONTEXT_FILENAME = '.node-context.js';
 const CONTEXT_PATH = path.join(os.homedir(), CONTEXT_FILENAME);
 
+const EMPTY = Symbol('EMPTY');
+
 const request = moduleName => {
   try {
     return require(moduleName);
@@ -34,6 +36,8 @@ _repl.setupHistory(process.env.NODE_REPL_HISTORY, () => {
     const context = require(CONTEXT_PATH);
 
     Object.keys(context).forEach(key => {
+      let cache = EMPTY;
+
       Object.defineProperty(_repl.context, key, {
         get() {
           let value = context[key];
@@ -43,7 +47,11 @@ _repl.setupHistory(process.env.NODE_REPL_HISTORY, () => {
           }
 
           if (typeof value === 'function') {
-            return value();
+            if (cache === EMPTY) {
+              cache = value();
+            }
+
+            return cache;
           }
 
           return null;
