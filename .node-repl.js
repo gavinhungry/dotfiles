@@ -4,7 +4,7 @@ const os = require('os');
 const path = require('path');
 const repl = require('repl');
 
-const CONTEXT_FILENAME = '.node-repl-context.js';
+const CONTEXT_FILENAME = '.node-context.js';
 const CONTEXT_PATH = path.join(os.homedir(), CONTEXT_FILENAME);
 
 const request = moduleName => {
