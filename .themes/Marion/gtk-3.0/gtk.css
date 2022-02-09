@@ -77,7 +77,7 @@ scrolledwindow overshoot.right {
 }
 
 .xfce4-panel button label:first-child {
-  padding: 0 3px;
+  padding: 0 4px;
 }
 
 .xfce4-panel button.flat:checked {
