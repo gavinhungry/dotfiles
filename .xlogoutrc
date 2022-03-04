@@ -1,0 +1,2 @@
+lock-all &> /dev/null
+busylight off
