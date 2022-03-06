@@ -1,2 +1,2 @@
-lock-all &> /dev/null
+lock-all
 busylight off

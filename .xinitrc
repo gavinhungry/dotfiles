@@ -18,4 +18,4 @@ ln -s $XDG_DATA_HOME/thumbnails $XDG_CACHE_HOME/thumbnails
 [ -r $HOME/.xinitrc.local ] && . $HOME/.xinitrc.local
 
 xfce4-session
-exec bash $HOME/.xlogoutrc
+exec bash $HOME/.xlogoutrc &> /dev/null
