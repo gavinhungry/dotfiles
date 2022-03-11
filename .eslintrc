@@ -1,24 +1,128 @@
 {
+  "root": true,
+
   "extends": [
     "eslint:recommended"
   ],
 
+  "plugins": [
+    "eslint-plugin-only-ascii"
+  ],
+
   "parserOptions": {
-    "ecmaVersion": 9
+    "ecmaVersion": 2021
   },
 
   "env": {
+    "es6": true,
     "node": true,
-    "browser": true,
-    "es6": true
+    "browser": true
+  },
+
+  "globals": {
+    "globalThis": false
   },
 
   "rules": {
-    "comma-dangle": 1,
-    "no-console": 0,
-    "no-tabs": 1,
-    "no-trailing-spaces": 1,
-    "quotes": [1, "single"],
-    "semi": 1
-  }
+    "arrow-parens": ["error", "as-needed"],
+    "arrow-spacing": "error",
+    "brace-style": ["error", "1tbs"],
+    "comma-dangle": "error",
+    "comma-spacing": "error",
+    "computed-property-spacing": "error",
+    "curly": "error",
+    "dot-notation": ["error", {
+      "allowPattern": "^(true|false)$"
+    }],
+    "eol-last": ["error", "always"],
+    "eqeqeq": ["error", "always"],
+    "func-style": ["error", "expression"],
+    "indent": ["error", 2, {
+      "SwitchCase": 1,
+      "ignoredNodes": ["TemplateLiteral > *"]
+    }],
+    "key-spacing": "error",
+    "linebreak-style": ["error", "unix"],
+    "max-len": ["error", {
+      "code": 80,
+      "ignoreTemplateLiterals": true,
+      "ignoreUrls": true,
+      "ignorePattern": "^\\s*(import\\s|export\\s|const\\s.*=\\s*require\\(|[a-zA-Z0-9].*:\\s*require\\()"
+    }],
+    "max-statements-per-line": "error",
+    "multiline-comment-style": "error",
+    "no-console": "error",
+    "no-multiple-empty-lines": "error",
+    "no-restricted-globals": ["error", "window"],
+    "no-tabs": "error",
+    "no-trailing-spaces": "error",
+    "no-useless-concat": "error",
+    "no-var": "error",
+    "object-curly-spacing": ["error", "always"],
+    "only-ascii/only-ascii": "error",
+    "padded-blocks": ["error", "never"],
+    "padding-line-between-statements": ["error",
+      { "blankLine": "always", "prev": "block", "next": "*" },
+      { "blankLine": "always", "prev": "block-like", "next": "*" },
+
+      {
+        "blankLine": "always",
+        "prev": ["multiline-let", "multiline-const"],
+        "next": ["multiline-let", "multiline-const"]
+      }
+    ],
+    "prefer-arrow-callback": ["error", {
+      "allowUnboundThis": false
+    }],
+    "prefer-template": "error",
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "require-atomic-updates": 0,
+    "semi": "error",
+    "space-before-function-paren": ["error", {
+      "anonymous": "never",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
+    "space-in-parens": "error",
+    "space-infix-ops": "error"
+  },
+
+  "overrides": [
+    {
+      "files": "bin/**/*",
+      "env": {
+        "browser": false
+      },
+      "rules": {
+        "no-console": 0
+      }
+    },
+
+    {
+      "files": "lib/**/*",
+      "env": {
+        "browser": false
+      },
+      "rules": {
+        "no-console": 0
+      }
+    },
+
+    {
+      "files": "src/**/*",
+      "env": {
+        "node": false
+      }
+    },
+
+    {
+      "files": "tests/**/*",
+      "globals": {
+        "describe": false,
+        "expect": false,
+        "jest": false,
+        "test": false
+      }
+    }
+  ]
 }
