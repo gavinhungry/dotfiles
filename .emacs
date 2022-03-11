@@ -16,6 +16,7 @@
 (add-to-list 'auto-mode-alist '("\\.json5$" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.tmpl$" . html-mode))
+(add-to-list 'auto-mode-alist '("\\.eslintrc$" . js-mode))
 
 ; side-by-side ediff
 (custom-set-variables
