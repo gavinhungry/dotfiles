@@ -1,6 +1,7 @@
 set enable-bracketed-paste off
 set echo-control-characters off
 set bell-style none
+set mark-symlinked-directories on
 
 "\e[1;5C": forward-word
 "\e[1;5D": backward-word
