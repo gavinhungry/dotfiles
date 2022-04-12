@@ -1,13 +1,18 @@
 #!/bin/bash
 
-__AUTOSIGN_BRANCHES=(main master)
-
 # only autosign once
 [ -n "$__POST_COMMIT_AUTOSIGN" ] && exit
+
+__AUTOSIGN_BRANCHES=(main master)
+
+if [ -f .git/autosign-branches ]; then
+  __AUTOSIGN_BRANCHES=($(cat .git/autosign-branches))
+fi
 
 # only autosign commits on $__AUTOSIGN_BRANCHES
 for __AUTOSIGN_BRANCH in ${__AUTOSIGN_BRANCHES[@]}; do
   if (
+    [ "$__AUTOSIGN_BRANCH" = "-" ] || # autosign all branches
     [ "$(git rev-parse --abbrev-ref HEAD 2> /dev/null)" = "$__AUTOSIGN_BRANCH" ] ||
     [ "$(cat `git rev-parse --git-dir`/rebase-merge/head-name 2> /dev/null)" = "refs/heads/$__AUTOSIGN_BRANCH" ]
   ); then
