@@ -36,6 +36,7 @@
 (global-set-key (kbd "C-x :") 'goto-line)
 
 ; terminal colors
+(set-face-foreground 'font-lock-comment-face "red")
 (setq term (getenv "TERM"))
 (if (or (string-prefix-p "xterm" term) (string-equal "screen" term)) (progn
   (set-face-attribute 'linum nil :foreground "gray20")
@@ -71,6 +72,7 @@
 (setq auto-save-list-file-name nil)
 (setq auto-save-default nil)
 (setq vc-follow-symlinks t)
+(setq show-paren-mode nil)
 (global-font-lock-mode 1)
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
