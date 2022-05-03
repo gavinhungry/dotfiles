@@ -7,6 +7,33 @@
 "$HOME/bin/shot --region"
   Alt + Print
 
+"playerctl previous"
+  XF86AudioPrev
+
+"playerctl play-pause"
+  XF86AudioPlay
+
+"playerctl next"
+  XF86AudioNext
+
+"playerctl previous"
+  Alt + F7
+
+"playerctl play-pause"
+  Alt + F8
+
+"playerctl next"
+  Alt + F9
+
+"playerctl volume 0.0"
+  Alt + F10
+
+"playerctl volume 0.05-"
+  Alt + F11
+
+"playerctl volume 0.05+"
+  Alt + F12
+
 "$HOME/bin/volume toggle"
   XF86AudioMute
 
