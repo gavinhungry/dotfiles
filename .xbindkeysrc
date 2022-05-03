@@ -50,7 +50,7 @@
   XF86Search
 
 "one gmrun"
-  Alt_R
+  Hyper_L # caps:hyper
 
 "gnome-system-monitor --show-resources-tab"
   Control + Shift + Escape
