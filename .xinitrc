@@ -17,4 +17,11 @@ ln -s $XDG_DATA_HOME/thumbnails $XDG_CACHE_HOME/thumbnails
 . /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 [ -r $HOME/.xinitrc.local ] && . $HOME/.xinitrc.local
 
+(
+  xbindkeys
+  sleep 4
+  killall -u $USER xbindkeys
+  xbindkeys
+) &
+
 exec xfce4-session
