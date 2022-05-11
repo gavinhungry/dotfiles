@@ -7,31 +7,31 @@
 "$HOME/bin/shot --region"
   Alt + Print
 
-"playerctl previous"
+"playerctl -p $DEFAULT_PLAYER_NAME previous"
   XF86AudioPrev
 
-"playerctl play-pause"
+"playerctl -p $DEFAULT_PLAYER_NAME play-pause"
   XF86AudioPlay
 
-"playerctl next"
+"playerctl -p $DEFAULT_PLAYER_NAME next"
   XF86AudioNext
 
-"playerctl previous"
+"playerctl -p $DEFAULT_PLAYER_NAME previous"
   Alt + F7
 
-"playerctl play-pause"
+"playerctl -p $DEFAULT_PLAYER_NAME play-pause"
   Alt + F8
 
-"playerctl next"
+"playerctl -p $DEFAULT_PLAYER_NAME next"
   Alt + F9
 
-"playerctl volume 0.0"
+"playerctl -p $DEFAULT_PLAYER_NAME volume 0.0"
   Alt + F10
 
-"playerctl volume 0.05-"
+"playerctl -p $DEFAULT_PLAYER_NAME volume 0.05-"
   Alt + F11
 
-"playerctl volume 0.05+"
+"playerctl -p $DEFAULT_PLAYER_NAME volume 0.05+"
   Alt + F12
 
 "$HOME/bin/volume toggle"
