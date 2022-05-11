@@ -43,6 +43,8 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export SYSTEMD_EDITOR=$EDITOR
 export SYSTEMD_PAGER=cat
 
+eval $(ssh-agent -s) > /dev/null
+
 [ -r $HOME/.termcap -a -n "$TERM" ] && . $HOME/.termcap
 [ -r $HOME/.bash_profile.local ] && . $HOME/.bash_profile.local
 [ -r $HOME/.bash_profile.$USER ] && . $HOME/.bash_profile.$USER
