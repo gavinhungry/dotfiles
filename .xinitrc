@@ -19,7 +19,7 @@ ln -s $XDG_DATA_HOME/thumbnails $XDG_CACHE_HOME/thumbnails
 
 (
   xbindkeys
-  sleep 4
+  sleep 5
   killall -u $USER xbindkeys
   xbindkeys
 ) &
