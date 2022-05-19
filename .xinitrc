@@ -17,6 +17,10 @@ ln -s $XDG_DATA_HOME/thumbnails $XDG_CACHE_HOME/thumbnails
 . /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 [ -r $HOME/.xinitrc.local ] && . $HOME/.xinitrc.local
 
+display-day
+one xautolock -corners 000- -cornersize 1 -time 30 -secure -locker /usr/local/bin/lock &
+(sleep 2 && font-touch) &
+
 (
   xbindkeys
   sleep 5
