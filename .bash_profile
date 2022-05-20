@@ -38,6 +38,7 @@ export MANLESS='man $MAN_PN\: page %d/%D, line %l/%L'
 export MANPAGER="less $LESS +Gg"
 export NODE_NO_WARNINGS=1
 export NODE_PATH="$HOME/.local/lib/node_modules"
+export MOZ_USE_XINPUT2=1
 export PAGER=less
 export QT_QPA_PLATFORMTHEME=qt5ct
 export SYSTEMD_EDITOR=$EDITOR
