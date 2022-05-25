@@ -15,6 +15,10 @@
   showSignature = true
 [pager]
   branch = false
+[url "github:"]
+  insteadOf = git@github.com:
+  insteadOf = git+ssh://git@github.com/
+  insteadOf = https://github.com/
 [include]
   path = ~/.gitconfig.local
 [alias]
