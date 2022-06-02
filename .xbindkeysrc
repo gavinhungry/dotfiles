@@ -34,10 +34,10 @@
 "playerctl -p $PLAYER_NAME volume 0.05+"
   Alt + F12
 
-"playerctl -p $PLAYER_NAME position 2-"
+"playerctl -p $PLAYER_NAME position 3-"
   Alt + minus
 
-"playerctl -p $PLAYER_NAME position 2+"
+"playerctl -p $PLAYER_NAME position 3+"
   Alt + equal # plus
 
 "$HOME/bin/volume toggle"
