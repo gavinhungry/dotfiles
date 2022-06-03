@@ -18,6 +18,9 @@
 (add-to-list 'auto-mode-alist '("\\.tmpl$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.eslintrc$" . js-mode))
 
+(require 'yaml-mode) ; emacs-yaml-mode
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
 ; side-by-side ediff
 (custom-set-variables
   '(ediff-split-window-function (quote split-window-horizontally))
