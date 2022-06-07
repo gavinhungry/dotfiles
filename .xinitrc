@@ -5,24 +5,30 @@ export XDG_CURRENT_DESKTOP=XFCE
 . /etc/X11/xinit/xinitrc.d/30-gtk3-nocsd.sh
 . /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
-xhost +si:localuser:root
-xset s off
-xset dpms 3600 3600 3600
-
-xrdb -merge ~/.Xresources
-xset +fp /usr/share/fonts/local
-xset fp rehash
-
 rm -fr $XDG_CACHE_HOME/thumbnails
 ln -s $XDG_DATA_HOME/thumbnails $XDG_CACHE_HOME/thumbnails
 
+xrdb -merge ~/.Xresources
+xhost +si:localuser:root
+xset +fp /usr/share/fonts/local
+xset fp rehash
+xset s off
+xset dpms 3600 3600 3600
 one xautolock -corners 000- -cornersize 1 -time 30 -secure -locker /usr/local/bin/lock &
-(sleep 2 && font-touch) &
 display-day
 
+xbindkeys
+
 (
-  xbindkeys
-  sleep 5
+  until pidof -q xfce4-panel; do
+    sleep 1
+  done
+
+  font-touch
+  emerald --replace &
+
+  sleep 2
+
   killall -u $USER xbindkeys
   xbindkeys
 ) &
