@@ -35,10 +35,10 @@
   Alt + F12
 
 "playerctl -p $PLAYER_NAME position 3-"
-  Alt + minus
+  Alt + bracketleft
 
 "playerctl -p $PLAYER_NAME position 3+"
-  Alt + equal # plus
+  Alt + bracketright
 
 "$HOME/bin/volume toggle"
   XF86AudioMute
