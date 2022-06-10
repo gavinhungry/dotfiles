@@ -18,6 +18,7 @@
 (add-to-list 'auto-mode-alist '("\\.tmpl$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.eslintrc$" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.eql$" . sql-mode))
+(add-to-list 'auto-mode-alist '("\/q$" . sql-mode))
 
 (require 'yaml-mode) ; emacs-yaml-mode
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
