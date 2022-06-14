@@ -25,7 +25,7 @@
 "playerctl -p $PLAYER_NAME next"
   Alt + F9
 
-"playerctl -p $PLAYER_NAME volume 0.0"
+"playerctl-mute-toggle"
   Alt + F10
 
 "playerctl -p $PLAYER_NAME volume 0.05-"
