@@ -24,6 +24,8 @@ xbindkeys
     sleep 1
   done
 
+  sleep 2
+
   font-touch
   emerald --replace &
 
