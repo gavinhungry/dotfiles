@@ -5,11 +5,11 @@ stty -echoctl
 
 # --- ENVIRONMENT --------------------------------------------------------------
 
-PROMPT_COLOR=97 # local
+PROMPT_COLOR='37' # local
 if [ -n "$SSH_TTY" ]; then
   [ -r $HOME/.promptcolor ] && PROMPT_COLOR=$(cat $HOME/.promptcolor) # SSH user
 fi
-[ $(id -u) -eq 0 ] && PROMPT_COLOR=91 # root
+[ $(id -u) -eq 0 ] && PROMPT_COLOR='2;7;31' # root
 
 export PS1='[\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\]: \W]\$ '
 export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/\~}\007"'
