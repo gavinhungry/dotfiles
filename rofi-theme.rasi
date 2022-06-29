@@ -24,12 +24,12 @@ configuration {
 }
 
 * {
-  nord0:  #3E3440;
-  nord1:  #3B4252;
-  nord6:  #FCEFF4;
-  nord7:  #9FAEBB;
+  nord0:  #3E3440; /* selected text */
+  nord1:  #3B4252; /* input background */
+  nord6:  #FCEFF4; /* input text */
+  nord7:  #8F9AAB; /* selected background */
   nord9:  #91A1C1;
-  nord10: #6E81AC;
+  nord10: #7A819C; /* borders */
  
   foreground:  @nord9;
   background-color:  transparent;
@@ -43,11 +43,11 @@ window {
   padding: 10px;
   border: 0px;
   border-radius: 3px;
-  width: 500px;
+  width: 420px;
 
   background-color: @transparent;
   spacing: 0;
-  children:  [mainbox];
+  children: [mainbox];
   orientation: horizontal;
 }
 
