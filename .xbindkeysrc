@@ -55,7 +55,7 @@
 "one catfish"
   XF86Search
 
-"toggle gmrun"
+"toggle rofi-run rofi"
   Hyper_L # caps:hyper
 
 "gnome-system-monitor --show-resources-tab"
