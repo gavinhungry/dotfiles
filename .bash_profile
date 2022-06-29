@@ -42,6 +42,7 @@ export PAGER=less
 export QT_QPA_PLATFORMTHEME=qt5ct
 export SYSTEMD_EDITOR=$EDITOR
 export SYSTEMD_PAGER=cat
+export TERMINAL=roxterm
 
 eval $(ssh-agent -s) > /dev/null
 
