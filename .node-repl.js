@@ -19,8 +19,7 @@ const request = moduleName => {
 
 const _repl = repl.start({
   preview: false,
-  useGlobal: true,
-  ignoreUndefined: true
+  useGlobal: true
 });
 
 const replEval = cmd => _repl.eval(cmd, null, '', Function.prototype);
