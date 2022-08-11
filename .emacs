@@ -25,7 +25,7 @@
 
 ; side-by-side ediff
 (custom-set-variables
-  '(ediff-split-window-function (quote split-window-horizontally))
+  '(ediff-split-window-function 'split-window-horizontally)
 )
 
 ; 'string-prefix-p from emacs 24
@@ -64,6 +64,9 @@
 (setq mouse-wheel-progressive-speed nil)
 (setq mouse-wheel-follow-mouse 't)
 (setq scroll-step 1)
+
+(global-set-key (quote [M-down]) 'scroll-up-line)
+(global-set-key (quote [M-up]) 'scroll-down-line)
 
 ; redo+
 (require 'redo+)
