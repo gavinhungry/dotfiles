@@ -73,10 +73,10 @@
 "thunar $HOME"
   Alt + grave
 
-"xbacklight -dec 2"
+"backlight --down"
   XF86MonBrightnessDown
 
-"xbacklight -inc 2"
+"backlight --up"
   XF86MonBrightnessUp
 
 "display-night"
