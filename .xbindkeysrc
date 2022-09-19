@@ -79,10 +79,10 @@
 "backlight --up"
   XF86MonBrightnessUp
 
-"display-night"
+"display-mode night"
   Control + XF86MonBrightnessDown
 
-"display-day"
+"display-mode day"
   Control + XF86MonBrightnessUp
 
 "one xfce4-appfinder --disable-server"
