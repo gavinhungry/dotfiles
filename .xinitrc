@@ -15,7 +15,7 @@ xset fp rehash
 xset s off
 xset dpms 3600 3600 3600
 one xautolock -corners 000- -cornersize 1 -time 30 -secure -locker /usr/local/bin/lock &
-display-day
+display-mode day
 
 xbindkeys
 
