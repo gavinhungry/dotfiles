@@ -50,6 +50,7 @@ alias bakfiles='updatedb && locate -r "\~$\|#[^/]*#$" | grep -v /node_modules/ |
 alias bd='. bd -s &> /dev/null'
 alias cls='tput reset'
 alias clx='history -c; cls'
+alias dc='cd'
 alias dd='dd status=progress'
 alias ddstat='sudo killall -s USR1 /usr/bin/dd'
 alias df='df -Th'
