@@ -41,6 +41,7 @@
   remotes = "!git remote -v | awk \"{ print \\$1OFS\\$2 }\" | sort -u | column -t"
   show-patch = "!git format-patch -1 $1 --stdout"
   sign = commit --amend --no-edit -S
+  stat = show --stat
   tags = ls-remote --tags --sort='v:refname'
   user = "!sh -c \"if [ $# -ne 1 ]; then echo "$(git config user.name) \\<$(git config user.email)\\>"; exit 0; fi; git config user.email "$(git config gituser.$1.email)" &> /dev/null; git user;\" --" -
   who = shortlog -ns
