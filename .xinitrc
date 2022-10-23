@@ -38,4 +38,5 @@ xbindkeys
 [ -e $HOME/.Xmodmap ] && xmodmap $HOME/.Xmodmap
 [ -e $HOME/.xinitrc.local ] && . $HOME/.xinitrc.local
 
+systemctl --user restart xfce4-session.target
 exec xfce4-session
