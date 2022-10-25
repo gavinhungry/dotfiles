@@ -36,6 +36,14 @@ eman() {
 }
 emi() { emacs --insert <("$@" 2>&1) ;}
 ew() { [ -f "$(which $1)" ] && $EDITOR "$(which $1)" ;}
+f() {
+  DIR=$(
+    fd -t d -H -E .git -E node_modules |\
+    fzf -e --height=20 --keep-right --layout=reverse --prompt 'f> '
+  )
+
+  [ -n "$DIR" ] && cd "$DIR"
+}
 lw() { [ -f "$(which $1)" ] && ls -lh --color "$(which $1)" ;}
 ow() { [ -f "$(which $1)" ] && open "$(which $1)" ;}
 highlight() { grep --color -E "$1|$" "${@:2}" ;}
