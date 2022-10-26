@@ -8,17 +8,31 @@
   (call-interactively 'shell-command)))
 
 ; file modes
-(autoload 'markdown-mode "markdown-mode" t)
-(add-to-list 'interpreter-mode-alist '("node" . js-mode))
-(add-to-list 'auto-mode-alist '("\/\\.bash_profile\\." . sh-mode))
-(add-to-list 'auto-mode-alist '("\/\\.bashrc\\." . sh-mode))
-(add-to-list 'auto-mode-alist '("\/PKGBUILD$" . sh-mode))
-(add-to-list 'auto-mode-alist '("\\.json5$" . js-mode))
-(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.tmpl$" . html-mode))
+(add-to-list 'auto-mode-alist '("/\\.bash_profile\\." . sh-mode))
+(add-to-list 'auto-mode-alist '("/\\.bashrc\\." . sh-mode))
+(add-to-list 'auto-mode-alist '("/PKGBUILD$" . sh-mode))
+
 (add-to-list 'auto-mode-alist '("\\.eslintrc$" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.json5$" . js-mode))
+(add-to-list 'interpreter-mode-alist '("node" . js-mode))
+
+(autoload 'markdown-mode "markdown-mode" t)
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+
+(add-to-list 'auto-mode-alist '("\\.tmpl$" . html-mode))
+
 (add-to-list 'auto-mode-alist '("\\.eql$" . sql-mode))
-(add-to-list 'auto-mode-alist '("\/q$" . sql-mode))
+(add-to-list 'auto-mode-alist '("/q$" . sql-mode))
+
+; file modes - systemd units
+(add-to-list 'auto-mode-alist '("\\.automount$" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.mount$" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.path$" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.service$" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.slice$" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.socket$" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.target$" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.timer$" . conf-mode))
 
 (require 'yaml-mode) ; emacs-yaml-mode
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
