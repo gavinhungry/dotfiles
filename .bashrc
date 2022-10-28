@@ -118,6 +118,7 @@ alias serve='serve -n'
 alias sl='ls'
 alias sshfs='sshfs -o idmap=user'
 alias startx='exec startx'
+alias stopwatch="watch -pt -n0.1 'date +\"%H:%M:%S.%1N\"'"
 alias su='sudo su'
 alias top='htop'
 alias tree='gvfs-tree'
