@@ -52,5 +52,5 @@ eval $(ssh-agent -s) > /dev/null
 [ -r $HOME/.bash_profile.$USER ] && . $HOME/.bash_profile.$USER
 [ -r $HOME/.bashrc -a "$1" != NO_BASHRC ] && . $HOME/.bashrc
 
-[ "$MOTD" != 0 ] && motd
+[ "$MOTD" != 0 -a -n "$SSH_TTY" ] && motd
 [ "$TERM" != screen ] && screen -ls &> /dev/null && screen -ls
