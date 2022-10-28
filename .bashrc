@@ -4,7 +4,11 @@
 stty -echoctl
 
 # --- ENVIRONMENT --------------------------------------------------------------
-export PROMPT_COLOR=$(prompt-color)
+PROMPT_COLOR=$(prompt-color)
+if [ $(id -u) -eq 0 -o -e $HOME/.prompt-color-invert ]; then
+  PROMPT_COLOR=$(prompt-color --invert)
+fi
+
 export PS1='[\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\]: \W]\$ '
 export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/\~}\007"'
 
