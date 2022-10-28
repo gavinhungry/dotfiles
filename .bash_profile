@@ -47,6 +47,8 @@ export WATCH_INTERVAL=1
 
 eval $(ssh-agent -s) > /dev/null
 
+motd
+
 [ -r $HOME/.termcap -a -n "$TERM" ] && . $HOME/.termcap
 [ -r $HOME/.bash_profile.local ] && . $HOME/.bash_profile.local
 [ -r $HOME/.bash_profile.$USER ] && . $HOME/.bash_profile.$USER
