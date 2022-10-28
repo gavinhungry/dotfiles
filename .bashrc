@@ -4,17 +4,7 @@
 stty -echoctl
 
 # --- ENVIRONMENT --------------------------------------------------------------
-
-# local user
-if [ -z "$PROMPT_COLOR" ] || [ -z "$SSH_TTY" -a "$USE_PROMPT_COLOR" != 1 ]; then
-  PROMPT_COLOR=37
-fi
-
-# root
-if [ $(id -u) -eq 0 ]; then
-  ispty && PROMPT_COLOR='2;7;31' || PROMPT_COLOR='41;97'
-fi
-
+export PROMPT_COLOR=$(prompt-color)
 export PS1='[\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\]: \W]\$ '
 export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/\~}\007"'
 
