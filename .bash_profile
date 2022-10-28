@@ -43,6 +43,7 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export SYSTEMD_EDITOR=$EDITOR
 export SYSTEMD_PAGER=cat
 export TERMINAL=roxterm
+export WATCH_INTERVAL=1
 
 eval $(ssh-agent -s) > /dev/null
 
