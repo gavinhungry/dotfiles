@@ -61,6 +61,11 @@
   (set-face-attribute 'linum nil :foreground "gray20")
   (set-face-attribute 'mode-line nil :inverse-video nil :foreground "gray60" :background "gray20")))
 
+; man colors
+(require 'man)
+(set-face-attribute 'Man-overstrike nil :inherit 'bold :foreground "blue")
+(set-face-attribute 'Man-underline nil :inherit 'bold :foreground "green")
+
 ; indentation
 (setq default-tab-width 2)
 (setq tab-width default-tab-width)
