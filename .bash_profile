@@ -55,3 +55,5 @@ eval $(ssh-agent -s) > /dev/null
 [ -r $HOME/.bash_profile.local ] && . $HOME/.bash_profile.local
 [ -r $HOME/.bash_profile.$USER ] && . $HOME/.bash_profile.$USER
 [ -r $HOME/.bashrc -a "$1" != NO_BASHRC ] && . $HOME/.bashrc
+
+:

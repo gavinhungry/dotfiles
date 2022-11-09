@@ -136,3 +136,5 @@ done
 
 [ -r $HOME/.bashrc.local ] && . $HOME/.bashrc.local
 [ -r $HOME/.bashrc.$USER ] && . $HOME/.bashrc.$USER
+
+:
