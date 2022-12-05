@@ -49,6 +49,12 @@
 "$HOME/bin/volume up"
   XF86AudioRaiseVolume
 
+"$HOME/bin/volume down"
+  b:7
+
+"$HOME/bin/volume up"
+  b:6
+
 "amixer -q set Capture capture toggle"
   XF86AudioMicMute
 
