@@ -31,8 +31,14 @@
 "playerctl -p $PLAYER_NAME volume 0.05-"
   Alt + F11
 
+"playerctl -p $PLAYER_NAME volume 0.025-"
+  Alt + b:7
+
 "playerctl -p $PLAYER_NAME volume 0.05+"
   Alt + F12
+
+"playerctl -p $PLAYER_NAME volume 0.025+"
+  Alt + b:6
 
 "playerctl -p $PLAYER_NAME position 3-"
   Alt + minus
@@ -46,11 +52,11 @@
 "$HOME/bin/volume down"
   XF86AudioLowerVolume
 
-"$HOME/bin/volume up"
-  XF86AudioRaiseVolume
-
 "$HOME/bin/volume down"
   b:7
+
+"$HOME/bin/volume up"
+  XF86AudioRaiseVolume
 
 "$HOME/bin/volume up"
   b:6
