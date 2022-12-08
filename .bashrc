@@ -128,6 +128,7 @@ alias wanip='dig +short ch txt whoami.cloudflare @1.1.1.1 | xargs'
 alias watch='watch --color'
 alias webcam='fswebcam --no-banner --resolution 1920x1080'
 alias xpatch='(cd / && patch -p0)'
+alias xterm='xterm -bg black -fg white'
 
 # --- SCRIPTS ------------------------------------------------------------------
 
