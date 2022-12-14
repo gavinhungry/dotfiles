@@ -88,7 +88,7 @@ listview {
   border-radius: 0px 0px 3px 3px;
   border-color: @nord10;
   border: 0px 1px 1px 1px;
-  background-color: rgba(46,52,64,0.9);
+  background-color: rgba(46,52,64,0.95);
   lines: 6;
 }
 
