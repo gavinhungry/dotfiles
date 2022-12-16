@@ -24,17 +24,17 @@ configuration {
 }
 
 * {
-  nord0:  #3E3440; /* selected text */
-  nord1:  #3B4252; /* input background */
-  nord6:  #FCEFF4; /* input text */
-  nord7:  #8F9AAB; /* selected background */
-  nord9:  #91A1C1;
-  nord10: #7A819C; /* borders */
- 
-  foreground:  @nord9;
-  background-color:  transparent;
-  highlight: bold #ECEFF4;
-  transparent: rgba(0, 0, 0, 0);
+  input-bg-color:      rgba(30, 32, 38, 0.94);
+  input-text-color:    #F0F0F0;
+
+  listview-bg-color:   rgba(48, 50, 58, 0.90);
+  listview-text-color: #EAEAEA;
+
+  selected-bg-color:   #7A8390;
+  selected-text-color: #040404;
+
+  transparent:         rgba(0, 0, 0, 0);
+  background-color:    @transparent;
 }
 
 window {
@@ -42,8 +42,8 @@ window {
   anchor: center;
   padding: 10px;
   border: 0px;
-  border-radius: 3px;
-  width: 420px;
+  border-radius: 20px;
+  width: 400px;
 
   background-color: @transparent;
   spacing: 0;
@@ -57,21 +57,17 @@ mainbox {
 }
 
 message {
-  color: @nord0;
+  color: @selected-text-color;
   padding: 5;
-  border-color: @foreground;
   border: 0px 2px 2px 2px;
-  background-color: @nord7;
+  background-color: @selected-bg-color;
 }
 
 inputbar {
-  color: @nord6;
+  color: @input-text-color;
   padding: 11px;
-  background-color: @nord1;
-
-  border: 1px;
+  background-color: @input-bg-color;
   border-radius: 3px 3px 0px 0px;
-  border-color: @nord10;
 }
 
 entry, prompt, case-indicator {
@@ -86,9 +82,7 @@ prompt {
 listview {
   padding: 8px;
   border-radius: 0px 0px 3px 3px;
-  border-color: @nord10;
-  border: 0px 1px 1px 1px;
-  background-color: rgba(46,52,64,0.95);
+  background-color: @listview-bg-color;
   lines: 6;
 }
 
@@ -97,13 +91,12 @@ element {
   vertical-align: 0.5;
   border-radius: 3px;
   background-color: transparent;
-  color: @foreground;
-  text-color: rgb(216, 222, 233);
+  text-color: @listview-text-color;
 }
 
 element selected.normal {
-  background-color: @nord7;
-  text-color: @nord0;
+  background-color: @selected-bg-color;
+  text-color: @selected-text-color;
 }
 
 element-text, element-icon {
@@ -117,14 +110,11 @@ element-text.generic  {
 
 button {
   padding: 6px;
-  color: @foreground;
   horizontal-align: 0.5;
-
   border: 2px 0px 2px 2px;
   border-radius: 4px 0px 0px 4px;
-  border-color: @foreground;  }
+}
 
 button selected normal {
   border: 2px 0px 2px 2px;
-  border-color: @foreground;
 }
