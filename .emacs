@@ -94,7 +94,8 @@
 
 ; misc
 (menu-bar-mode 0)
-(setq inhibit-startup-message t)
+(setq inhibit-startup-screen t)
+(setq initial-scratch-message nil)
 (setq make-backup-files nil)
 (setq auto-save-list-file-name nil)
 (setq auto-save-default nil)
