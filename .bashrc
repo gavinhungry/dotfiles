@@ -32,7 +32,7 @@ emi() { emacs --insert <("$@" 2>&1) ;}
 ew() { [ -f "$(which $1)" ] && $EDITOR "$(which $1)" ;}
 f() {
   DIR=$(
-    fd -t d -H -E .git -E node_modules |\
+    fd -t d -H -E .git -E node_modules . "${1:-.}" |\
     fzf -e --height=20 --keep-right --layout=reverse --prompt 'f> '
   )
 
