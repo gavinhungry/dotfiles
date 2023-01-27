@@ -28,6 +28,9 @@
 "playerctl-mute-toggle"
   Alt + F10
 
+"playerctl-mute-toggle"
+  Alt + b:10
+
 "playerctl -p $PLAYER_NAME volume 0.05-"
   Alt + F11
 
@@ -48,6 +51,9 @@
 
 "$HOME/bin/volume toggle"
   XF86AudioMute
+
+"$HOME/bin/volume toggle"
+  b:10
 
 "$HOME/bin/volume down"
   XF86AudioLowerVolume
