@@ -31,7 +31,7 @@
   edit = !sh -c 'edit $(git ls-files -m)'
   br = !sh -c 'git rev-parse --abbrev-ref HEAD 2> /dev/null' -
   changed = diff-tree --no-commit-id --name-only -r
-  clip = "!git log -n1 --pretty=%B | xclip -selection c"
+  clip = "!git log --no-show-signature -n1 --pretty=%B | xclip -selection c"
   df = !sh -c 'cd "${GIT_PREFIX:-.}" && git diff -U$(wc -l < "$1") "$1"' -
   gr = "!git --no-pager grep"
   melog = "!git log --author=$(git config user.email) $@"
