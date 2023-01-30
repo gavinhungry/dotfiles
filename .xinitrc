@@ -10,32 +10,21 @@ ln -s $XDG_DATA_HOME/thumbnails $XDG_CACHE_HOME/thumbnails
 
 xrdb -merge ~/.Xresources
 xhost +si:localuser:root
+
 xset +fp /usr/share/fonts/local
 xset fp rehash
 xset s off
-xset dpms 3600 3600 3600
-one xautolock -corners 000- -cornersize 1 -time 30 -secure -locker /usr/local/bin/lock &
+xset dpms 3600 3600 0
 display-mode day
+font-touch
+
+one xautolock -corners 000- -cornersize 1 -time 30 -secure -locker /usr/local/bin/lock &
+
+setxkbmap -option caps:hyper
+[ -e $HOME/.Xmodmap ] && xmodmap $HOME/.Xmodmap
 
 xbindkeys
 
-(
-  until pidof -q xfce4-panel; do
-    sleep 1
-  done
-
-  sleep 2
-
-  font-touch
-  emerald --replace &
-
-  sleep 2
-
-  killall -u $USER xbindkeys
-  xbindkeys
-) &
-
-[ -e $HOME/.Xmodmap ] && xmodmap $HOME/.Xmodmap
 [ -e $HOME/.xinitrc.local ] && . $HOME/.xinitrc.local
 
 systemctl --user restart xfce4-session.target
