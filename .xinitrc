@@ -16,7 +16,6 @@ xset fp rehash
 xset s off
 xset dpms 3600 3600 0
 display-mode day
-font-touch
 
 one xautolock -corners 000- -cornersize 1 -time 30 -secure -locker /usr/local/bin/lock &
 
@@ -24,6 +23,13 @@ setxkbmap -option caps:hyper
 [ -e $HOME/.Xmodmap ] && xmodmap $HOME/.Xmodmap
 
 xbindkeys
+
+(
+  until pidof -q xfce4-panel; do sleep 1; done
+
+  font-touch
+  emerald --replace &
+) &
 
 [ -e $HOME/.xinitrc.local ] && . $HOME/.xinitrc.local
 
