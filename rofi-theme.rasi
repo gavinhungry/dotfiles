@@ -11,7 +11,7 @@
  */
 
 configuration {
-  font: "Terminus 9";
+  font: "JetBrains Mono 9";
   width: 30;
   line-margin: 10;
 
