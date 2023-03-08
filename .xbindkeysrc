@@ -7,13 +7,16 @@
 "$HOME/bin/shot --region"
   Alt + Print
 
-"playerctl -p $PLAYER_NAME previous"
+"rhythmbox-client --no-start --previous"
   XF86AudioPrev
 
-"playerctl -p $PLAYER_NAME play-pause"
+"rhythmbox-client --no-start --play-pause"
   XF86AudioPlay
 
-"playerctl -p $PLAYER_NAME next"
+"rhythmbox-client --no-start --stop"
+  Control + XF86AudioPlay
+
+"rhythmbox-client --no-start --next"
   XF86AudioNext
 
 "playerctl -p $PLAYER_NAME previous"
