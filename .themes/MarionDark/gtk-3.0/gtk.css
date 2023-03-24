@@ -68,12 +68,12 @@ scrolledwindow overshoot.right {
   text-shadow: none;
 }
 
-.xfce4-panel button:active {
-  background: #383838;
-}
-
 .xfce4-panel button:hover:not(:checked):not(:active) {
   background: #444444;
+}
+
+.xfce4-panel button:active {
+  background: #383838;
 }
 
 .xfce4-panel button label:first-child {
@@ -88,6 +88,7 @@ scrolledwindow overshoot.right {
 .xfce4-panel .tasklist button {
   background: none;
   margin-right: 0;
+  box-shadow: none;
 }
 
 .xfce4-panel .tasklist button:hover:not(:checked) {
@@ -96,8 +97,7 @@ scrolledwindow overshoot.right {
 
 .xfce4-panel .tasklist button:checked {
   color: white;
-  background: #505050;
-  box-shadow: none;
+  background: #444444;
 }
 
 spinbutton:not(.vertical), entry,
