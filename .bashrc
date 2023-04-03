@@ -25,8 +25,13 @@ dm() { findmnt -no SOURCE,TARGET,FSTYPE,OPTIONS -T ${1:-.} | column -t ;}
 eman() {
   if [ -z "$*" ]; then man; return; fi
   man -w $* > /dev/null && \
-  emacs --eval "(progn (man \"$*\") (kill-buffer-and-window) \
-                (run-with-idle-timer 0 nil 'linum-mode 0))"
+  emacs --eval "
+    (progn
+      (man \"$*\")
+      (delete-window)
+      (local-set-key \"q\" 'save-buffers-kill-emacs)
+      (local-set-key \"/\" 'isearch-forward)
+      (run-with-idle-timer 0 nil 'linum-mode 0))"
 }
 emi() { emacs --insert <("$@" 2>&1) ;}
 ew() { [ -f "$(which $1)" ] && $EDITOR "$(which $1)" ;}
