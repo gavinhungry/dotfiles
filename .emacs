@@ -54,6 +54,10 @@
   (concat "%" (number-to-string w) "d ")) line) 'face 'linum)))
 (global-set-key (kbd "C-x :") 'goto-line)
 
+; search colors
+(set-face-attribute 'isearch nil :background "cyan" :foreground "white")
+(set-face-attribute 'lazy-highlight nil :background "blue" :foreground "white")
+
 ; terminal colors
 (set-face-foreground 'font-lock-comment-face "red")
 (setq term (getenv "TERM"))
