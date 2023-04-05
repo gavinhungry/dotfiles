@@ -6,5 +6,5 @@ termcapinfo screen*|xterm* 'ti@:te@:hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
 hardstatus string "[%n%?: %t%?] %h"
 hardstatus off
 
-bind ^l chacl * -w 0
-bind ^u chacl * +w 0
+bind ^l aclchg * -w '#'
+bind ^u aclchg * +w '#'
