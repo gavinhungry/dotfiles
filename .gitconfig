@@ -12,6 +12,7 @@
   default = simple
 [log]
   date = iso-local
+  follow = true
   showSignature = true
 [pager]
   branch = false
