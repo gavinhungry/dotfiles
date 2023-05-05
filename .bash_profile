@@ -18,7 +18,6 @@ fi
 export PATH=$HOME/bin/local:$HOME/bin:$HOME/.local/bin${PATH:+:${PATH#:}}
 
 export __GL_SHADER_DISK_CACHE_PATH=$XDG_CACHE_HOME/gl-shader-cache
-export ALSA_CARD_ID=$(asound-id ${ALSA_CARD:-PCH})
 export BC_ENV_ARGS=$HOME/.bcrc
 export BROWSER=firefox
 export COMP_KNOWN_HOSTS_WITH_HOSTFILE=
