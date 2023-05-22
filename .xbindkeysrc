@@ -7,6 +7,18 @@
 "$HOME/bin/shot --region"
   Alt + Print
 
+"$HOME/bin/volume toggle"
+  XF86AudioMute
+
+"$HOME/bin/volume down"
+  XF86AudioLowerVolume
+
+"$HOME/bin/volume up"
+  XF86AudioRaiseVolume
+
+"amixer -q set Capture capture toggle"
+  XF86AudioMicMute
+
 "rhythmbox-client --no-start --previous"
   XF86AudioPrev
 
@@ -19,6 +31,21 @@
 "rhythmbox-client --no-start --next"
   XF86AudioNext
 
+"playerctl-mute-toggle"
+  Alt + F10
+
+"playerctl -p $PLAYER_NAME volume 0.05-"
+  Alt + XF86AudioLowerVolume
+
+"playerctl -p $PLAYER_NAME volume 0.05-"
+  Alt + F11
+
+"playerctl -p $PLAYER_NAME volume 0.05+"
+  Alt + XF86AudioRaiseVolume
+
+"playerctl -p $PLAYER_NAME volume 0.05+"
+  Alt + F12
+
 "playerctl -p $PLAYER_NAME previous"
   Alt + F7
 
@@ -28,50 +55,11 @@
 "playerctl -p $PLAYER_NAME next"
   Alt + F9
 
-"playerctl-mute-toggle"
-  Alt + F10
-
-"playerctl-mute-toggle"
-  Alt + b:10
-
-"playerctl -p $PLAYER_NAME volume 0.05-"
-  Alt + F11
-
-"playerctl -p $PLAYER_NAME volume 0.025-"
-  Alt + b:7
-
-"playerctl -p $PLAYER_NAME volume 0.05+"
-  Alt + F12
-
-"playerctl -p $PLAYER_NAME volume 0.025+"
-  Alt + b:6
-
 "playerctl -p $PLAYER_NAME position 3-"
   Alt + minus
 
 "playerctl -p $PLAYER_NAME position 3+"
   Alt + equal # plus
-
-"$HOME/bin/volume toggle"
-  XF86AudioMute
-
-"$HOME/bin/volume toggle"
-  b:10
-
-"$HOME/bin/volume down"
-  XF86AudioLowerVolume
-
-"$HOME/bin/volume down"
-  b:7
-
-"$HOME/bin/volume up"
-  XF86AudioRaiseVolume
-
-"$HOME/bin/volume up"
-  b:6
-
-"amixer -q set Capture capture toggle"
-  XF86AudioMicMute
 
 "one catfish"
   XF86Search
