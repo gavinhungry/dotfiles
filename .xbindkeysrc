@@ -32,6 +32,9 @@
   XF86AudioNext
 
 "playerctl-mute-toggle"
+  Alt + XF86AudioMute
+
+"playerctl-mute-toggle"
   Alt + F10
 
 "playerctl -p $PLAYER_NAME volume 0.05-"
