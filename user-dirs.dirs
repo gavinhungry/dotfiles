@@ -1,5 +1,6 @@
 XDG_CACHE_HOME="/home/gavin/.cache"
 XDG_CONFIG_HOME="/home/gavin/.config"
+XDG_LOCAL_HOME="/home/gavin/.local"
 XDG_DATA_HOME="/home/gavin/.local/share"
 XDG_DESKTOP_DIR="/home/gavin"
 XDG_DOCUMENTS_DIR="/home/gavin/Library/Documents"
