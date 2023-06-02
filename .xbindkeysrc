@@ -31,37 +31,37 @@
 "rhythmbox-client --no-start --next"
   XF86AudioNext
 
-"playerctl-mute-toggle"
-  Alt + XF86AudioMute
+"playerctl -p $CASTCTL_PLAYER_NAME previous"
+  Alt + F7
+
+"playerctl -p $CASTCTL_PLAYER_NAME play-pause"
+  Alt + F8
+
+"playerctl -p $CASTCTL_PLAYER_NAME next"
+  Alt + F9
 
 "playerctl-mute-toggle"
   Alt + F10
 
-"playerctl -p $PLAYER_NAME volume 0.05-"
-  Alt + XF86AudioLowerVolume
-
-"playerctl -p $PLAYER_NAME volume 0.05-"
+"playerctl -p $CASTCTL_PLAYER_NAME volume 0.05-"
   Alt + F11
 
-"playerctl -p $PLAYER_NAME volume 0.05+"
-  Alt + XF86AudioRaiseVolume
-
-"playerctl -p $PLAYER_NAME volume 0.05+"
+"playerctl -p $CASTCTL_PLAYER_NAME volume 0.05+"
   Alt + F12
 
-"playerctl -p $PLAYER_NAME previous"
-  Alt + F7
+"playerctl-mute-toggle"
+  Alt + XF86AudioMute
 
-"playerctl -p $PLAYER_NAME play-pause"
-  Alt + F8
+"playerctl -p $CASTCTL_PLAYER_NAME volume 0.05-"
+  Alt + XF86AudioLowerVolume
 
-"playerctl -p $PLAYER_NAME next"
-  Alt + F9
+"playerctl -p $CASTCTL_PLAYER_NAME volume 0.05+"
+  Alt + XF86AudioRaiseVolume
 
-"playerctl -p $PLAYER_NAME position 3-"
+"playerctl -p $CASTCTL_PLAYER_NAME position 3-"
   Alt + minus
 
-"playerctl -p $PLAYER_NAME position 3+"
+"playerctl -p $CASTCTL_PLAYER_NAME position 3+"
   Alt + equal # plus
 
 "one catfish"
