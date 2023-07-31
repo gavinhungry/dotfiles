@@ -48,6 +48,7 @@
   (eq t (compare-strings str1 nil nil str2 0 (length str1) ignore-case))))
 
 ; linum
+(require 'linum)
 (global-linum-mode t)
 (setq linum-format (lambda (line)
   (propertize (format (let ((w (length (number-to-string (count-lines (point-min) (point-max))))))
