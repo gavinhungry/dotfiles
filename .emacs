@@ -2,11 +2,6 @@
 
 (add-to-list 'load-path "~/.emacs.d/lib")
 
-(global-set-key (kbd "C-x @")
-  (lambda () (interactive)
-  (setq current-prefix-arg '(4)) ; C-u
-  (call-interactively 'shell-command)))
-
 ; file modes
 (add-to-list 'auto-mode-alist '("/\\.bash_profile\\." . sh-mode))
 (add-to-list 'auto-mode-alist '("/\\.bashrc\\." . sh-mode))
@@ -50,10 +45,10 @@
 ; linum
 (require 'linum)
 (global-linum-mode t)
+(global-set-key (kbd "C-x C-a") 'linum-mode)
 (setq linum-format (lambda (line)
   (propertize (format (let ((w (length (number-to-string (count-lines (point-min) (point-max))))))
   (concat "%" (number-to-string w) "d ")) line) 'face 'linum)))
-(global-set-key (kbd "C-x :") 'goto-line)
 
 ; search colors
 (set-face-attribute 'isearch nil :background "cyan" :foreground "white")
@@ -80,9 +75,6 @@
 (setq sh-basic-offset tab-width sh-indentation tab-width)
 (setq js-indent-level tab-width)
 
-(global-set-key (kbd "C-x C-a") 'linum-mode)
-(global-set-key (kbd "C-x C-t") 'delete-trailing-whitespace)
-
 ; scrolling
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 (setq mouse-wheel-progressive-speed nil)
@@ -96,6 +88,14 @@
 (require 'redo+)
 (global-set-key "\C-\\" 'redo)
 (global-set-key (kbd "C-x C-\\") 'toggle-input-method) ; remapped from C-\
+
+; keys
+(global-set-key (kbd "C-x C-t") 'delete-trailing-whitespace)
+(global-set-key (kbd "C-x :") 'goto-line)
+(global-set-key (kbd "C-x @")
+  (lambda () (interactive)
+  (setq current-prefix-arg '(4)) ; C-u
+  (call-interactively 'shell-command)))
 
 ; misc
 (menu-bar-mode 0)
