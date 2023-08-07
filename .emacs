@@ -32,6 +32,14 @@
 (require 'yaml-mode) ; emacs-yaml-mode
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
+; line numbers
+(global-display-line-numbers-mode)
+(global-set-key (kbd "C-x C-a") 'display-line-numbers-mode)
+
+(defun display-line-numbers-update ()
+  (setq display-line-numbers-width (length (number-to-string (count-lines (point-min) (point-max))))))
+(add-hook 'post-command-hook 'display-line-numbers-update)
+
 ; side-by-side ediff
 (custom-set-variables
   '(ediff-split-window-function 'split-window-horizontally)
@@ -42,14 +50,6 @@
   (defun string-prefix-p (str1 str2 &optional ignore-case)
   (eq t (compare-strings str1 nil nil str2 0 (length str1) ignore-case))))
 
-; linum
-(require 'linum)
-(global-linum-mode t)
-(global-set-key (kbd "C-x C-a") 'linum-mode)
-(setq linum-format (lambda (line)
-  (propertize (format (let ((w (length (number-to-string (count-lines (point-min) (point-max))))))
-  (concat "%" (number-to-string w) "d ")) line) 'face 'linum)))
-
 ; search colors
 (set-face-attribute 'isearch nil :background "cyan" :foreground "white")
 (set-face-attribute 'lazy-highlight nil :background "blue" :foreground "white")
@@ -58,7 +58,7 @@
 (set-face-foreground 'font-lock-comment-face "red")
 (setq term (getenv "TERM"))
 (if (or (string-prefix-p "xterm" term) (string-equal "screen" term)) (progn
-  (set-face-attribute 'linum nil :foreground "gray20")
+  (set-face-attribute 'line-number nil :foreground "gray20")
   (set-face-attribute 'mode-line nil :inverse-video nil :foreground "gray60" :background "gray20")))
 
 ; man colors
