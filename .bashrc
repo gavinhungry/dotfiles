@@ -31,8 +31,7 @@ ew() { [ -f "$(which $1)" ] && $EDITOR "$(which $1)" ;}
 f() {
   DIR=$(
     fd -t d -H -E .git -E node_modules . "${1:-.}" |\
-    fzf -e --height=16 --keep-right --layout=reverse \
-    --color=hl:cyan,hl+:bright-cyan:bold --prompt 'f> '
+    fzf -e --height=16 --keep-right --layout=reverse --prompt 'f> '
   )
 
   [ -n "$DIR" ] && cd "$DIR"
