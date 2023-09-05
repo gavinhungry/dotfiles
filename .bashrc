@@ -16,7 +16,7 @@ if [ $(id -u) -eq 0 -o -e $HOME/.prompt-color-invert ]; then
 fi
 
 unset PROMPT_COMMAND
-export PS1='[\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\] \W]\$ '
+export PS1='[${PROMPT_TITLE}\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\] \W]\$ '
 PS1+='\[\e]2;${WINDOW_TITLE}\u@${HOSTNAME}: ${PWD/$HOME/\~}\a\]'
 
 # --- FUNCTIONS ----------------------------------------------------------------
@@ -40,10 +40,22 @@ lw() { [ -f "$(which $1)" ] && ls -lh --color "$(which $1)" ;}
 ow() { [ -f "$(which $1)" ] && open "$(which $1)" ;}
 highlight() { grep --color -E "$1|$" "${@:2}" ;}
 term() { exo-open --launch TerminalEmulator ${1:-.} ;}
-title() {
-  local SEP=$([ -n "$STY" ] && echo '--' || echo -e '\u2014')
-  [ ${#@} -gt 0 ] && WINDOW_TITLE="$@ $SEP " || unset WINDOW_TITLE
+t() {
+  if [ ${#@} == 0 ]; then
+    unset WINDOW_TITLE PROMPT_TITLE
+    return
+  fi
+
+  local DASH='--'
+  local EMDASH=$(echo -e '\u2014')
+  [ ! -n "$STY" ] && DASH=$EMDASH
+
+  PROMPT_TITLE="$@ $EMDASH "
+  WINDOW_TITLE="$@ $DASH "
 }
+
+[ -n "$INIT_TITLE" ] && t "$INIT_TITLE"
+unset INIT_TITLE
 
 # --- ALIASES ------------------------------------------------------------------
 
