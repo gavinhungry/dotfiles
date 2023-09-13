@@ -58,6 +58,7 @@ unset TERM_TITLE
 
 alias -- -='cd - > /dev/null'
 alias ..='cd ..'
+alias ,='open .'
 alias acme.sh='sudo acme.sh --home /etc/ssl/acme.sh'
 alias alsamixer='alsamixer --view=all'
 alias bakfiles='updatedb && locate -r "\~$\|#[^/]*#$" | grep -v /node_modules/ | esc'
