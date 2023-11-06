@@ -36,6 +36,11 @@ f() {
 
   [ -n "$DIR" ] && cd "$DIR"
 }
+lh() {
+  [ -e .hidden ] || return
+  local HIDDEN="$(cat .hidden 2> /dev/null | xargs ls -d 2> /dev/null)";
+  [ "${#HIDDEN}" -gt 0 ] && $(aliased ls) -d $HIDDEN
+}
 lw() { [ -f "$(which $1)" ] && ls -lh --color "$(which $1)" ;}
 ow() { [ -f "$(which $1)" ] && open "$(which $1)" ;}
 highlight() { grep --color -E "$1|$" "${@:2}" ;}
@@ -96,7 +101,6 @@ alias jc='journalctl'
 alias journalctl='journalctl -aq'
 alias kurl='curl --ntlm --negotiate -u :'
 alias la='ls -a --ignore=[^.]*'
-alias lh='[ -e .hidden ] && ls -d $(cat .hidden | xargs ls -d 2> /dev/null)'
 alias lo='losetup --show --find --partscan'
 alias load='\uptime | awk -F'\'': '\'' '\''{print $NF}'\'''
 alias ls='ls -lh --color --group-directories-first'
