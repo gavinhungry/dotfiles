@@ -88,6 +88,9 @@
 "thunar $HOME"
   Alt + grave
 
+"next-window"
+  Alt + Tab
+
 "backlight --down"
   XF86MonBrightnessDown
 
