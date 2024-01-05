@@ -33,6 +33,7 @@ export HOSTNAME=$(echo ${HOSTNAME%%.*} | tr '[A-Z]' '[a-z]')
 export LD_LIBRARY_PATH=/usr/local/lib
 export LESS='-SRic --tilde --shift 1 -z16'
 export LESSHISTFILE=-
+export LS_ARGS='-lh --color --group-directories-first'
 export MANLESS='man $MAN_PN\: page %d/%D, line %l/%L'
 export MANPAGER="less $LESS +Gg"
 export NEOFETCH_PREFER_GTK2_RC=1

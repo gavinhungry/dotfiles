@@ -19,6 +19,9 @@ unset PROMPT_COMMAND
 export PS1='[\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\] \W]\$ '
 PS1+='\[\e]2;${_TERM_TITLE}\u@${HOSTNAME}: ${PWD/$HOME/\~}\a\]'
 
+[ -n "$TERM_TITLE" ] && t "$TERM_TITLE"
+unset TERM_TITLE
+
 # --- FUNCTIONS ----------------------------------------------------------------
 
 aliased() { alias $1 | cut -d= -f2- | sed -r "s/(^'|'$)//g" ;}
@@ -51,8 +54,31 @@ t() {
   _TERM_TITLE="$@ $DASH "
 }
 
-[ -n "$TERM_TITLE" ] && t "$TERM_TITLE"
-unset TERM_TITLE
+_hidden() {
+  local DIRS=()
+  for ARG in "$@"; do
+    [ -d "$ARG" ] && DIRS+=("$ARG")
+  done
+
+  [ ${#DIRS[@]} -gt 1 ] && return
+  local DIR=${DIRS[0]:-${PWD}}
+
+  [ -e "$DIR"/.hidden ] || return
+  (cd $DIR && esc .hidden | xargs /usr/bin/ls -d 2> /dev/null | uniq)
+}
+_ls() {
+  local CMD='/usr/bin/ls $LS_ARGS "$@" '
+  while read -r HIDE; do
+    CMD+="--hide '$HIDE' "
+  done <<<$(_hidden "$@" | esc)
+  eval $CMD
+}
+_la() {
+  local CMD='/usr/bin/ls $LS_ARGS -d '
+  [ $(ls -d .* 2> /dev/null | wc -l) -ge 1 ] && CMD+='.* '
+  CMD+=$(_hidden | esc)
+  eval $CMD
+}
 
 # --- ALIASES ------------------------------------------------------------------
 
@@ -77,7 +103,6 @@ alias du='du -h -d1'
 alias edid='sudo get-edid | edid-decode'
 alias em='emacs'
 alias entropy='cat /proc/sys/kernel/random/entropy_avail'
-alias esc='xargs -I {} sh -c '\''printf %q "{}" && echo'\'''
 alias exifstrip='exiftool -all='
 alias ffmpeg='ffpb'
 alias fmount='fusermount'
@@ -95,10 +120,10 @@ alias iowatch='S_COLORS=always watch -n0 $(aliased iodev)'
 alias jc='journalctl'
 alias journalctl='journalctl -aq'
 alias kurl='curl --ntlm --negotiate -u :'
-alias la='ls -d .* $([ -e .hidden ] && (cat .hidden | xargs ls -d 2> /dev/null))'
 alias lo='losetup --show --find --partscan'
 alias load='\uptime | awk -F'\'': '\'' '\''{print $NF}'\'''
-alias ls='ls -lh --color --group-directories-first'
+alias ls='_ls'
+alias la='_la'
 alias lspci='lspci -nn'
 alias lspkg='for PKG in */; do \ls ${PKG%/}/${PKG%/}-+([0-9])*.pkg.* 2> /dev/null; done'
 alias lx='stat -c "%A %a %n"'
