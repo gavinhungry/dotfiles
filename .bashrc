@@ -25,7 +25,7 @@ unset TERM_TITLE
 # --- FUNCTIONS ----------------------------------------------------------------
 
 aliased() { alias $1 | cut -d= -f2- | sed -r "s/(^'|'$)//g" ;}
-cmd() { compgen -c | sort | grep --color "${1:-$^}" ;}
+cmds() { compgen -c | sort | grep --color "${1:-$^}" ;}
 cw() { [ -f "$(type -p $1)" ] && cat "$(type -p $1)" || type "$1" 2> /dev/null ;}
 dif() { diff --color=always "$@" | less ;}
 dm() { findmnt -no SOURCE,TARGET,FSTYPE,OPTIONS -T ${1:-.} | column -t ;}
@@ -140,7 +140,7 @@ alias pidcomm='ps -o comm= -p'
 alias piduser='ps -o uname= -p'
 alias ping6='\ping -6'
 alias ping='ping -4'
-alias psof='ps --no-headers -o user,pid,cmd -C'
+alias psof='ps --no-headers -o user,pid,cmds -C'
 alias sc='systemctl'
 alias scenabled='sc list-unit-files --state=enabled'
 alias scfail='sc list-units --state=failed'
