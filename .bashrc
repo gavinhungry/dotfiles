@@ -43,6 +43,7 @@ lw() { [ -f "$(which $1)" ] && ls -lh --color "$(which $1)" ;}
 ow() { [ -f "$(which $1)" ] && open "$(which $1)" ;}
 highlight() { grep --color -E "$1|$" "${@:2}" ;}
 term() { exo-open --launch TerminalEmulator ${1:-.} ;}
+timer() { nohup timer "$@" > /dev/null 2>&1 & }
 t() {
   if [ ${#@} == 0 ]; then
     unset _TERM_TITLE
