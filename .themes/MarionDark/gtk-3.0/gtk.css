@@ -107,6 +107,17 @@ scrolledwindow overshoot.right {
   background: #000;
 }
 
+notebook > header > tabs > tab {
+  padding: 0 1em;
+  font-weight: 600;
+  box-shadow: none;
+  border: none;
+}
+
+notebook > header > tabs > tab:hover {
+  background: rgba(56, 56, 56, 0.7);
+}
+
 spinbutton:not(.vertical), entry,
 spinbutton:backdrop:not(.vertical), entry:backdrop,
 button.titlebutton, notebook > header > tabs > arrow, button,
