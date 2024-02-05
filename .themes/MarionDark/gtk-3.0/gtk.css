@@ -10,6 +10,11 @@
   outline-style: none;
 }
 
+.dialog-vbox .dialog-action-box,
+dialog > box > buttonbox:last-child {
+  margin: 0 8px 8px;
+}
+
 treeview.view {
   background-color: #2D2D2D;
 }
