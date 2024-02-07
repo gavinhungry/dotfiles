@@ -7,6 +7,9 @@
 "$HOME/bin/shot --window"
   Mod4 + Print
 
+"$HOME/bin/shot --borderless-window"
+  Control + Mod4 + Print
+
 "$HOME/bin/shot --region"
   Alt + Print
 
