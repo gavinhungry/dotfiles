@@ -11,13 +11,13 @@ export GPG_TTY=$(tty)
 # --- PROMPT--------------------------------------------------------------------
 
 PROMPT_COLOR=$(prompt-color)
-if [ $(id -u) -eq 0 -o -e $HOME/.prompt-color-invert ]; then
+if [ -e $HOME/.prompt-color-invert ]; then
   PROMPT_COLOR=$(prompt-color --invert)
 fi
 
 unset PROMPT_COMMAND
-export PS1='[\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\] \W]\$ '
-PS1+='\[\e]2;${_TERM_TITLE}\u@${HOSTNAME}: ${PWD/$HOME/\~}\a\]'
+export PS1='\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\] \W \$ '
+PS1+='\[\e]2;${_TERM_TITLE}\u@${HOSTNAME} ${PWD/$HOME/\~}\a\]'
 
 [ -n "$TERM_TITLE" ] && t "$TERM_TITLE"
 unset TERM_TITLE
