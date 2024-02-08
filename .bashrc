@@ -15,9 +15,11 @@ if [ -e $HOME/.prompt-color-invert ]; then
   PROMPT_COLOR=$(prompt-color --invert)
 fi
 
+[ ! -n "$STY" ] && _DASH=$(echo $'\u2014') || _DASH='--'
+
 unset PROMPT_COMMAND
 export PS1='\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\] \W \$ '
-PS1+='\[\e]2;${_TERM_TITLE}\u@${HOSTNAME} ${PWD/$HOME/\~}\a\]'
+PS1+='\[\e]2;${_TERM_TITLE}\u@${HOSTNAME}  $_DASH  $(basename $PWD)\a\]'
 
 [ -n "$TERM_TITLE" ] && t "$TERM_TITLE"
 unset TERM_TITLE
@@ -50,9 +52,7 @@ t() {
     return
   fi
 
-  local DASH='--'
-  [ ! -n "$STY" ] && DASH=$(echo -e '\u2014')
-  _TERM_TITLE="$@ $DASH "
+  _TERM_TITLE="$@  $_DASH  "
 }
 
 _hidden() {
