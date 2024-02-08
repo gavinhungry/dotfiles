@@ -15,7 +15,8 @@ if [ -e $HOME/.prompt-color-invert ]; then
   PROMPT_COLOR=$(prompt-color --invert)
 fi
 
-[ ! -n "$STY" ] && _DASH=$(echo $'\u2014') || _DASH='--'
+_DASH=$(echo $'\u2014')
+[ -n "$STY" -o "$TERM" == 'screen' ] && _DASH='--'
 
 unset PROMPT_COMMAND
 export PS1='\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\] \W \$ '
