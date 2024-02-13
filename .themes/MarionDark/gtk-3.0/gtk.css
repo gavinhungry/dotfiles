@@ -70,11 +70,12 @@ notebook > header > tabs > tab {
 }
 
 notebook > header > tabs > tab:hover {
-  background: rgba(56, 56, 56, 0.7);
+  background: rgba(56, 56, 56, 0.5);
 }
 
 .roxterm notebook > header {
-  border-color: transparent
+  border-color: transparent;
+  background: #1A1A1A;
 }
 
 .roxterm notebook > header > tabs {
@@ -87,7 +88,7 @@ notebook > header > tabs > tab:hover {
 }
 
 .xfce4-panel {
-  background: #222222; /* optionally match Emerald theme for active frame */
+  background: #202020; /* optionally match Emerald theme for active frame */
 }
 
 .xfce4-panel button {
