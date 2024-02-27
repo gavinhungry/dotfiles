@@ -100,23 +100,11 @@ notebook > header > tabs > tab:hover {
   margin-right: 1px;
   border-radius: 0px;
   text-shadow: none;
-}
-
-.xfce4-panel button:hover:not(:checked):not(:active) {
-  background: rgba(128, 128, 128, 0.25);
-}
-
-.xfce4-panel button:active {
-  background: rgba(128, 128, 128, 0.4);
+  box-shadow: none;
 }
 
 .xfce4-panel button label:first-child {
   padding: 0 4px;
-}
-
-.xfce4-panel button.flat:checked {
-  box-shadow: none;
-  background: rgba(24, 24, 24, 0.85);
 }
 
 .xfce4-panel .tasklist button {
@@ -125,12 +113,21 @@ notebook > header > tabs > tab:hover {
   box-shadow: none;
 }
 
+/* button hover */
+.xfce4-panel button:hover:not(:checked):not(:active),
 .xfce4-panel .tasklist button:hover:not(:checked) {
-  background: rgba(56, 56, 56, 0.7);
+  background: rgba(96, 96, 96, 0.5);
 }
 
+/* button selected/active */
+.xfce4-panel button:active,
 .xfce4-panel .tasklist button:checked {
-  background: rgba(72, 72, 72, 0.7);
+  background: rgba(96, 96, 96, 0.7);
+}
+
+/* button menu open */
+.xfce4-panel button.flat:checked {
+  background: rgba(12, 12, 12, 0.85);
 }
 
 .xfce4-panel wnck-pager {
