@@ -20,10 +20,10 @@ fi
 _DASH=$(echo $'\u2014')
 [ -n "$STY" -o "$TERM" == 'screen' ] && _DASH='--'
 
-_pwdstr() { [ "$PWD" != "$HOME" ] && echo "  $_DASH  ${PWD##*/}" ;}
+_pwdstr() { [ "$PWD" != "$HOME" ] && echo "${PWD##*/}  $_DASH  " ;}
 
 export PS1='\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\] \W \$ '
-PS1+='\[\e]2;${_TERM_TITLE}\u@${HOSTNAME}$(_pwdstr)\a\]'
+PS1+='\[\e]2;${_TERM_TITLE}$(_pwdstr)\u@${HOSTNAME}\a\]'
 
 [ -n "$TERM_TITLE" ] && t "$TERM_TITLE"
 unset TERM_TITLE
