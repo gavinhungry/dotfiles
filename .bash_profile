@@ -45,6 +45,7 @@ export SYSTEMD_EDITOR=$EDITOR
 export SYSTEMD_PAGER=cat
 export TERMINAL=roxterm
 export WATCH_INTERVAL=1
+export XCURSOR_THEME='Vanilla-DMZ'
 
 eval $(ssh-agent -s) > /dev/null
 
