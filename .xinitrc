@@ -19,7 +19,6 @@ display-mode day
 
 one xautolock -corners 000- -cornersize 1 -time 30 -secure -locker /usr/local/bin/lock &
 
-setxkbmap -option caps:hyper
 [ -e $HOME/.Xmodmap ] && xmodmap $HOME/.Xmodmap
 
 xbindkeys

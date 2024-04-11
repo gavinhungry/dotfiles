@@ -38,8 +38,8 @@ configuration {
 }
 
 window {
-  location: center;
-  anchor: center;
+  location: northeast;
+  anchor: northeast;
   padding: 10px;
   border: 0px;
   border-radius: 20px;

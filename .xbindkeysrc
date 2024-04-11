@@ -74,7 +74,7 @@
   XF86Search
 
 "toggle rofi-run rofi"
-  Hyper_L # caps:hyper
+  Pause
 
 "gnome-system-monitor --show-resources-tab"
   Control + Shift + Escape
