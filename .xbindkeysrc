@@ -25,49 +25,49 @@
 "amixer -q set Capture capture toggle"
   XF86AudioMicMute
 
-"playerctl -i $CASTCTL_PLAYER_NAME play-pause"
+"playerctl -i $CASTCTL_PLAYER play-pause"
   XF86AudioPlay
 
-"playerctl -i $CASTCTL_PLAYER_NAME stop"
+"playerctl -i $CASTCTL_PLAYER stop"
   Control + XF86AudioPlay
 
-"playerctl -i $CASTCTL_PLAYER_NAME previous"
+"playerctl -i $CASTCTL_PLAYER previous"
   XF86AudioPrev
 
-"playerctl -i $CASTCTL_PLAYER_NAME next"
+"playerctl -i $CASTCTL_PLAYER next"
   XF86AudioNext
 
-"playerctl -p $CASTCTL_PLAYER_NAME previous"
+"playerctl-castctl previous"
   Alt + F7
 
-"playerctl -p $CASTCTL_PLAYER_NAME play-pause"
+"playerctl-castctl play-pause"
   Alt + F8
 
-"playerctl -p $CASTCTL_PLAYER_NAME next"
+"playerctl-castctl next"
   Alt + F9
 
-"cast-mute-toggle"
+"castctl-mute-toggle"
   Alt + F10
 
-"playerctl -p $CASTCTL_PLAYER_NAME volume 0.05-"
+"playerctl-castctl volume 0.05-"
   Alt + F11
 
-"playerctl -p $CASTCTL_PLAYER_NAME volume 0.05+"
+"playerctl-castctl volume 0.05+"
   Alt + F12
 
-"cast-mute-toggle"
+"castctl-mute-toggle"
   Alt + XF86AudioMute
 
-"playerctl -p $CASTCTL_PLAYER_NAME volume 0.05-"
+"playerctl-castctl volume 0.05-"
   Alt + XF86AudioLowerVolume
 
-"playerctl -p $CASTCTL_PLAYER_NAME volume 0.05+"
+"playerctl-castctl volume 0.05+"
   Alt + XF86AudioRaiseVolume
 
-"playerctl -p $CASTCTL_PLAYER_NAME position 3-"
+"playerctl-castctl position 3-"
   Alt + minus
 
-"playerctl -p $CASTCTL_PLAYER_NAME position 3+"
+"playerctl-castctl position 3+"
   Alt + equal # plus
 
 "one catfish"
