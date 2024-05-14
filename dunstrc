@@ -21,11 +21,11 @@
   timeout = 0
 
 [urgency_normal]
-  background = "#1C3A2C"
+  background = "#223A32"
   foreground = "#ffffff"
   timeout = 10
 
 [urgency_low]
-  background = "#1D2C3A"
+  background = "#333333"
   foreground = "#ffffff"
   timeout = 10
