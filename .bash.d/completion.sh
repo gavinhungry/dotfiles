@@ -44,4 +44,4 @@ _completion_loader systemctl
 complete -F _systemctl sc
 
 _completion_loader ssh
-complete -F _ssh ssh-mount ssh-umount
+complete -F _ssh ssh-mount ssh-umount ssh-host
