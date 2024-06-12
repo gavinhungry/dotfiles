@@ -1,11 +1,11 @@
+set -a
+source /etc/environment
+set +a
+
 export PATH=$HOME/bin/local:$HOME/bin:$HOME/.local/bin${PATH:+:${PATH#:}}
 
 export PROMPT_COLOR=$(prompt-color)
-
-if [ -n "$SSH_TTY" -a -e /etc/term-bg ]; then
-  export TERM_BG=$(cat /etc/term-bg)
-  term-bg
-fi
+[ -n "$SSH_TTY" ] && term-color
 
 [ -f $HOME/.loadkeys ] && type loadkeys &> /dev/null && loadkeys $HOME/.loadkeys
 

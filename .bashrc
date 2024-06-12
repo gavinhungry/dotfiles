@@ -20,7 +20,7 @@ _pwdstr() { [ "$PWD" != "$HOME" ] && echo "${PWD##*/}  $_DASH  " ;}
 export PS1='\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\] \W \$ '
 PS1+='\[\e]2;${_TERM_TITLE}$(_pwdstr)\u@${HOSTNAME}\a\]'
 
-PROMPT_COMMAND='term-bg'
+PROMPT_COMMAND='term-color'
 
 [ -n "$TERM_TITLE" ] && t "$TERM_TITLE"
 unset TERM_TITLE
