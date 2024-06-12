@@ -1,3 +1,10 @@
+export PROMPT_COLOR=$($HOME/bin/prompt-color)
+
+if [ -n "$SSH_TTY" -a -e /etc/term-bg ]; then
+  export TERM_BG=$(cat /etc/term-bg)
+  $HOME/bin/term-bg
+fi
+
 [ -f $HOME/.loadkeys ] && type loadkeys &> /dev/null && loadkeys $HOME/.loadkeys
 
 if [ "$TERM" == linux ]; then
@@ -52,9 +59,6 @@ eval $(ssh-agent -s) > /dev/null
 
 [ -n "$SSH_TTY" ] && motd
 [ "$TERM" != screen ] && screen -ls &> /dev/null && screen -ls
-
-export PROMPT_COLOR=$(prompt-color)
-[ -n "$SSH_TTY" -a -e /etc/term-bg ] && export TERM_BG=$(cat /etc/term-bg)
 
 [ -r $HOME/.termcap -a -n "$TERM" ] && . $HOME/.termcap
 [ -r $HOME/.bash_profile.local ] && . $HOME/.bash_profile.local
