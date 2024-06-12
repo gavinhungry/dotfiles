@@ -53,6 +53,9 @@ eval $(ssh-agent -s) > /dev/null
 [ -n "$SSH_TTY" ] && motd
 [ "$TERM" != screen ] && screen -ls &> /dev/null && screen -ls
 
+export PROMPT_COLOR=$(prompt-color)
+[ -n "$SSH_TTY" -a -e /etc/term-bg ] && export TERM_BG=$(cat /etc/term-bg)
+
 [ -r $HOME/.termcap -a -n "$TERM" ] && . $HOME/.termcap
 [ -r $HOME/.bash_profile.local ] && . $HOME/.bash_profile.local
 [ -r $HOME/.bash_profile.$USER ] && . $HOME/.bash_profile.$USER

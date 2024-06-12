@@ -12,9 +12,6 @@ export GPG_TTY=$(tty)
 
 unset PROMPT_COMMAND
 
-PROMPT_COLOR=$(prompt-color)
-[ -e $HOME/.prompt-color-invert ] && PROMPT_COLOR=$(prompt-color --invert)
-
 _DASH=$(echo $'\u2014')
 [ -n "$STY" -o "$TERM" == 'screen' ] && _DASH='--'
 
@@ -23,7 +20,6 @@ _pwdstr() { [ "$PWD" != "$HOME" ] && echo "${PWD##*/}  $_DASH  " ;}
 export PS1='\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\] \W \$ '
 PS1+='\[\e]2;${_TERM_TITLE}$(_pwdstr)\u@${HOSTNAME}\a\]'
 
-[ -n "$SSH_TTY" -a -e /etc/term-bg ] && TERM_BG=$(cat /etc/term-bg)
 PROMPT_COMMAND='term-bg'
 
 [ -n "$TERM_TITLE" ] && t "$TERM_TITLE"
