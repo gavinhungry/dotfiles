@@ -2,6 +2,10 @@
 
 export XDG_CURRENT_DESKTOP=XFCE
 
+ROXTERM_DIR=$XDG_CONFIG_HOME/roxterm.sourceforge.net
+SCHEME=$(grep -s ^colour_scheme= $ROXTERM_DIR/Profiles/Default | cut -d= -f2)
+export TERM_BG=$(grep -s ^background= $ROXTERM_DIR/Colours/$SCHEME | cut -d= -f2)
+
 . /etc/X11/xinit/xinitrc.d/30-gtk3-nocsd.sh
 . /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
