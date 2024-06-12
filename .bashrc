@@ -10,6 +10,8 @@ export GPG_TTY=$(tty)
 
 # --- PROMPT--------------------------------------------------------------------
 
+unset PROMPT_COMMAND
+
 PROMPT_COLOR=$(prompt-color)
 if [ -e $HOME/.prompt-color-invert ]; then
   PROMPT_COLOR=$(prompt-color --invert)
@@ -22,8 +24,6 @@ _pwdstr() { [ "$PWD" != "$HOME" ] && echo "${PWD##*/}  $_DASH  " ;}
 
 export PS1='\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\] \W \$ '
 PS1+='\[\e]2;${_TERM_TITLE}$(_pwdstr)\u@${HOSTNAME}\a\]'
-
-PROMPT_COMMAND='term-bg'
 
 [ -n "$TERM_TITLE" ] && t "$TERM_TITLE"
 unset TERM_TITLE
