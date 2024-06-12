@@ -1,8 +1,10 @@
-export PROMPT_COLOR=$($HOME/bin/prompt-color)
+export PATH=$HOME/bin/local:$HOME/bin:$HOME/.local/bin${PATH:+:${PATH#:}}
+
+export PROMPT_COLOR=$(prompt-color)
 
 if [ -n "$SSH_TTY" -a -e /etc/term-bg ]; then
   export TERM_BG=$(cat /etc/term-bg)
-  $HOME/bin/term-bg
+  term-bg
 fi
 
 [ -f $HOME/.loadkeys ] && type loadkeys &> /dev/null && loadkeys $HOME/.loadkeys
@@ -21,8 +23,6 @@ if [ -r $USER_DIRS ]; then
     export $DIR
   done
 fi
-
-export PATH=$HOME/bin/local:$HOME/bin:$HOME/.local/bin${PATH:+:${PATH#:}}
 
 export __GL_SHADER_DISK_CACHE_PATH=$XDG_CACHE_HOME/gl-shader-cache
 export BC_ENV_ARGS=$HOME/.bcrc
