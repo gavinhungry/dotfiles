@@ -5,7 +5,7 @@ set +a
 export PATH=$HOME/bin/local:$HOME/bin:$HOME/.local/bin${PATH:+:${PATH#:}}
 
 export PROMPT_COLOR=$(prompt-color)
-[ -n "$SSH_TTY" ] && term-color
+term-color
 
 [ -f $HOME/.loadkeys ] && type loadkeys &> /dev/null && loadkeys $HOME/.loadkeys
 
