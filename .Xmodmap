@@ -1,3 +1,2 @@
-keycode 115 = Home
-keycode 118 = End
-keycode 110 = NoSymbol
+remove Lock = Caps_Lock
+keysym Caps_Lock = XF86Open
