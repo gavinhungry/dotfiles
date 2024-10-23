@@ -34,7 +34,7 @@
   changed = diff-tree --no-commit-id --name-only -r
   clip = "!git log --no-show-signature -n1 --pretty=%B | xclip -selection c"
   df = !sh -c 'cd "${GIT_PREFIX:-.}" && git diff -U$(wc -l < "$1") "$1"' -
-  first = "!git log $(git rev-list --max-parents=0 HEAD)"
+  first = "!git log $(git rev-list --max-parents=0 HEAD | tail -n1)"
   gr = "!git --no-pager grep"
   melog = "!git log --author=$(git config user.email) $@"
   origin = remote get-url origin
