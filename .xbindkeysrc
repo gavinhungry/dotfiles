@@ -25,29 +25,29 @@
 "amixer -q set Capture capture toggle"
   XF86AudioMicMute
 
-"playerctl -i $CASTCTL_PLAYER play-pause"
-  XF86AudioPlay
-
-"playerctl -i $CASTCTL_PLAYER stop"
-  Control + XF86AudioPlay
-
 "playerctl -i $CASTCTL_PLAYER previous"
   XF86AudioPrev
 
 "playerctl -i $CASTCTL_PLAYER next"
   XF86AudioNext
 
+"playerctl -i $CASTCTL_PLAYER play-pause"
+  XF86AudioPlay
+
+"playerctl -i $CASTCTL_PLAYER stop"
+  Control + XF86AudioPlay
+
 "playerctl-castctl previous"
-  Alt + F7
-
-"playerctl-castctl play-pause"
-  Alt + F8
-
-"playerctl-castctl next"
   Alt + F9
 
-"castctl-mute-toggle"
+"playerctl-castctl next"
   Alt + F10
+
+"playerctl-castctl play-pause"
+  Alt + c:191 # F13/XF86Tools
+
+"playerctl-castctl stop"
+  Control + Alt + c:191 # F13/XF86Tools
 
 "playerctl-castctl volume 0.05-"
   Alt + F11
@@ -111,9 +111,6 @@
 
 "one xfce4-display-settings --minimal"
   XF86Display
-
-"one xfce4-settings-manager"
-  XF86Tools
 
 "xkill"
   Control + Alt + f
