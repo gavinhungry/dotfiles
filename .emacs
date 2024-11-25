@@ -70,7 +70,7 @@
 (setq default-tab-width 2)
 (setq tab-width default-tab-width)
 (setq-default indent-tabs-mode nil)
-(global-set-key "\t" (lambda() (interactive) (insert-char 32 default-tab-width)))
+(global-set-key "\t" (lambda () (interactive) (insert-char 32 default-tab-width)))
 (global-set-key [backtab] 'indent-for-tab-command)
 (setq sh-basic-offset tab-width sh-indentation tab-width)
 (setq js-indent-level tab-width)
