@@ -32,6 +32,21 @@
 (require 'yaml-mode) ; emacs-yaml-mode
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
+; Git commit mode
+(define-derived-mode git-commit-mode text-mode "Git commit"
+  (font-lock-add-keywords nil '(("^#.*$" . font-lock-comment-face)))
+  ; select first non-comment line
+  (add-hook 'git-commit-mode-hook (lambda ()
+    (goto-char (point-min))
+    (while (and (not (eobp))
+    (looking-at "^#"))
+    (forward-line 1)))
+  )
+)
+
+(add-to-list 'auto-mode-alist '("/COMMIT_EDITMSG$" . git-commit-mode))
+(add-to-list 'auto-mode-alist '("/git-rebase-todo$" . git-commit-mode))
+
 ; line numbers
 (global-display-line-numbers-mode)
 (global-set-key (kbd "C-x C-a") 'display-line-numbers-mode)
