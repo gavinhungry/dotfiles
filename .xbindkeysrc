@@ -25,50 +25,44 @@
 "amixer -q set Capture capture toggle"
   XF86AudioMicMute
 
-"playerctl -i $CASTCTL_PLAYER previous"
+"playerctl previous"
   XF86AudioPrev
 
-"playerctl -i $CASTCTL_PLAYER next"
+"playerctl next"
   XF86AudioNext
 
-"playerctl -i $CASTCTL_PLAYER play-pause"
+"playerctl play-pause"
   XF86AudioPlay
 
-"playerctl -i $CASTCTL_PLAYER stop"
+"playerctl stop"
   Control + XF86AudioPlay
 
-"playerctl-castctl previous"
+"castd prev"
   Alt + F9
 
-"playerctl-castctl next"
+"castd next"
   Alt + F10
 
-"playerctl-castctl play-pause"
+"castd playpause"
   Alt + c:191 # F13/XF86Tools
 
-"playerctl-castctl stop"
+"castd stop"
   Control + Alt + c:191 # F13/XF86Tools
 
-"playerctl-castctl volume 0.05-"
+"castd vol-down"
   Alt + F11
 
-"playerctl-castctl volume 0.05+"
+"castd vol-up"
   Alt + F12
 
-"castctl-mute-toggle"
-  Alt + XF86AudioMute
-
-"playerctl-castctl volume 0.05-"
+"castd vol-down"
   Alt + XF86AudioLowerVolume
 
-"playerctl-castctl volume 0.05+"
+"castd vol-up"
   Alt + XF86AudioRaiseVolume
 
-"playerctl-castctl position 3-"
-  Alt + minus
-
-"playerctl-castctl position 3+"
-  Alt + equal # plus
+"castd mutetoggle"
+  Alt + XF86AudioMute
 
 "one catfish"
   XF86Search
