@@ -31,7 +31,7 @@ aliased() { alias $1 | cut -d= -f2- | sed -r "s/(^'|'$)//g" ;}
 cmds() { compgen -c | sort | grep --color "${1:-$^}" ;}
 cw() { [ -f "$(type -p $1)" ] && cat "$(type -p $1)" || type "$1" 2> /dev/null ;}
 dif() { diff --color=always "$@" | less ;}
-dm() { findmnt -no SOURCE,TARGET,FSTYPE,OPTIONS -T ${1:-.} | column -t ;}
+dm() { findmnt -rno SOURCE,TARGET,FSTYPE,OPTIONS ${1:+-T $1} | column -t ;}
 emi() { emacs --insert <("$@" 2>&1) ;}
 ew() { [ -f "$(which $1)" ] && $EDITOR "$(which $1)" ;}
 f() {
