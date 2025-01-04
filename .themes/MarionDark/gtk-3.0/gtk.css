@@ -138,6 +138,30 @@ notebook > header > tabs > tab:hover {
   background: #000;
 }
 
+.csd.popup decoration {
+  box-shadow: none;
+}
+
+menu,
+.menu,
+.context-menu {
+  background: rgba(42, 42, 42, 0.75);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.csd menu,
+.csd .menu,
+.csd .context-menu {
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.csd menu menuitem,
+.csd .menu menuitem,
+.csd .context-menu menuitem {
+  margin: 1px;
+}
+
 spinbutton:not(.vertical), entry,
 spinbutton:backdrop:not(.vertical), entry:backdrop,
 button.titlebutton, notebook > header > tabs > arrow, button,
