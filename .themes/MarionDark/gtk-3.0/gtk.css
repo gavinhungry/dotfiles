@@ -167,6 +167,10 @@ menu,
   margin: 1px;
 }
 
+tooltip.background {
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
 spinbutton:not(.vertical), entry,
 spinbutton:backdrop:not(.vertical), entry:backdrop,
 button.titlebutton, notebook > header > tabs > arrow, button,
