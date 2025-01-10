@@ -50,7 +50,7 @@ h() {
     tac | awk '!seen[$0]++' |
     grep -vE '^(|h|f)$' |
     fzf --scheme=history \
-      -e --no-sort --layout=reverse --height=~16 --keep-right --prompt 'h> '
+      -e --height=~16 --keep-right --layout=reverse --no-sort --prompt 'h> '
   )
 
   printz "$CMD"
