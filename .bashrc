@@ -42,9 +42,21 @@ f() {
 
   [ -n "$DIR" ] && cd "$DIR"
 }
+h() {
+  local CMD=$(
+    history | sed s/^\ *[0-9]*\ *//g |
+    tac | awk '!seen[$0]++' |
+    grep -vE '^(|h|f)$' |
+    fzf --scheme=history \
+      -e --no-sort --layout=reverse --height=~16 --keep-right --prompt 'h> '
+  )
+
+  printz "$CMD"
+}
 lw() { [ -f "$(which $1)" ] && ls -lh --color "$(which $1)" ;}
 ow() { [ -f "$(which $1)" ] && open "$(which $1)" ;}
 highlight() { grep --color -E "$1|$" "${@:2}" ;}
+printz() { bind '"\e[0n": "'"$*"'"'; printf '\e[5n' ;}
 psof() { pidof $1 | xargs -r ps -o user,pid,cmd --no-headers -p ;}
 term() { exo-open --launch TerminalEmulator ${1:-.} ;}
 timer() { nohup timer "$@" > /dev/null 2>&1 & }
