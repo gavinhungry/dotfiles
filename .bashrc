@@ -81,7 +81,7 @@ _hidden() {
   [ ${#DIRS[@]} -gt 1 ] && return
   local DIR=${DIRS[0]:-${PWD}}
 
-  [ -e "$DIR"/.hidden ] || return
+  [ -r "$DIR"/.hidden ] || return
   (cd $DIR && esc .hidden | xargs /usr/bin/ls -d 2> /dev/null | uniq)
 }
 _ls() {
