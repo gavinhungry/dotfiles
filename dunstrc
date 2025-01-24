@@ -1,8 +1,7 @@
 [global]
   width = 400
-  offset = 10x44
+  offset = 8x42
   notification_limit = 10
-  transparency = 2
   separator_height = 0
   padding = 16
   horizontal_padding = 16
@@ -12,20 +11,20 @@
   format = "<span font_desc='JetBrains Mono NL ExtraBold 9'>%s</span>\n\n%b"
   show_indicators = no
   icon_position = off
-  corner_radius = 3
+  corner_radius = 4
   ignore_dbusclose = true
 
 [urgency_critical]
-  background = "#701212"
-  foreground = "#ffffff"
+  background = "#80121288"
+  foreground = "#FFFFFF"
   timeout = 0
 
 [urgency_normal]
-  background = "#1A3C2A"
-  foreground = "#ffffff"
+  background = "#11337788"
+  foreground = "#FFFFFF"
   timeout = 10
 
 [urgency_low]
-  background = "#333333"
-  foreground = "#ffffff"
+  background = "#11111188"
+  foreground = "#FFFFFF"
   timeout = 10
