@@ -15,16 +15,16 @@
   ignore_dbusclose = true
 
 [urgency_critical]
-  background = "#80121288"
+  background = "#90121066"
   foreground = "#FFFFFF"
   timeout = 0
 
 [urgency_normal]
-  background = "#11337788"
+  background = "#21439766"
   foreground = "#FFFFFF"
   timeout = 10
 
 [urgency_low]
-  background = "#11111188"
+  background = "#88888866"
   foreground = "#FFFFFF"
   timeout = 10
