@@ -174,7 +174,6 @@ alias stopwatch="watch -pt -n0.1 'date +\"%H:%M:%S.%1N\"'"
 alias su='sudo su'
 alias top='htop'
 alias tree='gvfs-tree'
-alias ucode='grep -m1 ^microcode /proc/cpuinfo | awk '\''{print $NF;}'\'''
 alias udevprops='udevadm info -q property'
 alias unlock-gpg='echo | gpg --sign > /dev/null'
 alias updatedb='sudo updatedb'
