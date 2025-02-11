@@ -24,11 +24,12 @@
 [include]
   path = ~/.gitconfig.local
 [alias]
-  git-all = !sh -c 'find -L . -maxdepth $1 -type d -name .git ! -path ./.git | xargs -P$2 -I{} "git -C {}/.. ${@:3}"' -
+  git-all = !sh -c 'find -L "${PWD}/${GIT_PREFIX}" -mindepth 2 -maxdepth $1 -type d -name .git ! -path ./.git | xargs -P$2 -I{} "git -C {}/.. ${@:3}"' -
   all = git-all 2 8
-  all-one = git-all 2 1
-  deep = git-all 16 8
-  deep-one = git-all 16 1
+  each = git-all 2 1
+  deep = deep-all
+  deep-all = git-all 16 8
+  deep-each = git-all 16 1
   edit = !sh -c 'edit $(git ls-files -m)'
   br = !sh -c 'git rev-parse --abbrev-ref HEAD 2> /dev/null' -
   changed = diff-tree --no-commit-id --name-only -r
