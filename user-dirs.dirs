@@ -1,3 +1,4 @@
+XDG_BOOKS_DIR="/home/gavin/Library/Books"
 XDG_CACHE_HOME="/home/gavin/.cache"
 XDG_CONFIG_HOME="/home/gavin/.config"
 XDG_LOCAL_HOME="/home/gavin/.local"
