@@ -1,6 +1,12 @@
 "$HOME/bin/viewport prev"
   Mod4 + Escape
 
+"$HOME/bin/viewport set 1"
+  Mod4 + Up
+
+"$HOME/bin/viewport set -1"
+  Mod4 + Down
+
 "$HOME/bin/shot --fullscreen"
   Print
 
