@@ -45,3 +45,15 @@ complete -F _systemctl sc
 
 _completion_loader ssh
 complete -F _comp_cmd_ssh ssh-mount ssh-umount ssh-host
+
+__ai_models_complete() {
+  local cur=${COMP_WORDS[$COMP_CWORD]}
+  _init_completion -n : cur
+
+  local models
+  models=$(ollama ls | tail -n+2 | awk '{print $1}' | sort)
+
+  COMPREPLY=( $(compgen -W "$models" -- "$cur" ) )
+  __ltrim_colon_completions "$cur"
+}
+complete -F __ai_models_complete ai
