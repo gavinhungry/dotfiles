@@ -21,7 +21,7 @@ xset s off
 xset dpms 3600 3600 0
 display-mode day
 
-one xautolock -corners 000- -cornersize 1 -time 30 -secure -locker /usr/local/bin/lock &
+one xautolock -corners 000- -cornersize 1 -time 10 -secure -locker /usr/local/bin/lock &
 
 [ -e $HOME/.Xmodmap ] && xmodmap $HOME/.Xmodmap
 
