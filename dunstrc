@@ -28,3 +28,7 @@
   background = "#444444BB"
   foreground = "#FFFFFF"
   timeout = 10
+
+[play_sound]
+  summary = "*"
+  script = ~/bin/notify-sound
