@@ -30,6 +30,7 @@
   deep = deep-all
   deep-all = git-all 16 8
   deep-each = git-all 16 1
+  count = !sh -c 'git rev-list --count "$1"..HEAD' -
   edit = !sh -c 'edit $(git ls-files -m)'
   br = !sh -c 'git rev-parse --abbrev-ref HEAD 2> /dev/null' -
   changed = diff-tree --no-commit-id --name-only -r
