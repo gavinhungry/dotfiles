@@ -1,5 +1,7 @@
 [commit]
   template = ~/.gitmessage
+[core]
+  excludesFile = ~/.gitignore.local
 [init]
   defaultBranch = main
 [color]
