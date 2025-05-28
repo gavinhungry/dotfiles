@@ -36,5 +36,7 @@ xbindkeys
 
 [ -e $HOME/.xinitrc.local ] && . $HOME/.xinitrc.local
 
+dbus-update-activation-environment --systemd --all
 systemctl --user restart xfce4-session.target
+
 exec xfce4-session
