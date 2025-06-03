@@ -26,29 +26,29 @@
 [include]
   path = ~/.gitconfig.local
 [alias]
-  git-all = !sh -c 'find -L "${PWD}/${GIT_PREFIX}" -mindepth 2 -maxdepth $1 -type d -name .git ! -path ./.git | xargs -P$2 -I{} "git -C {}/.. ${@:3}"' -
+  git-all = !bash -c 'find -L "${PWD}/${GIT_PREFIX}" -mindepth 2 -maxdepth $1 -type d -name .git ! -path ./.git | xargs -P$2 -I{} "git -C {}/.. ${@:3}"' -
   all = git-all 2 8
   each = git-all 2 1
   deep = deep-all
   deep-all = git-all 16 8
   deep-each = git-all 16 1
-  count = !sh -c 'git rev-list --count "$1"..HEAD' -
-  edit = !sh -c 'edit $(git ls-files -m)'
-  br = !sh -c 'git rev-parse --abbrev-ref HEAD 2> /dev/null' -
+  count = !bash -c 'git rev-list --count "$1"..HEAD' -
+  edit = !bash -c 'edit $(git ls-files -m)'
+  br = !bash -c 'git rev-parse --abbrev-ref HEAD 2> /dev/null' -
   changed = diff-tree --no-commit-id --name-only -r
   clip = "!git log --no-show-signature -n1 --pretty=%B | xclip -selection c"
-  df = !sh -c 'cd "${GIT_PREFIX:-.}" && git diff -U$(wc -l < "$1") "$1"' -
+  df = !bash -c 'cd "${GIT_PREFIX:-.}" && git diff -U$(wc -l < "$1") "$1"' -
   first = "!git log $(git rev-list --max-parents=0 HEAD | tail -n1)"
   gr = "!git --no-pager grep"
   melog = "!git log --author=$(git config user.email) $@"
   origin = remote get-url origin
   pare = fetch --prune
-  pluck = "!sh -c 'DIR=$(basename \"${1%%.git*}\" 2> /dev/null); [ -n \"$DIR\" ] || exit 1; mkdir \"$DIR\" || exit 1; git -C \"$DIR\" init > /dev/null; git -C \"$DIR\" config core.sparseCheckout true; git -C \"$DIR\" remote add origin \"$1\"; echo \"$2\" >> \"$DIR\"/.git/info/sparse-checkout; git -C \"$DIR\" pull origin master --depth 1 || (rm -fr \"$DIR\"; exit 1)'" -
-  rb = !sh -c 'git rebase -i HEAD~$1' -
+  pluck = "!bash -c 'DIR=$(basename \"${1%%.git*}\" 2> /dev/null); [ -n \"$DIR\" ] || exit 1; mkdir \"$DIR\" || exit 1; git -C \"$DIR\" init > /dev/null; git -C \"$DIR\" config core.sparseCheckout true; git -C \"$DIR\" remote add origin \"$1\"; echo \"$2\" >> \"$DIR\"/.git/info/sparse-checkout; git -C \"$DIR\" pull origin master --depth 1 || (rm -fr \"$DIR\"; exit 1)'" -
+  rb = !bash -c 'git rebase -i HEAD~$1' -
   remotes = "!git remote -v | awk \"{ print \\$1OFS\\$2 }\" | sort -u | column -t"
   show-patch = "!git format-patch -1 $1 --stdout"
   sign = commit --amend --no-edit -S
   stat = show --stat
   tags = ls-remote --tags --sort='v:refname'
-  user = "!sh -c \"if [ $# -ne 1 ]; then echo "$(git config user.name) \\<$(git config user.email)\\>"; exit 0; fi; git config user.email "$(git config gituser.$1.email)" &> /dev/null; git user;\" --" -
+  user = "!bash -c \"if [ $# -ne 1 ]; then echo "$(git config user.name) \\<$(git config user.email)\\>"; exit 0; fi; git config user.email "$(git config gituser.$1.email)" &> /dev/null; git user;\" --" -
   who = shortlog -ns
