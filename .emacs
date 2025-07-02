@@ -29,8 +29,8 @@
 (add-to-list 'auto-mode-alist '("\\.target$" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.timer$" . conf-mode))
 
-(require 'yaml-mode) ; emacs-yaml-mode
-(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+(when (require 'yaml-mode nil 'noerror) ; emacs-yaml-mode
+  (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode)))
 
 ; Git commit mode
 (define-derived-mode git-commit-mode text-mode "Git commit"
