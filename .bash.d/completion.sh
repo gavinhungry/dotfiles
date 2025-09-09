@@ -1,3 +1,7 @@
+#!/bin/bash
+
+source /etc/profile.d/bash_completion.sh
+
 type _completion_loader &> /dev/null || _completion_loader() { false ;}
 
 __commands() {
