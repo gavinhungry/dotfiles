@@ -1,5 +1,7 @@
 ; (setq debug-on-error t)
 
+(load "~/.emacs.local" 'noerror)
+
 (add-to-list 'load-path "~/.emacs.d/lib")
 
 ; file modes
