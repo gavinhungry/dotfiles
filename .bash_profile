@@ -28,7 +28,6 @@ export __GL_SHADER_DISK_CACHE_PATH=$XDG_CACHE_HOME/gl-shader-cache
 export BC_ENV_ARGS=$HOME/.bcrc
 export BROWSER=firefox
 export CASTCTL_PLAYER=${CASTCTL_NAME// /_}
-export COMP_KNOWN_HOSTS_WITH_HOSTFILE=
 export DIFFPROG=ediff
 export EDITOR=emacs
 export EDITOR_X11=subl

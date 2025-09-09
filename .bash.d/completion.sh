@@ -2,6 +2,9 @@
 
 source /etc/profile.d/bash_completion.sh
 
+export COMP_KNOWN_HOSTS_WITH_AVAHI=
+export COMP_KNOWN_HOSTS_WITH_HOSTFILE=
+
 type _completion_loader &> /dev/null || _completion_loader() { false ;}
 
 __commands() {
