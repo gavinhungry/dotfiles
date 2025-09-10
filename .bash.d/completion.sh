@@ -1,6 +1,8 @@
 #!/bin/bash
 
-source /etc/profile.d/bash_completion.sh
+if [ -f /etc/profile.d/bash_completion.sh ]; then
+  source /etc/profile.d/bash_completion.sh
+fi
 
 export COMP_KNOWN_HOSTS_WITH_AVAHI=
 export COMP_KNOWN_HOSTS_WITH_HOSTFILE=
