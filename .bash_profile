@@ -55,7 +55,20 @@ export TERMINAL=roxterm
 export WATCH_INTERVAL=1
 export XCURSOR_THEME='Vanilla-DMZ'
 
-eval $(ssh-agent -s) > /dev/null
+if [ ! -S "$SSH_AUTH_SOCK" ]; then
+  if [ "$SSH_AUTH_SINGLE_INSTANCE" == 1 ]; then
+    if [ -f $XDG_CACHE_HOME/.ssh-agent ]; then
+      _SSH_AGENT=$(cat $XDG_CACHE_HOME/.ssh-agent)
+    else
+      _SSH_AGENT=$(ssh-agent -s)
+      echo $_SSH_AGENT > $XDG_CACHE_HOME/.ssh-agent
+    fi
+
+    eval $_SSH_AGENT > /dev/null
+  else
+    eval $(ssh-agent -s) > /dev/null
+  fi
+fi
 
 [ -n "$SSH_TTY" ] && motd
 [ "$TERM" != screen ] && screen -ls &> /dev/null && screen -ls
