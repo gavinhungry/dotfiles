@@ -61,6 +61,7 @@ lw() { [ -f "$(which $1)" ] && ls -lh --color "$(which $1)" ;}
 ow() { [ -f "$(which $1)" ] && open "$(which $1)" ;}
 printz() { bind '"\e[0n": "'"$*"'"'; printf '\e[5n' ;}
 psof() { pidof $1 | xargs -r ps -o user,pid,cmd --no-headers -p ;}
+scad23mf() { openscad -o "${1%.scad}.3mf" "$1" ;}
 term() { exo-open --launch TerminalEmulator ${1:-.} ;}
 timer() { nohup timer "$@" > /dev/null 2>&1 & }
 t() {
