@@ -56,18 +56,26 @@ export TERMINAL=roxterm
 export WATCH_INTERVAL=1
 export XCURSOR_THEME='Vanilla-DMZ'
 
-if [ ! -S "$SSH_AUTH_SOCK" ]; then
-  if [ "$SSH_AUTH_SINGLE_INSTANCE" == 1 ]; then
-    if [ -f $XDG_CACHE_HOME/.ssh-agent ]; then
-      _SSH_AGENT=$(cat $XDG_CACHE_HOME/.ssh-agent)
-    else
-      _SSH_AGENT=$(ssh-agent -s)
-      echo $_SSH_AGENT > $XDG_CACHE_HOME/.ssh-agent
-    fi
+if (
+  [ "$UID" -ne 0 ] &&
+  [ -d "$XDG_CACHE_HOME" ] &&
+  [ ! -S "$SSH_AUTH_SOCK" ]
+); then
+  _SSH_AGENT_CACHE="$XDG_CACHE_HOME"/.ssh-agent
 
-    eval $_SSH_AGENT > /dev/null
-  else
-    eval $(ssh-agent -s) > /dev/null
+  if [ -f "$_SSH_AGENT_CACHE" ]; then
+    _SSH_AGENT=$(cat "$_SSH_AGENT_CACHE")
+    eval "$_SSH_AGENT" > /dev/null
+  fi
+
+  if ! kill -0 $SSH_AGENT_PID 2> /dev/null; then
+    _SSH_AGENT=$(ssh-agent -s)
+
+    : > "$_SSH_AGENT_CACHE"
+    chmod 600 "$_SSH_AGENT_CACHE"
+    echo $_SSH_AGENT > "$_SSH_AGENT_CACHE"
+
+    eval "$_SSH_AGENT" > /dev/null
   fi
 fi
 
