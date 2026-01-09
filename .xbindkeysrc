@@ -43,31 +43,31 @@
 "playerctl stop"
   Control + XF86AudioPlay
 
-"castd prev"
+"castd-cmd prev"
   Alt + F9
 
-"castd next"
+"castd-cmd next"
   Alt + F10
 
-"castd playpause"
+"castd-cmd playpause"
   Alt + c:191 # F13/XF86Tools
 
-"castd stop"
+"castd-cmd stop"
   Control + Alt + c:191 # F13/XF86Tools
 
-"castd vol-down"
+"castd-cmd vol-down"
   Alt + F11
 
-"castd vol-up"
+"castd-cmd vol-up"
   Alt + F12
 
-"castd vol-down"
+"castd-cmd vol-down"
   Alt + XF86AudioLowerVolume
 
-"castd vol-up"
+"castd-cmd vol-up"
   Alt + XF86AudioRaiseVolume
 
-"castd mutetoggle"
+"castd-cmd mutetoggle"
   Alt + XF86AudioMute
 
 "one catfish"
