@@ -1,31 +1,31 @@
-"$HOME/bin/viewport prev"
+"viewport prev"
   Mod4 + Escape
 
-"$HOME/bin/viewport set 1"
+"viewport set 1"
   Mod4 + Up
 
-"$HOME/bin/viewport set -1"
+"viewport set -1"
   Mod4 + Down
 
-"$HOME/bin/shot --fullscreen"
+"shot --fullscreen"
   Print
 
-"$HOME/bin/shot --window"
+"shot --window"
   Mod4 + Print
 
-"$HOME/bin/shot --borderless-window"
+"shot --borderless-window"
   Control + Mod4 + Print
 
-"$HOME/bin/shot --region"
+"shot --region"
   Alt + Print
 
-"$HOME/bin/volume toggle"
+"volume toggle"
   XF86AudioMute
 
-"$HOME/bin/volume down"
+"volume down"
   XF86AudioLowerVolume
 
-"$HOME/bin/volume up"
+"volume up"
   XF86AudioRaiseVolume
 
 "amixer -q set Capture capture toggle"
