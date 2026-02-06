@@ -171,6 +171,8 @@ tooltip.background {
   background-color: rgba(0, 0, 0, 0.65);
 }
 
+menu separator { background: rgba(0, 0, 0, 0.3); margin-top: 3px; margin-bottom: 3px; }
+
 spinbutton:not(.vertical), entry,
 spinbutton:backdrop:not(.vertical), entry:backdrop,
 button.titlebutton, notebook > header > tabs > arrow, button,
