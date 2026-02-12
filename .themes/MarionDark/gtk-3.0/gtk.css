@@ -10,6 +10,10 @@
   outline-style: none;
 }
 
+.titlebar:not(headerbar), headerbar {
+  padding: 6px;
+}
+
 .dialog-vbox .dialog-action-box,
 dialog > box > buttonbox:last-child {
   margin: 0 8px 8px;
