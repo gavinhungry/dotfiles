@@ -142,6 +142,26 @@ notebook > header > tabs > tab:hover {
   background: #000;
 }
 
+#gnome-system-monitor headerbar.titlebar button.radio {
+  padding: 0;
+}
+
+#gnome-system-monitor headerbar.titlebar button.radio:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#gnome-system-monitor headerbar.titlebar button.radio:not(:first-child):not(:last-child) {
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+}
+
+#gnome-system-monitor headerbar.titlebar button.radio:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
 .csd.popup decoration {
   box-shadow: none;
 }
