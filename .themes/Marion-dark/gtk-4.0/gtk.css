@@ -1,1 +1,5 @@
-@import url("resource:///org/gtk/libgtk/theme/Default/Default-dark.css");
+@import url("resource:///org/gnome/Adwaita/styles/default.css");
+
+/* Blue accent (matches default libadwaita) */
+@define-color accent_bg_color #3584e4;
+@define-color accent_fg_color #ffffff;
