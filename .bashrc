@@ -15,7 +15,7 @@ unset PROMPT_COMMAND
 _DASH=$(echo $'\u2014')
 [ -n "$STY" -o "$TERM" == 'screen' ] && _DASH='--'
 
-_pwdstr() { [ "$PWD" != "$HOME" ] && echo "${PWD##*/}  $_DASH  " ;}
+_pwdstr() { [ "$PWD" != "$HOME" ] && echo "${PWD##*/}  $_DASH  "; }
 
 export PS1='\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\] \W \$ '
 _PS1='\[\e]2;${_TERM_TITLE:+${_TERM_TITLE} ${_DASH} }$(_pwdstr)\u@${HOSTNAME}\a\]'
@@ -28,13 +28,13 @@ unset TERM_TITLE
 
 # --- FUNCTIONS ----------------------------------------------------------------
 
-aliased() { alias $1 | cut -d= -f2- | sed -r "s/(^'|'$)//g" ;}
-cmds() { compgen -c | sort | grep --color "${1:-$^}" ;}
-cw() { [ -f "$(type -p $1)" ] && cat "$(type -p $1)" || type "$1" 2> /dev/null ;}
-dif() { diff --color=always "$@" | less ;}
-dm() { findmnt -rno SOURCE,TARGET,FSTYPE,OPTIONS ${1:+-T $1} | column -t ;}
-emi() { emacs --insert <("$@" 2>&1) ;}
-ew() { [ -f "$(which $1)" ] && $EDITOR "$(which $1)" ;}
+aliased() { alias $1 | cut -d= -f2- | sed -r "s/(^'|'$)//g"; }
+cmds() { compgen -c | sort | grep --color "${1:-$^}"; }
+cw() { [ -f "$(type -p $1)" ] && cat "$(type -p $1)" || type "$1" 2> /dev/null; }
+dif() { diff --color=always "$@" | less; }
+dm() { findmnt -rno SOURCE,TARGET,FSTYPE,OPTIONS ${1:+-T $1} | column -t; }
+emi() { emacs --insert <("$@" 2>&1); }
+ew() { [ -f "$(which $1)" ] && $EDITOR "$(which $1)"; }
 
 f() {
   local DIR=$(
@@ -57,13 +57,13 @@ h() {
   printz "$CMD"
 }
 
-highlight() { grep --color -E "$1|$" "${@:2}" ;}
-lw() { [ -f "$(which $1)" ] && ls -lh --color "$(which $1)" ;}
-ow() { [ -f "$(which $1)" ] && open "$(which $1)" ;}
-printz() { bind '"\e[0n": "'"$*"'"'; printf '\e[5n' ;}
-psof() { pidof $1 | xargs -r ps -o user,pid,cmd --no-headers -p ;}
-scad23mf() { openscad -o "${1%.scad}.3mf" "$1" ;}
-term() { exo-open --launch TerminalEmulator ${1:-.} ;}
+highlight() { grep --color -E "$1|$" "${@:2}"; }
+lw() { [ -f "$(which $1)" ] && ls -lh --color "$(which $1)"; }
+ow() { [ -f "$(which $1)" ] && open "$(which $1)"; }
+printz() { bind '"\e[0n": "'"$*"'"'; printf '\e[5n'; }
+psof() { pidof $1 | xargs -r ps -o user,pid,cmd --no-headers -p; }
+scad23mf() { openscad -o "${1%.scad}.3mf" "$1"; }
+term() { exo-open --launch TerminalEmulator ${1:-.}; }
 timer() { nohup timer "$@" > /dev/null 2>&1 & }
 
 title() {
@@ -71,7 +71,7 @@ title() {
   printf '%b' "${_PS1@P}"
 }
 
-t() { title "$@" ;}
+t() { title "$@"; }
 
 titled() {
   local PREV="$_TERM_TITLE"
