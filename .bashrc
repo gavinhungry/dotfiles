@@ -18,7 +18,8 @@ _DASH=$(echo $'\u2014')
 _pwdstr() { [ "$PWD" != "$HOME" ] && echo "${PWD##*/}  $_DASH  " ;}
 
 export PS1='\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\] \W \$ '
-PS1+='\[\e]2;${_TERM_TITLE}$(_pwdstr)\u@${HOSTNAME}\a\]'
+_PS1='\[\e]2;${_TERM_TITLE:+${_TERM_TITLE} ${_DASH} }$(_pwdstr)\u@${HOSTNAME}\a\]'
+PS1+="$_PS1"
 
 PROMPT_COMMAND='term-color'
 
@@ -64,13 +65,20 @@ psof() { pidof $1 | xargs -r ps -o user,pid,cmd --no-headers -p ;}
 scad23mf() { openscad -o "${1%.scad}.3mf" "$1" ;}
 term() { exo-open --launch TerminalEmulator ${1:-.} ;}
 timer() { nohup timer "$@" > /dev/null 2>&1 & }
-t() {
-  if [ ${#@} == 0 ]; then
-    unset _TERM_TITLE
-    return
-  fi
 
-  _TERM_TITLE="$@  $_DASH  "
+title() {
+  [ ${#@} == 0 ] && unset _TERM_TITLE || _TERM_TITLE="$@"
+  printf '%b' "${_PS1@P}"
+}
+
+t() { title "$@" ;}
+
+titled() {
+  local PREV="$_TERM_TITLE"
+  local EXEC="$1"; shift
+  title "$EXEC"
+  "$EXEC" "$@"
+  title "$PREV"
 }
 
 _hidden() {
@@ -85,6 +93,7 @@ _hidden() {
   [ -r "$DIR"/.hidden ] || return
   (cd $DIR && esc .hidden | xargs /usr/bin/ls -d 2> /dev/null | uniq)
 }
+
 _ls() {
   local CMD='/usr/bin/ls $LS_ARGS "$@" '
   while read -r HIDE; do
@@ -92,6 +101,7 @@ _ls() {
   done <<<$(_hidden "$@" | esc)
   eval $CMD
 }
+
 _la() {
   local CMD='/usr/bin/ls $LS_ARGS -d '
   [ $(ls -d .* 2> /dev/null | wc -l) -ge 1 ] && CMD+='.* '
@@ -157,6 +167,7 @@ alias motd='motd --color'
 alias npm='pnpm'
 alias npmr='npm run'
 alias oc='opencode'
+alias opencode='titled opencode'
 alias pacfiles='updatedb && locate -r "\.pac\(new\|save\|orig\)$" | esc'
 alias path='echo $PATH | tr : \\n'
 alias pidcomm='ps -o comm= -p'
