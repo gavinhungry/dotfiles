@@ -1,34 +1,34 @@
 [global]
   width = 400
   offset = 8x42
-  notification_limit = 10
+  notification_limit = 12
   separator_height = 0
-  padding = 16
-  horizontal_padding = 16
+  padding = 12
+  horizontal_padding = 12
   frame_width = 0
   gap_size = 8
-  font = JetBrains Mono NL Regular 9
+  font = JetBrains Mono NL Normal 8
   format = "<span font_desc='JetBrains Mono NL ExtraBold 9'>%s</span>\n\n%b"
   show_indicators = no
   icon_position = off
   corner_radius = 4
   ignore_dbusclose = true
 
-[urgency_critical]
-  background = "#901210BB"
+[urgency_low]
+  background = "#22222288"
   foreground = "#FFFFFF"
-  timeout = 0
+  timeout = 10
 
 [urgency_normal]
-  background = "#113377BB"
-  foreground = "#FFFFFF"
+  background = "#11337788"
+  foreground = "#DDEEFF"
   timeout = 10
 
-[urgency_low]
-  background = "#444444BB"
-  foreground = "#FFFFFF"
-  timeout = 10
+[urgency_critical]
+  background = "#C0121088"
+  foreground = "#FFEEDD"
+  timeout = 0
 
 [play_sound]
   summary = "*"
-  script = ~/bin/notify-sound
+  script = notify-sound
