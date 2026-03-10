@@ -7,7 +7,7 @@
   horizontal_padding = 12
   frame_width = 0
   gap_size = 8
-  font = JetBrains Mono NL Normal 8
+  font = JetBrains Mono NL Regular 8
   format = "<span font_desc='JetBrains Mono NL ExtraBold 9'>%s</span>\n\n%b"
   show_indicators = no
   icon_position = off
