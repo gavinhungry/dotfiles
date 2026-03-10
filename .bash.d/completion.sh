@@ -66,3 +66,13 @@ __ai_models_complete() {
   __ltrim_colon_completions "$cur"
 }
 complete -F __ai_models_complete ai
+
+__github_complete() {
+  local cur prev
+  cur="${COMP_WORDS[COMP_CWORD]}"
+
+  local subcommands="commits commit head issues issue pulls pull prs pr actions ci settings"
+  COMPREPLY=($(compgen -W "$subcommands" -- "$cur"))
+}
+
+complete -F __github_complete github
