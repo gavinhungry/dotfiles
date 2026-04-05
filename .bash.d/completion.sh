@@ -65,7 +65,7 @@ __ai_models_complete() {
   COMPREPLY=( $(compgen -W "$models" -- "$cur" ) )
   __ltrim_colon_completions "$cur"
 }
-complete -F __ai_models_complete ai
+complete -F __ai_models_complete ai ai-think
 
 __github_complete() {
   local cur prev
