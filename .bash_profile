@@ -47,6 +47,7 @@ export MANPAGER="less $LESS +Gg"
 export NEOFETCH_PREFER_GTK2_RC=1
 export NODE_NO_WARNINGS=1
 export NODE_PATH="$HOME/.local/lib/node_modules"
+export OLLAMA_NOHISTORY=1
 export PACMAN_AUTH=/usr/bin/sudo
 export PAGER=less
 export QT_QPA_PLATFORMTHEME=qt5ct
