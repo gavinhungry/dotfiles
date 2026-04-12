@@ -1,4 +1,4 @@
-@import url("resource:///org/gnome/Adwaita/styles/default.css");
+@import url("resource:///org/gnome/Adwaita/styles/gtk.css");
 
 /* Blue accent (matches default libadwaita) */
 @define-color accent_bg_color #3584e4;
