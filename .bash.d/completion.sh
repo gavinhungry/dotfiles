@@ -55,17 +55,27 @@ complete -F _systemctl sc
 _completion_loader ssh
 complete -F _comp_cmd_ssh ssh-mount ssh-umount ssh-host
 
-__ai_models_complete() {
+__ai_complete() {
   local cur=${COMP_WORDS[$COMP_CWORD]}
   _init_completion -n : cur
+
+  if [[ $cur == -* ]]; then
+    COMPREPLY=( $(compgen -W "--think --verbose --edit" -- "$cur") )
+    return
+  fi
+
+  local i
+  for (( i=1; i<COMP_CWORD; i++ )); do
+    [[ ${COMP_WORDS[i]} != -* ]] && return
+  done
 
   local models
   models=$(ollama ls | tail -n+2 | awk '{print $1}' | sort)
 
-  COMPREPLY=( $(compgen -W "$models" -- "$cur" ) )
+  COMPREPLY=( $(compgen -W "$models" -- "$cur") )
   __ltrim_colon_completions "$cur"
 }
-complete -F __ai_models_complete ai ai-think
+complete -F __ai_complete ai
 
 __github_complete() {
   local cur prev
