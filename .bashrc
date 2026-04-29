@@ -46,21 +46,34 @@ f() {
 }
 
 h() {
-  local CMD=$(
-    history | sed s/^\ *[0-9]*\ *//g |
-    tac | awk '!seen[$0]++' |
-    grep -vE '^(|h|f)$' |
-    fzf --scheme=history \
-      -e --height=~16 --keep-right --layout=reverse --no-sort --prompt 'h> '
-  )
+  local CMD=$(fc -lnr 1 | awk '
+    function flush() {
+      if (buf == "") return
+      gsub(/\n/, " ↵ ", buf)
+      if (!seen[buf]++ && buf !~ /^[[:space:]]*[hf]?[[:space:]]*$/) print buf
+      buf = ""
+    }
+    /^\t/ { flush(); buf = substr($0, $0 ~ /^\t / ? 3 : 2); next }
+    { buf = buf "\n" $0 }
+    END { flush() }
+  ' | fzf --scheme=history -e --height=~16 --keep-right --layout=reverse \
+          --no-sort --prompt 'h> ')
 
-  printz "$CMD"
+  [[ -z $CMD ]] && return
+  __H_PENDING=${CMD//' ↵ '/$'\n'}
+  printf '\e[5n'
 }
+
+_h_insert() {
+  READLINE_LINE=$__H_PENDING
+  READLINE_POINT=${#READLINE_LINE}
+  unset __H_PENDING
+}
+bind -x '"\e[0n": _h_insert'
 
 highlight() { grep --color -E "$1|$" "${@:2}"; }
 lw() { [ -f "$(which $1)" ] && ls -lh --color "$(which $1)"; }
 ow() { [ -f "$(which $1)" ] && open "$(which $1)"; }
-printz() { bind '"\e[0n": "'"$*"'"'; printf '\e[5n'; }
 psof() { pidof $1 | xargs -r ps -o user,pid,cmd --no-headers -p; }
 scad23mf() { openscad -o "${1%.scad}.3mf" "$1"; }
 term() { exo-open --launch TerminalEmulator ${1:-.}; }
