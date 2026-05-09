@@ -1,0 +1,9 @@
+storeDir: /home/gavin/.cache/pnpm
+prefix: /home/gavin/.local
+globalBinDir: /home/gavin/.local/bin
+childConcurrency: 8
+ignoreScripts: true
+loglevel: error
+packageLock: true
+resolutionMode: highest
+save: false
