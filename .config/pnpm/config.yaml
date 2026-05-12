@@ -4,4 +4,3 @@ ignoreScripts: true
 loglevel: error
 packageLock: true
 resolutionMode: highest
-save: false
