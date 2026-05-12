@@ -1,4 +1,3 @@
-storeDir: /home/gavin/.cache/pnpm
 prefix: /home/gavin/.local
 globalBinDir: /home/gavin/.local/bin
 childConcurrency: 8
