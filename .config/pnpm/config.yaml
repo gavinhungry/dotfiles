@@ -1,6 +1,5 @@
 globalBinDir: /home/gavin/.local/bin
 childConcurrency: 8
 ignoreScripts: true
-loglevel: error
 packageLock: true
 resolutionMode: highest
