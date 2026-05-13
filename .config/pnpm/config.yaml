@@ -5,5 +5,4 @@ minimumReleaseAgeStrict: true
 
 childConcurrency: 8
 ignoreScripts: true
-packageLock: true
 resolutionMode: highest
