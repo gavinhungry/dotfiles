@@ -1,4 +1,8 @@
 globalBinDir: /home/gavin/.local/bin
+
+minimumReleaseAge: 1440 # 24 hours
+minimumReleaseAgeStrict: true
+
 childConcurrency: 8
 ignoreScripts: true
 packageLock: true
