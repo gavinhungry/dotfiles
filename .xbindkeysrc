@@ -76,7 +76,7 @@
 "toggle rofi-run rofi"
   XF86Open
 
-"gnome-system-monitor --show-resources-tab"
+"resources --open-tab-id cpu"
   Control + Shift + Escape
 
 "roxterm --separate"
