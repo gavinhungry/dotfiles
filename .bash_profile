@@ -32,10 +32,10 @@ export DIFFPROG=ediff
 export EDITOR=emacs
 export EDITOR_GUI=subl
 export FZF_DEFAULT_OPTS='--color=bg+:#444444,fg+:yellow,hl+:green'
-export GPGKEY=1450B358FCC7992D8C6160F352CC07C8C7F4A2F0
 export GDK_X11_DEFER_MAP=1
-export GTK_OVERLAY_SCROLLING=0
+export GPGKEY=1450B358FCC7992D8C6160F352CC07C8C7F4A2F0
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+export GTK_OVERLAY_SCROLLING=0
 export HISTCONTROL=ignoredups
 export HISTFILE=/dev/null
 export HOSTNAME=$(echo ${HOSTNAME%%.*} | tr '[A-Z]' '[a-z]')
