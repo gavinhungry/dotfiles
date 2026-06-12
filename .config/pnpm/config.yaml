@@ -1,6 +1,6 @@
 globalBinDir: /home/gavin/.local/bin
 
-minimumReleaseAge: 1440 # 24 hours
+minimumReleaseAge: 4320 # 72 hours
 minimumReleaseAgeStrict: true
 
 childConcurrency: 8
