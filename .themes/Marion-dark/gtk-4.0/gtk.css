@@ -5,6 +5,10 @@
 @define-color accent_fg_color #ffffff;
 
 /* default font size */
+/*
+ * Duplicated in ${XDG_CONFIG_HOME}/gtk-4.0/gtk.css
+ * Seems to not take effect globally if left here only
+ */
 window,
 label,
 button,
