@@ -199,7 +199,6 @@ alias tabclip="echo -en '\t' | clip"
 alias top='htop'
 alias tree='gvfs-tree'
 alias udevprops='udevadm info -q property'
-alias unlock-gpg='echo | gpg --sign > /dev/null'
 alias updatedb='sudo updatedb'
 alias uptime='uptime -p'
 alias vmstat='vmstat -S M'
