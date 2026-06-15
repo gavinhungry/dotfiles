@@ -116,6 +116,7 @@
 
 ; misc
 (menu-bar-mode 0)
+(setq inhibit-startup-echo-area-message "gavin")
 (setq inhibit-startup-screen t)
 (setq initial-scratch-message nil)
 (setq make-backup-files nil)
