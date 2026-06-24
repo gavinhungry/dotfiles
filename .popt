@@ -1,1 +1,1 @@
-rsync alias --trunk -aHAX
+rsync alias --trunk -aHAX --delete-after
