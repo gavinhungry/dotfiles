@@ -4,11 +4,12 @@
 @define-color accent_bg_color #3584e4;
 @define-color accent_fg_color #ffffff;
 
-/* default font size */
 /*
  * Duplicated in ${XDG_CONFIG_HOME}/gtk-4.0/gtk.css
  * Seems to not take effect globally if left here only
+ * -----------------------------------------------------------------------------
  */
+/* default font size */
 window,
 label,
 button,
@@ -16,6 +17,12 @@ entry,
 treeview {
   font-size: 11px;
 }
+
+headerbar.titlebar {
+  padding: 6px;
+}
+/* -----------------------------------------------------------------------------
+ */
 
 /* application icon */
 windowcontrols image.icon {
