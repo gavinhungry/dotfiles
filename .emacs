@@ -125,6 +125,7 @@
 (setq vc-follow-symlinks t)
 (setq show-paren-mode nil)
 (setq large-file-warning-threshold 67108864) ; 64MB
+(setq auto-save-list-file-prefix nil)
 (global-font-lock-mode 1)
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
