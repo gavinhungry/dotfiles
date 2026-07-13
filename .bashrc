@@ -34,7 +34,7 @@ cw() { [ -f "$(type -p $1)" ] && cat "$(type -p $1)" || type "$1" 2> /dev/null; 
 dif() { diff --color=always "$@" | less; }
 dm() { findmnt -rno SOURCE,TARGET,FSTYPE,OPTIONS ${1:+-T $1} | column -t; }
 emi() { emacs --insert <("$@" 2>&1); }
-ew() { [ -f "$(which $1)" ] && $EDITOR "$(which $1)"; }
+ew() { [ -f "$(which $1)" ] && edit "$(which $1)"; }
 
 f() {
   local DIR=$(
