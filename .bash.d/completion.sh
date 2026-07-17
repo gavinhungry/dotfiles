@@ -86,25 +86,3 @@ __github_complete() {
 }
 
 complete -F __github_complete github
-
-__trunk_complete() {
-  local cur
-
-  COMPREPLY=()
-  cur=${COMP_WORDS[COMP_CWORD]}
-
-  if (( COMP_CWORD == 1 )); then
-    COMPREPLY=( $(compgen -W 'open close list status' -- "$cur") )
-    return
-  fi
-
-  case ${COMP_WORDS[1]} in
-    open)
-      if (( COMP_CWORD == 2 )); then
-        COMPREPLY=( $(compgen -W "auto $(trunk list 2>/dev/null)" -- "$cur") )
-      fi
-    ;;
-  esac
-}
-
-complete -F __trunk_complete trunk
