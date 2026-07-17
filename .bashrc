@@ -30,11 +30,9 @@ unset TERM_TITLE
 
 aliased() { alias $1 | cut -d= -f2- | sed -r "s/(^'|'$)//g"; }
 cmds() { compgen -c | sort | grep --color "${1:-$^}"; }
-cw() { [ -f "$(type -p $1)" ] && cat "$(type -p $1)" || type "$1" 2> /dev/null; }
 dif() { diff --color=always "$@" | less; }
 dm() { findmnt -rno SOURCE,TARGET,FSTYPE,OPTIONS ${1:+-T $1} | column -t; }
 emi() { emacs --insert <("$@" 2>&1); }
-ew() { [ -f "$(which $1)" ] && edit "$(which $1)"; }
 
 f() {
   local DIR=$(
@@ -72,8 +70,6 @@ _h_insert() {
 bind -x '"\e[0n": _h_insert'
 
 highlight() { grep --color -E "$1|$" "${@:2}"; }
-lw() { [ -f "$(which $1)" ] && ls -lh --color "$(which $1)"; }
-ow() { [ -f "$(which $1)" ] && open "$(which $1)"; }
 psof() { pidof $1 | xargs -r ps -o user,pid,cmd --no-headers -p; }
 scad23mf() { openscad -o "${1%.scad}.3mf" "$1"; }
 term() { exo-open --launch TerminalEmulator ${1:-.}; }
@@ -93,6 +89,22 @@ titled() {
   "$EXEC" "$@"
   title "$PREV"
 }
+
+cw() { [ -f "$(type -p $1)" ] && cat "$(type -p $1)" || type "$1" 2> /dev/null; }
+ew() { [ -f "$(which $1)" ] && edit "$(which $1)"; }
+lw() { [ -f "$(which $1)" ] && ls -lh --color "$(which $1)"; }
+ow() { [ -f "$(which $1)" ] && open "$(which $1)"; }
+
+cwr() {
+  if [ "$(type -t $1)" == file -a -f "$(whichr $1)" ]; then
+    cat "$(whichr $1)"
+  else
+    type "$1" 2> /dev/null
+  fi
+}
+ewr() { [ -f "$(whichr $1)" ] && edit "$(whichr $1)"; }
+lwr() { [ -f "$(whichr $1)" ] && ls -lh --color "$(whichr $1)"; }
+owr() { [ -f "$(whichr $1)" ] && open "$(whichr $1)"; }
 
 _hidden() {
   local DIRS=()
