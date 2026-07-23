@@ -69,7 +69,7 @@ bind -x '"\e[0n": _h_insert'
 
 psof() { pidof $1 | xargs -r ps -o user,pid,cmd --no-headers -p; }
 scad23mf() { openscad -o "${1%.scad}.3mf" "$1"; }
-term() { exo-open --launch TerminalEmulator ${1:-.}; }
+term() { exo-open --launch TerminalEmulator ${1:-"$PWD"}; }
 timer() { nohup timer "$@" > /dev/null 2>&1 & }
 
 title() {
