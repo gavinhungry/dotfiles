@@ -69,7 +69,6 @@ _h_insert() {
 }
 bind -x '"\e[0n": _h_insert'
 
-highlight() { grep --color -E "$1|$" "${@:2}"; }
 psof() { pidof $1 | xargs -r ps -o user,pid,cmd --no-headers -p; }
 scad23mf() { openscad -o "${1%.scad}.3mf" "$1"; }
 term() { exo-open --launch TerminalEmulator ${1:-.}; }
