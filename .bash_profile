@@ -4,8 +4,8 @@ set +a
 
 export PATH=$HOME/bin/local:$HOME/bin:$HOME/.local/bin${PATH:+:${PATH#:}}
 
-export PROMPT_COLOR=$(prompt-color)
-term-color
+term-bg-color
+export PROMPT_COLOR=$(term-fg-color)
 
 [ -f $HOME/.loadkeys ] && type loadkeys &> /dev/null && loadkeys $HOME/.loadkeys
 

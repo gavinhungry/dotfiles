@@ -10,7 +10,7 @@ export GPG_TTY=$(tty)
 
 # --- PROMPT--------------------------------------------------------------------
 
-unset PROMPT_COMMAND
+PROMPT_COMMAND='term-bg-color'
 
 _DASH=$(echo $'\u2014')
 [ -n "$STY" -o "$TERM" == 'screen' ] && _DASH='--'
@@ -20,8 +20,6 @@ _pwdstr() { [ "$PWD" != "$HOME" ] && echo "${PWD##*/}  $_DASH  "; }
 export PS1='\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\] \W \$ '
 _PS1='\[\e]2;${_TERM_TITLE:+${_TERM_TITLE} ${_DASH} }$(_pwdstr)\u@${HOSTNAME}\a\]'
 PS1+="$_PS1"
-
-PROMPT_COMMAND='term-color'
 
 [ -n "$TERM_TITLE" ] && t "$TERM_TITLE"
 unset TERM_TITLE
