@@ -10,19 +10,18 @@ export GPG_TTY=$(tty)
 
 # --- PROMPT--------------------------------------------------------------------
 
-PROMPT_COMMAND='term-bg-color'
+PROMPT_COMMAND=(term-bg-color)
 
 _DASH=$(echo $'\u2014')
 [ -n "$STY" -o "$TERM" == 'screen' ] && _DASH='--'
 
 _pwdstr() { [ "$PWD" != "$HOME" ] && echo "${PWD##*/}  $_DASH  "; }
 
-export PS1='\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\] \W \$ '
-_PS1='\[\e]2;${_TERM_TITLE:+${_TERM_TITLE} ${_DASH} }$(_pwdstr)\u@${HOSTNAME}\a\]'
+PS1='\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\] \W \$ '
+_PS1='\[\e]2;${_TERM_TITLE:+${_TERM_TITLE}  ${_DASH}  }$(_pwdstr)\u@${HOSTNAME}\a\]'
 PS1+="$_PS1"
 
-[ -n "$TERM_TITLE" ] && t "$TERM_TITLE"
-unset TERM_TITLE
+export PS1
 
 # --- FUNCTIONS ----------------------------------------------------------------
 
@@ -76,8 +75,6 @@ title() {
   [ ${#@} == 0 ] && unset _TERM_TITLE || _TERM_TITLE="$@"
   printf '%b' "${_PS1@P}"
 }
-
-t() { title "$@"; }
 
 titled() {
   local PREV="$_TERM_TITLE"
@@ -202,6 +199,7 @@ alias sshfs='sshfs -o idmap=user'
 alias startx='exec startx'
 alias stopwatch="watch -pt -n0.1 'date +\"%H:%M:%S.%1N\"'"
 alias su='sudo su'
+alias t='title'
 alias tabclip="echo -en '\t' | clip"
 alias top='htop'
 alias tree='gvfs-tree'
@@ -217,6 +215,9 @@ alias xpatch='(cd / && patch -p0)'
 alias xterm='xterm -bg black -fg white'
 
 # --- SCRIPTS ------------------------------------------------------------------
+
+[ -n "$TERM_TITLE" ] && title "$TERM_TITLE"
+unset TERM_TITLE
 
 for SCRIPT in $HOME/.bash.d/*.sh; do
   [ -x "$SCRIPT" ] && . "$SCRIPT"
