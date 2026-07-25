@@ -84,5 +84,16 @@ __github_complete() {
   local subcommands="commits commit head issues issue pulls pull prs pr actions ci settings"
   COMPREPLY=($(compgen -W "$subcommands" -- "$cur"))
 }
-
 complete -F __github_complete github
+
+__tmpfiles_complete() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  local opts="remove list"
+
+  if [[ $COMP_CWORD -eq 1 ]]; then
+    COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+  else
+    COMPREPLY=()
+  fi
+}
+complete -F __tmpfiles_complete tmpfiles pacfiles bakfiles
