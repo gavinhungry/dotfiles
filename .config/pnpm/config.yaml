@@ -6,3 +6,4 @@ minimumReleaseAgeStrict: true
 childConcurrency: 8
 ignoreScripts: true
 resolutionMode: highest
+updateNotifier: false
