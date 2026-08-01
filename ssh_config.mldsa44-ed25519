@@ -1,0 +1,3 @@
+IdentityFile              ~/.ssh/id_mldsa44_ed25519
+HostKeyAlgorithms         ssh-mldsa44-ed25519@openssh.com
+PubkeyAcceptedAlgorithms  ssh-mldsa44-ed25519@openssh.com
