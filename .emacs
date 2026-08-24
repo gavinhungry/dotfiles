@@ -73,6 +73,10 @@
 (set-face-attribute 'isearch nil :background "cyan" :foreground "white")
 (set-face-attribute 'lazy-highlight nil :background "blue" :foreground "white")
 
+; background
+(add-hook 'tty-setup-hook
+  (lambda () (set-face-background 'default "unspecified-bg" (selected-frame))))
+
 ; terminal colors
 (set-face-foreground 'font-lock-comment-face "red")
 (setq term (getenv "TERM"))
