@@ -99,6 +99,7 @@
 (setq js-indent-level tab-width)
 
 ; scrolling
+(xterm-mouse-mode 0)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 (setq mouse-wheel-progressive-speed nil)
 (setq mouse-wheel-follow-mouse 't)
