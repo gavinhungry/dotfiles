@@ -246,3 +246,34 @@ decoration:backdrop,
 {
   transition: none;
 }
+
+headerbar {
+  background-color: #262626;
+  background-image: none;
+}
+
+list {
+  background: none;
+}
+
+list > row {
+  border-radius: 4px;
+}
+
+list > row + row {
+  margin-top: 4px;
+}
+
+list > row,
+list > row > row {
+  background: #2B2B2B;
+}
+
+list > row.activatable:hover,
+list > row.activatable:hover > row {
+  background: #222222;
+}
+
+popover preferencesgroup list > row {
+  background: none;
+}
