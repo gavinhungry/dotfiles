@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 ; (setq debug-on-error t)
 
 (load "~/.emacs.local" 'noerror)
