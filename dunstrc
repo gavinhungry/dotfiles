@@ -29,6 +29,17 @@
   foreground = "#FFEEDD"
   timeout = 0
 
-[play_sound]
+[play_sound_low]
   summary = "*"
+  msg_urgency = low
+  script = notify-sound-low
+
+[play_sound_normal]
+  summary = "*"
+  msg_urgency = normal
   script = notify-sound
+
+[play_sound_critical]
+  summary = "*"
+  msg_urgency = critical
+  script = notify-sound-critical
