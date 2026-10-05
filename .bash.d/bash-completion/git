@@ -1,0 +1,15 @@
+__git_cmd_passthrough_comp() {
+  local i=${__git_cmd_idx:-1}
+
+  local -a words=("${words[@]:0:i}" "${words[@]:i+1}")
+  local cword=$((cword - 1))
+  local prev=${words[cword-1]}
+
+  __git_main
+}
+
+for __tmp in all each deep deep-all deep-each; do
+  eval "_git_${__tmp//-/_}() { __git_cmd_passthrough_comp; }"
+done
+
+unset __tmp

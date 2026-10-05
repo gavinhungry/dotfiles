@@ -1,0 +1,30 @@
+export COMP_KNOWN_HOSTS_WITH_AVAHI=
+export COMP_KNOWN_HOSTS_WITH_HOSTFILE=
+
+__ssh_aliases_comp() {
+  [[ $COMP_CWORD -eq 1 ]] && COMPREPLY=($(compgen -W "$(ssh-aliases)" -- "$2"))
+}
+
+__ssh_mount_comp() {
+  local i=$COMP_CWORD
+  [[ ${COMP_WORDS[i]} == : ]] && ((i++))
+
+  if [[ ${COMP_WORDS[i-1]} == : ]]; then
+    mapfile -t COMPREPLY < <(ssh -o BatchMode=yes -o ConnectTimeout=3 \
+      "${COMP_WORDS[i-2]}" "/usr/bin/ls -1d -- \
+      $(printf %q "${2//\\/}")*/" 2> /dev/null
+    )
+    compopt -o nospace -o filenames
+  elif [[ $COMP_CWORD -eq 1 ]]; then
+    COMPREPLY=($(compgen -S : -W "$(ssh-aliases)" -- "$2"))
+    compopt -o nospace
+  fi
+}
+
+complete -F __ssh_mount_comp ssh-mount
+
+__ssh_umount_comp() {
+  COMPREPLY=($(cd "$XDG_CACHE_HOME"/mount 2> /dev/null && compgen -d -- "$2"))
+}
+
+complete -F __ssh_umount_comp ssh-umount

@@ -1,0 +1,5 @@
+_completion_loader journalctl
+complete -F _journalctl jc
+
+_completion_loader systemctl
+complete -F _systemctl sc

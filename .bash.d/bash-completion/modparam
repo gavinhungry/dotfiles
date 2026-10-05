@@ -1,0 +1,7 @@
+__modparam_comp() {
+  local cur prev words cword
+  _init_completion || return
+  _installed_modules "$cur"
+}
+
+complete -F __modparam_comp modparam

@@ -1,0 +1,2 @@
+_completion_loader man
+complete -F _comp_cmd_man eman

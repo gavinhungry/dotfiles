@@ -1,0 +1,5 @@
+__users_comp() {
+  COMPREPLY=($(compgen -u -- "${COMP_WORDS[COMP_CWORD]}"))
+}
+
+complete -F __users_comp gecos

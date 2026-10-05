@@ -1,0 +1,5 @@
+__commands_comp() {
+  COMPREPLY=($(compgen -c -- "${COMP_WORDS[COMP_CWORD]}"))
+}
+
+complete -F __commands_comp cw ew lw ow cwr ewr lwr owr pkgw emi rwhich

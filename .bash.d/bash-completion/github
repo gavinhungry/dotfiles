@@ -1,0 +1,9 @@
+__github_comp() {
+  local cur prev
+  cur="${COMP_WORDS[COMP_CWORD]}"
+
+  local subcommands="commits commit head issues issue pulls pull prs pr actions ci settings"
+  COMPREPLY=($(compgen -W "$subcommands" -- "$cur"))
+}
+
+complete -F __github_comp github

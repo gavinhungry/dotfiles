@@ -1,0 +1,5 @@
+__local_packages_comp() {
+  COMPREPLY=($(compgen -W '$(pacman -Qqs)' -- "${COMP_WORDS[COMP_CWORD]}"))
+}
+
+complete -F __local_packages_comp pkgver

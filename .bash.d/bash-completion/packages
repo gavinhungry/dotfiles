@@ -1,0 +1,5 @@
+__packages_comp() {
+  COMPREPLY=($(compgen -W '$(pacman -Sqs); $(pacman -Qqs)' -- "${COMP_WORDS[COMP_CWORD]}"))
+}
+
+complete -F __packages_comp pkgsource

@@ -1,0 +1,22 @@
+__llm_comp() {
+  local cur=${COMP_WORDS[$COMP_CWORD]}
+  _init_completion -n : cur
+
+  if [[ $cur == -* ]]; then
+    COMPREPLY=( $(compgen -W "--think --verbose --edit" -- "$cur") )
+    return
+  fi
+
+  local i
+  for (( i=1; i<COMP_CWORD; i++ )); do
+    [[ ${COMP_WORDS[i]} != -* ]] && return
+  done
+
+  local models
+  models=$(ollama ls | tail -n+2 | awk '{print $1}' | sort)
+
+  COMPREPLY=( $(compgen -W "$models" -- "$cur") )
+  __ltrim_colon_completions "$cur"
+}
+
+complete -F __llm_comp llm

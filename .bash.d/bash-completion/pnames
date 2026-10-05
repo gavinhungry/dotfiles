@@ -1,0 +1,7 @@
+__pnames_comp() {
+  local cur prev words cword
+  _init_completion || return
+  _pnames "$cur"
+}
+
+complete -F __pnames_comp pidage pidenv psof

@@ -1,0 +1,12 @@
+__tmpfiles_comp() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  local opts="remove list"
+
+  if [[ $COMP_CWORD -eq 1 ]]; then
+    COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+  else
+    COMPREPLY=()
+  fi
+}
+
+complete -F __tmpfiles_comp tmpfiles pacfiles bakfiles
