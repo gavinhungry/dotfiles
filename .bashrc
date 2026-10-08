@@ -12,13 +12,21 @@ export GPG_TTY=$(tty)
 
 PROMPT_COMMAND=(term-bg-color)
 
-_DASH=$(echo $'\u2014')
-[ -n "$STY" -o "$TERM" == 'screen' ] && _DASH='--'
+__EN_SPACE=$(echo $'\u2002')
+__TITLE_SEP_CHAR=$(echo $'\u2022') # bullet
+__TITLE_SEP="${__EN_SPACE}${__TITLE_SEP_CHAR}${__EN_SPACE}"
 
-_pwdstr() { [ "$PWD" != "$HOME" ] && echo "${PWD##*/}  $_DASH  "; }
+if [ -n "$STY" -o "$TERM" == 'screen' ]; then
+  __TITLE_SEP_CHAR=$(echo $'\u00B7') # middle dot
+  __TITLE_SEP=" ${__TITLE_SEP_CHAR} "
+fi
+
+export __TITLE_SEP_CHAR __TITLE_SEP
+
+_pwdstr() { [ "$PWD" != "$HOME" ] && echo "${PWD##*/}$__TITLE_SEP"; }
 
 PS1='\[\e[1;${PROMPT_COLOR}m\]\u@${HOSTNAME}\[\e[0m\] \W \$ '
-_PS1='\[\e]2;${_TERM_TITLE:+${_TERM_TITLE}  ${_DASH}  }$(_pwdstr)\u@${HOSTNAME}\a\]'
+_PS1='\[\e]2;${_TERM_TITLE:+${_TERM_TITLE}${__TITLE_SEP}}$(_pwdstr)\u@${HOSTNAME}\a\]'
 PS1+="$_PS1"
 
 export PS1
@@ -181,7 +189,6 @@ alias md='apostrophe'
 alias mddetail='sudo mdadm --detail /dev/md/*'
 alias mirrors='reflector -p https --latest 5 --score 5'
 alias oc='opencode'
-alias opencode='titled opencode'
 alias path='echo $PATH | tr : \\n'
 alias pidcomm='ps -o comm= -p'
 alias piduser='ps -o uname= -p'
