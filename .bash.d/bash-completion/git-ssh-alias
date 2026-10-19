@@ -1,0 +1,97 @@
+# git clone [options] <repo>
+# git ls-remote [options] <repo>
+# git remote add [options] <name> <url>
+# git remote set-url [--push] <name> <url>
+# git submodule add [options] <url>
+
+source /usr/share/bash-completion/completions/git
+
+__gsh_config_hosts() {
+  local file=$1 key rest pat f w
+  local -a words
+  [[ -r $file ]] || return
+  while read -r key rest; do
+    case ${key,,} in
+      host)
+        read -ra words <<< "$rest"
+        for w in "${words[@]}"; do
+          [[ $w == \#* ]] && break
+          [[ $w == *[*?!]* ]] || printf '%s\n' "$w"
+        done
+        ;;
+      include)
+        for pat in $rest; do
+          pat=${pat/#\~/$HOME}
+          [[ $pat == /* ]] || pat=$HOME/.ssh/$pat
+          for f in $pat; do __gsh_config_hosts "$f"; done
+        done
+        ;;
+    esac
+  done < "$file"
+}
+
+__gsh_git_hosts() {
+  local host
+  while read -r host; do
+    [[ $host == "$1"* ]] || continue
+    [[ $(ssh -G "$host" 2>/dev/null | awk '$1=="user" {print $2; exit}') == git ]] &&
+      echo "$host"
+  done < <(__gsh_config_hosts ~/.ssh/config | sort -u)
+}
+
+__gsh_wants_host() {
+  local i sub= w
+  local -a pos=()
+
+  for (( i=1; i<cword; i++ )); do
+    w=${words[i]}
+    case $w in
+      -C|-c|--git-dir|--work-tree|--namespace) i=$((i+1)) ;;
+      -*) ;;
+      *) sub=$w; break ;;
+    esac
+  done
+  [[ -n $sub ]] || return 1
+
+  for (( i=i+1; i<cword; i++ )); do
+    w=${words[i]}
+    case $w in
+      -b|--branch|-o|--origin|--depth|-c|--config|--reference|--template|\
+      -j|--jobs|--separate-git-dir|--name|-t|-m|-u|--upload-pack|\
+      --server-option|--exec|--sort)
+        i=$((i+1))
+        ;;
+      -*) ;;
+      *) pos+=("$w") ;;
+    esac
+  done
+
+  case $sub in
+    clone|ls-remote)
+      (( ${#pos[@]} == 0 ))
+      ;;
+    remote)
+      [[ ${pos[0]} == @(add|set-url) ]] && (( ${#pos[@]} == 2 ))
+      ;;
+    submodule)
+      [[ ${pos[0]} == add ]] && (( ${#pos[@]} == 1 ))
+      ;;
+    *)
+      return 1
+      ;;
+  esac
+}
+
+_git_with_ssh_hosts() {
+  local cur words cword
+  _get_comp_words_by_ref -n : cur words cword
+
+  if [[ -n $cur && $cur != -* && $cur != *[:/]* ]] && __gsh_wants_host; then
+    COMPREPLY=( $(compgen -W "$(__gsh_git_hosts "$cur")" -S : -- "$cur") )
+    (( ${#COMPREPLY[@]} )) && return
+  fi
+
+  __git_wrap__git_main "$@"
+}
+
+complete -o bashdefault -o default -o nospace -F _git_with_ssh_hosts git
