@@ -1,0 +1,27 @@
+# Bash completion for git-open, source from ~/.bashrc
+
+_git_open() {
+  case "$prev" in
+    -r|--remote)
+      __gitcomp_nl "$(__git_remotes)"
+      return
+      ;;
+  esac
+
+  case "$cur" in
+    --remote=*)
+      __gitcomp_nl "$(__git_remotes)" "" "${cur#--remote=}"
+      return
+      ;;
+    -*)
+      __gitcomp "--remote="
+      return
+      ;;
+  esac
+
+  local subcommands="commits head issues pulls actions settings"
+  local aliases="c commit h i issue p pull pr prs a ci s"
+  [ -n "$(__git_find_on_cmdline "$subcommands $aliases")" ] && return
+
+  __gitcomp "$subcommands"
+}
