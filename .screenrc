@@ -1,5 +1,6 @@
 startup_message off
 
+truecolor on
 altscreen on
 
 termcapinfo screen*|xterm* 'ti@:te@:hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
