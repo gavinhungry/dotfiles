@@ -1,11 +1,15 @@
 startup_message off
-
 truecolor on
 altscreen on
 
 termcapinfo screen*|xterm* 'ti@:te@:hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
-hardstatus string "[%n%?: %t%?] %h"
+
+hardstatus string "[%t%?] %h"
 hardstatus off
 
 bind ^l aclchg * -w '#'
 bind ^u aclchg * +w '#'
+
+bind c
+bind ^c
+bind ^A

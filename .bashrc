@@ -107,6 +107,19 @@ ewr() { [ -f "$(whichr $1)" ] && edit "$(whichr $1)"; }
 lwr() { [ -f "$(whichr $1)" ] && ls -lh --color "$(whichr $1)"; }
 owr() { [ -f "$(whichr $1)" ] && open "$(whichr $1)"; }
 
+s() {
+  if [ $# -gt 0 ]; then
+    screens "$@"
+    return
+  fi
+
+  local NAME
+  NAME=$(screens --names | fzf --height=~16 --height=~16 --layout=reverse \
+    --prompt 's> ' ) || return
+
+  [ -n "$NAME" ] && screens "$NAME"
+}
+
 _hidden() {
   local DIRS=()
   for ARG in "$@"; do
@@ -201,6 +214,7 @@ alias sensors='sensors -A'
 alias serial='screen /dev/ttyUSB0 115200'
 alias serve='serve -n'
 alias sl='ls'
+alias sls='screens --list'
 alias sshfs='sshfs -o idmap=user'
 alias startx='exec startx'
 alias stopwatch="watch -pt -n0.1 'date +\"%H:%M:%S.%1N\"'"

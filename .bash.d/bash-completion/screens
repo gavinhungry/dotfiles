@@ -1,0 +1,6 @@
+_screens_complete() {
+  [ "$COMP_CWORD" -eq 1 ] || return
+  COMPREPLY=($(compgen -W "$(screens --names)" -- "${COMP_WORDS[1]}"))
+}
+
+complete -F _screens_complete screens s

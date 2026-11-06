@@ -82,7 +82,7 @@ if (
 fi
 
 [ -n "$SSH_TTY" ] && motd
-[ "$TERM" != screen ] && screen -ls &> /dev/null && screen -ls
+[ "$TERM" != screen ] && screen -ls &> /dev/null && screens --list
 
 [ -r $HOME/.termcap -a -n "$TERM" ] && . $HOME/.termcap
 [ -r $HOME/.bash_profile.local ] && . $HOME/.bash_profile.local
