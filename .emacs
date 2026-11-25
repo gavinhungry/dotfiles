@@ -13,6 +13,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.eslintrc$" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.json5$" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.jsonc$" . js-mode))
 (add-to-list 'interpreter-mode-alist '("node" . js-mode))
 
 (autoload 'markdown-mode "markdown-mode" t)
