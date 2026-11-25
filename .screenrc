@@ -1,15 +1,18 @@
 startup_message off
-truecolor on
 altscreen on
 
-termcapinfo screen*|xterm* 'ti@:te@:hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
+truecolor on
+setenv OPENTUI_FORCE_TRUECOLOR 1
 
+termcapinfo screen*|xterm* 'ti@:te@:hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
 hardstatus string "[%t%?] %h"
 hardstatus off
 
+# Toggle write access for all users on all windows
 bind ^l aclchg * -w '#'
 bind ^u aclchg * +w '#'
 
+# Unbind: new window (c, ^C) and other window (^A)
 bind c
 bind ^c
 bind ^A
